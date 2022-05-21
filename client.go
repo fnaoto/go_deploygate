@@ -2,6 +2,7 @@ package deploygate
 
 import (
 	"context"
+	"encoding/json"
 	"errors"
 	"fmt"
 	"io"
@@ -70,4 +71,10 @@ func (c *Client) NewRequest(ctx context.Context, method, spath string, body io.R
 	req.Header.Set("User-Agent", userAgent)
 
 	return req, nil
+}
+
+func DecodeBody(resp *http.Response, out interface{}) error {
+	defer resp.Body.Close()
+	decoder := json.NewDecoder(resp.Body)
+	return decoder.Decode(out)
 }
