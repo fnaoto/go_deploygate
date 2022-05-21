@@ -1,7 +1,6 @@
 package deploygate
 
 import (
-	"context"
 	"encoding/json"
 	"errors"
 	"fmt"
@@ -55,7 +54,21 @@ const packageName = "github.com/fnaoto/go_deploygate"
 
 var userAgent = fmt.Sprintf("GoDeployGate (+%s; %s)", packageName, runtime.Version())
 
-func (c *Client) NewRequest(ctx context.Context, method, spath string, body io.Reader) (*http.Request, error) {
+func (c *Client) Get(spath string, body io.Reader) (*http.Response, error) {
+	req, err := c.NewRequest("GET", spath, body)
+	if err != nil {
+		return nil, err
+	}
+
+	resp, err := c.httpClient.Do(req)
+	if err != nil {
+		return nil, err
+	}
+
+	return resp, nil
+}
+
+func (c *Client) NewRequest(method, spath string, body io.Reader) (*http.Request, error) {
 	u := *c.endpoint
 	u.Path = path.Join(c.endpoint.Path, spath)
 
@@ -64,8 +77,6 @@ func (c *Client) NewRequest(ctx context.Context, method, spath string, body io.R
 		return nil, err
 	}
 
-	req = req.WithContext(ctx)
-
 	req.Form.Set("token", c.apiKey)
 	req.Header.Set("Content-Type", "application/x-www-form-urlencoded")
 	req.Header.Set("User-Agent", userAgent)
@@ -73,7 +84,7 @@ func (c *Client) NewRequest(ctx context.Context, method, spath string, body io.R
 	return req, nil
 }
 
-func DecodeBody(resp *http.Response, out interface{}) error {
+func (c *Client) Decode(resp *http.Response, out interface{}) error {
 	defer resp.Body.Close()
 	decoder := json.NewDecoder(resp.Body)
 	return decoder.Decode(out)
