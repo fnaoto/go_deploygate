@@ -15,6 +15,8 @@ type AppMemberConfig struct {
 	Owner    string
 	Platform string
 	AppId    string
+	Users    string
+	Role     string
 }
 
 type Member struct {
@@ -35,4 +37,25 @@ type GetAppMemberResponseResult struct {
 type Usage struct {
 	Used uint `mapstructure:"used"`
 	Max  uint `mapstructure:"max"`
+}
+
+type AddAppMemberResponse struct {
+	Error   bool                        `mapstructure:"error"`
+	Results *AddAppMemberResponseResult `mapstructure:"results"`
+}
+
+type AddAppMemberResponseResult struct {
+	Invite  string     `mapstructure:"invite"`
+	Added   []*Added   `mapstructure:"added"`
+	Invited []*Invited `mapstructure:"invited"`
+}
+
+type Added struct {
+	Name string `mapstructure:"name"`
+	Role uint   `mapstructure:"role"`
+}
+
+type Invited struct {
+	Name string `mapstructure:"name"`
+	Role uint   `mapstructure:"role"`
 }

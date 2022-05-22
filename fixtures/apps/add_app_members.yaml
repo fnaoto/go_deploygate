@@ -1,0 +1,53 @@
+---
+version: 1
+interactions:
+- request:
+    body: users=naoto-fukuda-test&role=2
+    form:
+      role:
+      - "2"
+      users:
+      - naoto-fukuda-test
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/x-www-form-urlencoded
+      User-Agent:
+      - GoDeployGate (+github.com/fnaoto/go_deploygate; go1.17.2)
+    url: https://deploygate.com/api/users/f-naoto832/platforms/android/apps/com.deploygate.sample/members?token=api_token
+    method: POST
+  response:
+    body: '{"error":false,"results":{"invite":"member invite success","added":[{"name":"naoto-fukuda-test","role":2}],"invited":[]}}'
+    headers:
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Sun, 22 May 2022 17:09:36 GMT
+      Etag:
+      - W/"0156a9477eaba417fcdfd1114fb41379"
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Server:
+      - Apache
+      Status:
+      - 200 OK
+      Vary:
+      - Origin,X-DEPLOYGATE-CF-SHARED-KEY,X-Request-ID
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      X-Request-Id:
+      - YopuUExrFm1Es490FAUPRwAAABY
+      X-Xss-Protection:
+      - 1; mode=block
+    status: 200 OK
+    code: 200
+    duration: ""
