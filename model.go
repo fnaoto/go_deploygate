@@ -14,7 +14,7 @@ type Client struct {
 type AppMemberConfig struct {
 	Owner    string
 	Platform string
-	AppID    string
+	AppId    string
 }
 
 type Member struct {

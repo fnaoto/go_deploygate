@@ -4,8 +4,8 @@ import (
 	"fmt"
 )
 
-func (c *Client) GetAppMember(cfg *AppMemberConfig) (*GetAppMemberResponse, error) {
-	path := fmt.Sprintf("/users/%s/platforms/%s/apps/%s/members", cfg.Owner, cfg.Platform, cfg.AppID)
+func (c *Client) GetAppMembers(cfg *AppMemberConfig) (*GetAppMemberResponse, error) {
+	path := fmt.Sprintf("/users/%s/platforms/%s/apps/%s/members", cfg.Owner, cfg.Platform, cfg.AppId)
 
 	resp, err := c.Get(path, nil)
 	if err != nil {

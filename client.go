@@ -20,12 +20,12 @@ const (
 	DGApiEndpoint = "https://deploygate.com/api"
 )
 
-func HttpClient() *Client {
+func HttpClient() (*Client, error) {
 	c, err := NewClient(os.Getenv(DGApiTokenEnv))
 	if err != nil {
-		panic(err)
+		return nil, err
 	}
-	return c
+	return c, nil
 }
 
 func NewClient(apiKey string) (*Client, error) {
@@ -72,12 +72,15 @@ func (c *Client) NewRequest(method, spath string, body io.Reader) (*http.Request
 	u := *c.endpoint
 	u.Path = path.Join(c.endpoint.Path, spath)
 
+	q := u.Query()
+	q.Set("token", c.apiKey)
+	u.RawQuery = q.Encode()
+
 	req, err := http.NewRequest(method, u.String(), body)
 	if err != nil {
 		return nil, err
 	}
 
-	req.Form.Set("token", c.apiKey)
 	req.Header.Set("Content-Type", "application/x-www-form-urlencoded")
 	req.Header.Set("User-Agent", userAgent)
 
