@@ -24,7 +24,7 @@ func Test_GetAppMembers(t *testing.T) {
 	defer r.Stop()
 
 	resp, err := c.GetAppMembers(&AppMemberConfig{
-		Owner:    "owner",
+		Owner:    "f-naoto832",
 		Platform: "android",
 		AppId:    "com.deploygate.sample",
 	})

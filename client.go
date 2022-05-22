@@ -16,11 +16,10 @@ import (
 
 const (
 	DGApiTokenEnv = "DEPLOYGATE_API_KEY"
-	DGApiUserEnv  = "DEPLOYGATE_USER_NAME"
 	DGApiEndpoint = "https://deploygate.com/api"
 )
 
-func HttpClient() (*Client, error) {
+func DefaultClient() (*Client, error) {
 	c, err := NewClient(os.Getenv(DGApiTokenEnv))
 	if err != nil {
 		return nil, err
