@@ -41,6 +41,8 @@ type Usage struct {
 
 type AddAppMemberResponse struct {
 	Error   bool                        `mapstructure:"error"`
+	Message string                      `mapstructure:"message"`
+	Because string                      `mapstructure:"because"`
 	Results *AddAppMemberResponseResult `mapstructure:"results"`
 }
 
@@ -62,6 +64,8 @@ type Invited struct {
 
 type DeleteAppMemberResponse struct {
 	Error   bool                           `mapstructure:"error"`
+	Message string                         `mapstructure:"message"`
+	Because string                         `mapstructure:"because"`
 	Results *DeleteAppMemberResponseResult `mapstructure:"results"`
 }
 
