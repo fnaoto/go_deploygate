@@ -68,3 +68,34 @@ func Test_AddAppMembers(t *testing.T) {
 		t.Error("response caused error")
 	}
 }
+
+func Test_DeleteAppMembers(t *testing.T) {
+	t.Parallel()
+
+	c, err := NewClient("api_token")
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	r, err := recorder.New("fixtures/apps/delete_app_members")
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	c.httpClient.Transport = r
+	defer r.Stop()
+
+	resp, err := c.DeleteAppMembers(&AppMemberConfig{
+		Owner:    "f-naoto832",
+		Platform: "android",
+		AppId:    "com.deploygate.sample",
+		Users:    "naoto-fukuda-test",
+	})
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	if resp.Error {
+		t.Error("response caused error")
+	}
+}

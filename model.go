@@ -59,3 +59,12 @@ type Invited struct {
 	Name string `mapstructure:"name"`
 	Role uint   `mapstructure:"role"`
 }
+
+type DeleteAppMemberResponse struct {
+	Error   bool                           `mapstructure:"error"`
+	Results *DeleteAppMemberResponseResult `mapstructure:"results"`
+}
+
+type DeleteAppMemberResponseResult struct {
+	Invite string `mapstructure:"invite"`
+}

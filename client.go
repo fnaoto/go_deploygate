@@ -61,6 +61,10 @@ func (c *Client) Post(spath string, body io.Reader) (*http.Response, error) {
 	return c.NewRequest("POST", spath, body)
 }
 
+func (c *Client) Delete(spath string, body io.Reader) (*http.Response, error) {
+	return c.NewRequest("DELETE", spath, body)
+}
+
 func (c *Client) NewRequest(method, spath string, body io.Reader) (*http.Response, error) {
 	u := *c.endpoint
 	u.Path = path.Join(c.endpoint.Path, spath)
