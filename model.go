@@ -1,9 +1,22 @@
 package deploygate
 
 import (
+	"io"
 	"net/http"
 	"net/url"
 )
+
+type HttpRequest struct {
+	method string
+	spath  string
+	body   io.Reader
+	header *Header
+}
+
+type Header struct {
+	accept      string `default:"application/json"`
+	contentType string `default:"application/x-www-form-urlencoded"`
+}
 
 type Client struct {
 	endpoint   *url.URL     // URL Parsed endpoint
@@ -17,6 +30,7 @@ type AppMemberConfig struct {
 	AppId    string
 	Users    string
 	Role     string
+	File     string
 }
 
 type Member struct {
@@ -71,4 +85,10 @@ type DeleteAppMemberResponse struct {
 
 type DeleteAppMemberResponseResult struct {
 	Invite string `mapstructure:"invite"`
+}
+
+type UploadAppResponse struct {
+	Error   bool   `mapstructure:"error"`
+	Message string `mapstructure:"message"`
+	Because string `mapstructure:"because"`
 }

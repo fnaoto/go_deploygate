@@ -4,7 +4,6 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
-	"io"
 	"net/http"
 	"net/url"
 	"os"
@@ -53,33 +52,36 @@ const packageName = "github.com/fnaoto/go_deploygate"
 
 var userAgent = fmt.Sprintf("GoDeployGate (+%s; %s)", packageName, runtime.Version())
 
-func (c *Client) Get(spath string, body io.Reader) (*http.Response, error) {
-	return c.NewRequest("GET", spath, body)
+func (c *Client) Get(httpRequest HttpRequest) (*http.Response, error) {
+	httpRequest.method = "GET"
+	return c.NewRequest(httpRequest)
 }
 
-func (c *Client) Post(spath string, body io.Reader) (*http.Response, error) {
-	return c.NewRequest("POST", spath, body)
+func (c *Client) Post(httpRequest HttpRequest) (*http.Response, error) {
+	httpRequest.method = "POST"
+	return c.NewRequest(httpRequest)
 }
 
-func (c *Client) Delete(spath string, body io.Reader) (*http.Response, error) {
-	return c.NewRequest("DELETE", spath, body)
+func (c *Client) Delete(httpRequest HttpRequest) (*http.Response, error) {
+	httpRequest.method = "DELETE"
+	return c.NewRequest(httpRequest)
 }
 
-func (c *Client) NewRequest(method, spath string, body io.Reader) (*http.Response, error) {
+func (c *Client) NewRequest(httpRequest HttpRequest) (*http.Response, error) {
 	u := *c.endpoint
-	u.Path = path.Join(c.endpoint.Path, spath)
+	u.Path = path.Join(c.endpoint.Path, httpRequest.spath)
 
 	q := u.Query()
 	q.Set("token", c.apiKey)
 	u.RawQuery = q.Encode()
 
-	req, err := http.NewRequest(method, u.String(), body)
+	req, err := http.NewRequest(httpRequest.method, u.String(), httpRequest.body)
 	if err != nil {
 		return nil, err
 	}
 
-	req.Header.Set("Accept", "application/json")
-	req.Header.Set("Content-Type", "application/x-www-form-urlencoded")
+	req.Header.Set("Accept", httpRequest.header.accept)
+	req.Header.Set("Content-Type", httpRequest.header.contentType)
 	req.Header.Set("User-Agent", userAgent)
 
 	resp, err := c.httpClient.Do(req)
