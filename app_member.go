@@ -8,7 +8,7 @@ import (
 func (c *Client) GetAppMembers(cfg *AppMemberConfig) (*GetAppMemberResponse, error) {
 	path := fmt.Sprintf("/users/%s/platforms/%s/apps/%s/members", cfg.Owner, cfg.Platform, cfg.AppId)
 
-	resp, err := c.Get(HttpRequest{
+	resp, err := c.Get(&HttpRequest{
 		spath: path,
 	})
 	if err != nil {
@@ -28,7 +28,7 @@ func (c *Client) AddAppMembers(cfg *AppMemberConfig) (*AddAppMemberResponse, err
 	path := fmt.Sprintf("/users/%s/platforms/%s/apps/%s/members", cfg.Owner, cfg.Platform, cfg.AppId)
 	body := fmt.Sprintf("users=%s&role=%s", cfg.Users, cfg.Role)
 
-	resp, err := c.Post(HttpRequest{
+	resp, err := c.Post(&HttpRequest{
 		spath: path,
 		body:  bytes.NewBufferString(body),
 	})
@@ -49,7 +49,7 @@ func (c *Client) DeleteAppMembers(cfg *AppMemberConfig) (*DeleteAppMemberRespons
 	path := fmt.Sprintf("/users/%s/platforms/%s/apps/%s/members", cfg.Owner, cfg.Platform, cfg.AppId)
 	body := fmt.Sprintf("users=%s", cfg.Users)
 
-	resp, err := c.Post(HttpRequest{
+	resp, err := c.Delete(&HttpRequest{
 		spath: path,
 		body:  bytes.NewBufferString(body),
 	})

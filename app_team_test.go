@@ -7,7 +7,7 @@ import (
 	"github.com/dnaeon/go-vcr/recorder"
 )
 
-func Test_UploadApp(t *testing.T) {
+func Test_GetAppTeams(t *testing.T) {
 	t.Parallel()
 
 	c, err := NewClient("api_token")
@@ -15,7 +15,7 @@ func Test_UploadApp(t *testing.T) {
 		log.Fatal(err)
 	}
 
-	r, err := recorder.New("fixtures/apps/upload_app")
+	r, err := recorder.New("fixtures/apps/get_app_teams")
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -23,17 +23,16 @@ func Test_UploadApp(t *testing.T) {
 	c.httpClient.Transport = r
 	defer r.Stop()
 
-	resp, err := c.UploadApp(&AppConfig{
-		Owner:    "f-naoto832",
-		Platform: "android",
-		AppId:    "com.deploygate.sample",
-		File:     "fixtures/file/DeployGateSample.apk",
+	resp, err := c.GetAppTeams(&AppTeamConfig{
+		Organizations: "test_group_terraform",
+		Platform:      "android",
+		AppId:         "com.deploygate.sample",
 	})
 	if err != nil {
 		t.Fatal(err)
 	}
 
 	if resp.Error {
-		t.Errorf("response caused error: %s", resp.Message)
+		t.Errorf("response caused error")
 	}
 }

@@ -2,12 +2,8 @@
 version: 1
 interactions:
 - request:
-    body: users=naoto-fukuda-test&role=2
-    form:
-      role:
-      - "2"
-      users:
-      - naoto-fukuda-test
+    body: ""
+    form: {}
     headers:
       Accept:
       - application/json
@@ -15,19 +11,19 @@ interactions:
       - application/x-www-form-urlencoded
       User-Agent:
       - GoDeployGate (+github.com/fnaoto/go_deploygate; go1.17.2)
-    url: https://deploygate.com/api/users/f-naoto832/platforms/android/apps/com.deploygate.sample/members?token=api_token
-    method: POST
+    url: https://deploygate.com/api/organizations/test_group_terraform/platforms/android/apps/com.deploygate.sample/teams?token=api_token
+    method: GET
   response:
-    body: '{"error":false,"results":{"invite":"member invite success","added":[{"name":"naoto-fukuda-test","role":2}],"invited":[]}}'
+    body: '{"error":false,"teams":[{"name":"オーナー","role":"owner","member_count":2}]}'
     headers:
       Cache-Control:
       - max-age=0, private, must-revalidate
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Mon, 23 May 2022 13:30:39 GMT
+      - Mon, 23 May 2022 13:35:50 GMT
       Etag:
-      - W/"0156a9477eaba417fcdfd1114fb41379"
+      - W/"7e951e457f0cf268bb6dddc687890538"
       Referrer-Policy:
       - strict-origin-when-cross-origin
       Server:
@@ -45,7 +41,7 @@ interactions:
       X-Permitted-Cross-Domain-Policies:
       - none
       X-Request-Id:
-      - YouMf0bEcYZG7HUoPQl0DQAAAFM
+      - YouNtkbEcYZG7HUoPQl4gwAAAEQ
       X-Xss-Protection:
       - 1; mode=block
     status: 200 OK

@@ -52,22 +52,22 @@ const packageName = "github.com/fnaoto/go_deploygate"
 
 var userAgent = fmt.Sprintf("GoDeployGate (+%s; %s)", packageName, runtime.Version())
 
-func (c *Client) Get(httpRequest HttpRequest) (*http.Response, error) {
+func (c *Client) Get(httpRequest *HttpRequest) (*http.Response, error) {
 	httpRequest.method = "GET"
 	return c.NewRequest(httpRequest)
 }
 
-func (c *Client) Post(httpRequest HttpRequest) (*http.Response, error) {
+func (c *Client) Post(httpRequest *HttpRequest) (*http.Response, error) {
 	httpRequest.method = "POST"
 	return c.NewRequest(httpRequest)
 }
 
-func (c *Client) Delete(httpRequest HttpRequest) (*http.Response, error) {
+func (c *Client) Delete(httpRequest *HttpRequest) (*http.Response, error) {
 	httpRequest.method = "DELETE"
 	return c.NewRequest(httpRequest)
 }
 
-func (c *Client) NewRequest(httpRequest HttpRequest) (*http.Response, error) {
+func (c *Client) NewRequest(httpRequest *HttpRequest) (*http.Response, error) {
 	u := *c.endpoint
 	u.Path = path.Join(c.endpoint.Path, httpRequest.spath)
 
@@ -78,6 +78,13 @@ func (c *Client) NewRequest(httpRequest HttpRequest) (*http.Response, error) {
 	req, err := http.NewRequest(httpRequest.method, u.String(), httpRequest.body)
 	if err != nil {
 		return nil, err
+	}
+
+	if httpRequest.header == nil {
+		httpRequest.header = &Header{
+			accept:      "application/json",
+			contentType: "application/x-www-form-urlencoded",
+		}
 	}
 
 	req.Header.Set("Accept", httpRequest.header.accept)

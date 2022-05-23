@@ -8,7 +8,7 @@ import (
 	"os"
 )
 
-func (c *Client) UploadApp(cfg *AppMemberConfig) (*UploadAppResponse, error) {
+func (c *Client) UploadApp(cfg *AppConfig) (*UploadAppResponse, error) {
 	path := fmt.Sprintf("/users/%s/platforms/%s/apps", cfg.Owner, cfg.Platform)
 
 	fieldname := "file"
@@ -35,10 +35,11 @@ func (c *Client) UploadApp(cfg *AppMemberConfig) (*UploadAppResponse, error) {
 		return nil, err
 	}
 
-	resp, err := c.Post(HttpRequest{
+	resp, err := c.Post(&HttpRequest{
 		spath: path,
 		body:  body,
 		header: &Header{
+			accept:      "application/json",
 			contentType: contentType,
 		},
 	})
