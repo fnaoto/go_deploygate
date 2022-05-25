@@ -5,7 +5,7 @@ import (
 	"fmt"
 )
 
-func (c *Client) GetAppTeams(cfg *GetAppTeamsRequest) (*GetAppTeamsResponse, error) {
+func (c *Client) ListAppTeams(cfg *ListAppTeamsRequest) (*ListAppTeamsResponse, error) {
 	path := fmt.Sprintf("/organizations/%s/platforms/%s/apps/%s/teams", cfg.Organizations, cfg.Platform, cfg.AppId)
 
 	resp, err := c.Get(&HttpRequest{
@@ -15,7 +15,7 @@ func (c *Client) GetAppTeams(cfg *GetAppTeamsRequest) (*GetAppTeamsResponse, err
 		return nil, err
 	}
 
-	var r *GetAppTeamsResponse
+	var r *ListAppTeamsResponse
 	err = c.Decode(resp, &r)
 	if err != nil {
 		return nil, err

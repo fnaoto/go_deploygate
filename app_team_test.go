@@ -7,7 +7,7 @@ import (
 	"github.com/dnaeon/go-vcr/recorder"
 )
 
-func Test_GetAppTeams(t *testing.T) {
+func Test_ListAppTeams(t *testing.T) {
 	t.Parallel()
 
 	c, err := NewClient("api_token")
@@ -15,7 +15,7 @@ func Test_GetAppTeams(t *testing.T) {
 		log.Fatal(err)
 	}
 
-	r, err := recorder.New("fixtures/apps/get_app_teams")
+	r, err := recorder.New("fixtures/apps/list_app_teams")
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -23,7 +23,7 @@ func Test_GetAppTeams(t *testing.T) {
 	c.httpClient.Transport = r
 	defer r.Stop()
 
-	resp, err := c.GetAppTeams(&GetAppTeamsRequest{
+	resp, err := c.ListAppTeams(&ListAppTeamsRequest{
 		Organizations: "test_group_terraform",
 		Platform:      "android",
 		AppId:         "com.deploygate.sample",
