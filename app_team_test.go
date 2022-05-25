@@ -23,7 +23,7 @@ func Test_GetAppTeams(t *testing.T) {
 	c.httpClient.Transport = r
 	defer r.Stop()
 
-	resp, err := c.GetAppTeams(&AppTeamConfig{
+	resp, err := c.GetAppTeams(&GetAppTeamsConfig{
 		Organizations: "test_group_terraform",
 		Platform:      "android",
 		AppId:         "com.deploygate.sample",
@@ -53,7 +53,7 @@ func Test_AddAppTeams(t *testing.T) {
 	c.httpClient.Transport = r
 	defer r.Stop()
 
-	resp, err := c.AddAppTeams(&AppTeamConfig{
+	resp, err := c.AddAppTeams(&AddAppTeamsConfig{
 		Organizations: "test_group_terraform",
 		Platform:      "android",
 		AppId:         "com.deploygate.sample",

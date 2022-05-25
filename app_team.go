@@ -5,7 +5,7 @@ import (
 	"fmt"
 )
 
-func (c *Client) GetAppTeams(cfg *AppTeamConfig) (*GetAppTeamsResponse, error) {
+func (c *Client) GetAppTeams(cfg *GetAppTeamsConfig) (*GetAppTeamsResponse, error) {
 	path := fmt.Sprintf("/organizations/%s/platforms/%s/apps/%s/teams", cfg.Organizations, cfg.Platform, cfg.AppId)
 
 	resp, err := c.Get(&HttpRequest{
@@ -24,7 +24,7 @@ func (c *Client) GetAppTeams(cfg *AppTeamConfig) (*GetAppTeamsResponse, error) {
 	return r, nil
 }
 
-func (c *Client) AddAppTeams(cfg *AppTeamConfig) (*AddAppTeamsResponse, error) {
+func (c *Client) AddAppTeams(cfg *AddAppTeamsConfig) (*AddAppTeamsResponse, error) {
 	path := fmt.Sprintf("/organizations/%s/platforms/%s/apps/%s/teams", cfg.Organizations, cfg.Platform, cfg.AppId)
 	body := fmt.Sprintf("team=%s", cfg.Team)
 

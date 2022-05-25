@@ -2,7 +2,13 @@ package deploygate
 
 // Request
 
-type AppTeamConfig struct {
+type GetAppTeamsConfig struct {
+	Organizations string
+	Platform      string
+	AppId         string
+}
+
+type AddAppTeamsConfig struct {
 	Organizations string
 	Platform      string
 	AppId         string
@@ -16,13 +22,13 @@ type GetAppTeamsResponse struct {
 	Teams []*Teams `mapstructure:"teams"`
 }
 
+type AddAppTeamsResponse struct {
+	Error bool     `mapstructure:"error"`
+	Teams []*Teams `mapstructure:"teams"`
+}
+
 type Teams struct {
 	Name        string `mapstructure:"name"`
 	Role        string `mapstructure:"role"`
 	MemberCount uint   `mapstructure:"member_count"`
-}
-
-type AddAppTeamsResponse struct {
-	Error bool     `mapstructure:"error"`
-	Teams []*Teams `mapstructure:"teams"`
 }
