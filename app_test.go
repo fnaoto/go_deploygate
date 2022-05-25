@@ -7,7 +7,7 @@ import (
 	"github.com/dnaeon/go-vcr/recorder"
 )
 
-func Test_UploadApp(t *testing.T) {
+func Test_UploadApps(t *testing.T) {
 	t.Parallel()
 
 	c, err := NewClient("api_token")
@@ -23,7 +23,7 @@ func Test_UploadApp(t *testing.T) {
 	c.httpClient.Transport = r
 	defer r.Stop()
 
-	resp, err := c.UploadApp(&AppConfig{
+	resp, err := c.UploadApps(&UploadAppsRequest{
 		Owner:    "f-naoto832",
 		Platform: "android",
 		AppId:    "com.deploygate.sample",

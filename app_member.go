@@ -5,17 +5,17 @@ import (
 	"fmt"
 )
 
-func (c *Client) GetAppMembers(cfg *AppMemberConfig) (*GetAppMemberResponse, error) {
-	path := fmt.Sprintf("/users/%s/platforms/%s/apps/%s/members", cfg.Owner, cfg.Platform, cfg.AppId)
+func (c *Client) GetAppMembers(req *GetAppMembersRequest) (*GetAppMembersResponse, error) {
+	path := fmt.Sprintf("/users/%s/platforms/%s/apps/%s/members", req.Owner, req.Platform, req.AppId)
 
 	resp, err := c.Get(&HttpRequest{
-		spath: path,
+		path: path,
 	})
 	if err != nil {
 		return nil, err
 	}
 
-	var r *GetAppMemberResponse
+	var r *GetAppMembersResponse
 	err = c.Decode(resp, &r)
 	if err != nil {
 		return nil, err
@@ -24,19 +24,19 @@ func (c *Client) GetAppMembers(cfg *AppMemberConfig) (*GetAppMemberResponse, err
 	return r, nil
 }
 
-func (c *Client) AddAppMembers(cfg *AppMemberConfig) (*AddAppMemberResponse, error) {
-	path := fmt.Sprintf("/users/%s/platforms/%s/apps/%s/members", cfg.Owner, cfg.Platform, cfg.AppId)
-	body := fmt.Sprintf("users=%s&role=%s", cfg.Users, cfg.Role)
+func (c *Client) AddAppMembers(req *AddAppMembersRequest) (*AddAppMembersResponse, error) {
+	path := fmt.Sprintf("/users/%s/platforms/%s/apps/%s/members", req.Owner, req.Platform, req.AppId)
+	body := fmt.Sprintf("users=%s&role=%s", req.Users, req.Role)
 
 	resp, err := c.Post(&HttpRequest{
-		spath: path,
-		body:  bytes.NewBufferString(body),
+		path: path,
+		body: bytes.NewBufferString(body),
 	})
 	if err != nil {
 		return nil, err
 	}
 
-	var r *AddAppMemberResponse
+	var r *AddAppMembersResponse
 	err = c.Decode(resp, &r)
 	if err != nil {
 		return nil, err
@@ -45,19 +45,19 @@ func (c *Client) AddAppMembers(cfg *AppMemberConfig) (*AddAppMemberResponse, err
 	return r, nil
 }
 
-func (c *Client) DeleteAppMembers(cfg *AppMemberConfig) (*DeleteAppMemberResponse, error) {
-	path := fmt.Sprintf("/users/%s/platforms/%s/apps/%s/members", cfg.Owner, cfg.Platform, cfg.AppId)
-	body := fmt.Sprintf("users=%s", cfg.Users)
+func (c *Client) RemoveAppMembers(req *RemoveAppMembersRequest) (*RemoveAppMembersResponse, error) {
+	path := fmt.Sprintf("/users/%s/platforms/%s/apps/%s/members", req.Owner, req.Platform, req.AppId)
+	body := fmt.Sprintf("users=%s", req.Users)
 
 	resp, err := c.Delete(&HttpRequest{
-		spath: path,
-		body:  bytes.NewBufferString(body),
+		path: path,
+		body: bytes.NewBufferString(body),
 	})
 	if err != nil {
 		return nil, err
 	}
 
-	var r *DeleteAppMemberResponse
+	var r *RemoveAppMembersResponse
 	err = c.Decode(resp, &r)
 	if err != nil {
 		return nil, err

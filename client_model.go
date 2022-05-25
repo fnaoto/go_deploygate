@@ -8,7 +8,7 @@ import (
 
 type HttpRequest struct {
 	method string
-	spath  string
+	path   string
 	body   io.Reader
 	header *Header
 }

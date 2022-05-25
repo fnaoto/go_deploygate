@@ -8,11 +8,11 @@ import (
 	"os"
 )
 
-func (c *Client) UploadApp(cfg *AppConfig) (*UploadAppResponse, error) {
-	path := fmt.Sprintf("/users/%s/platforms/%s/apps", cfg.Owner, cfg.Platform)
+func (c *Client) UploadApps(req *UploadAppsRequest) (*UploadAppsResponse, error) {
+	path := fmt.Sprintf("/users/%s/platforms/%s/apps", req.Owner, req.Platform)
 
 	fieldname := "file"
-	filename := cfg.File
+	filename := req.File
 	file, err := os.Open(filename)
 	if err != nil {
 		return nil, err
@@ -36,8 +36,8 @@ func (c *Client) UploadApp(cfg *AppConfig) (*UploadAppResponse, error) {
 	}
 
 	resp, err := c.Post(&HttpRequest{
-		spath: path,
-		body:  body,
+		path: path,
+		body: body,
 		header: &Header{
 			accept:      "application/json",
 			contentType: contentType,
@@ -47,7 +47,7 @@ func (c *Client) UploadApp(cfg *AppConfig) (*UploadAppResponse, error) {
 		return nil, err
 	}
 
-	var r *UploadAppResponse
+	var r *UploadAppsResponse
 	err = c.Decode(resp, &r)
 	if err != nil {
 		return nil, err
