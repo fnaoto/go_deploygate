@@ -23,7 +23,7 @@ func Test_GetAppTeams(t *testing.T) {
 	c.httpClient.Transport = r
 	defer r.Stop()
 
-	resp, err := c.GetAppTeams(&GetAppTeamsConfig{
+	resp, err := c.GetAppTeams(&GetAppTeamsRequest{
 		Organizations: "test_group_terraform",
 		Platform:      "android",
 		AppId:         "com.deploygate.sample",
@@ -54,7 +54,7 @@ func Test_AddAppTeams(t *testing.T) {
 	defer r.Stop()
 
 	// Success response is empty and couldn't decode.
-	_, err = c.AddAppTeams(&AddAppTeamsConfig{
+	_, err = c.AddAppTeams(&AddAppTeamsRequest{
 		Organizations: "test_group_terraform",
 		Platform:      "android",
 		AppId:         "com.deploygate.sample",
@@ -62,5 +62,36 @@ func Test_AddAppTeams(t *testing.T) {
 	})
 	if err != nil {
 		t.Fatal(err)
+	}
+}
+
+func Test_RemoveAppTeams(t *testing.T) {
+	t.Parallel()
+
+	c, err := NewClient("api_token")
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	r, err := recorder.New("fixtures/apps/remove_app_teams")
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	c.httpClient.Transport = r
+	defer r.Stop()
+
+	resp, err := c.RemoveAppTeams(&RemoveAppTeamsRequest{
+		Organizations: "test_group_terraform",
+		Platform:      "android",
+		AppId:         "com.deploygate.sample",
+		Team:          "test_team",
+	})
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	if resp.Error {
+		t.Errorf("response caused error")
 	}
 }

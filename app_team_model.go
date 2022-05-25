@@ -2,13 +2,20 @@ package deploygate
 
 // Request
 
-type GetAppTeamsConfig struct {
+type GetAppTeamsRequest struct {
 	Organizations string
 	Platform      string
 	AppId         string
 }
 
-type AddAppTeamsConfig struct {
+type AddAppTeamsRequest struct {
+	Organizations string
+	Platform      string
+	AppId         string
+	Team          string
+}
+
+type RemoveAppTeamsRequest struct {
 	Organizations string
 	Platform      string
 	AppId         string
@@ -31,6 +38,12 @@ type Teams struct {
 }
 
 type AddAppTeamsResponse struct {
+	Error   bool   `mapstructure:"error"`
+	Message string `mapstructure:"message"`
+	Because string `mapstructure:"because"`
+}
+
+type RemoveAppTeamsResponse struct {
 	Error   bool   `mapstructure:"error"`
 	Message string `mapstructure:"message"`
 	Because string `mapstructure:"because"`

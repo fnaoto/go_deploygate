@@ -5,7 +5,7 @@ import (
 	"fmt"
 )
 
-func (c *Client) GetAppTeams(cfg *GetAppTeamsConfig) (*GetAppTeamsResponse, error) {
+func (c *Client) GetAppTeams(cfg *GetAppTeamsRequest) (*GetAppTeamsResponse, error) {
 	path := fmt.Sprintf("/organizations/%s/platforms/%s/apps/%s/teams", cfg.Organizations, cfg.Platform, cfg.AppId)
 
 	resp, err := c.Get(&HttpRequest{
@@ -24,7 +24,7 @@ func (c *Client) GetAppTeams(cfg *GetAppTeamsConfig) (*GetAppTeamsResponse, erro
 	return r, nil
 }
 
-func (c *Client) AddAppTeams(cfg *AddAppTeamsConfig) (*AddAppTeamsResponse, error) {
+func (c *Client) AddAppTeams(cfg *AddAppTeamsRequest) (*AddAppTeamsResponse, error) {
 	path := fmt.Sprintf("/organizations/%s/platforms/%s/apps/%s/teams", cfg.Organizations, cfg.Platform, cfg.AppId)
 	body := fmt.Sprintf("team=%s", cfg.Team)
 
@@ -37,6 +37,25 @@ func (c *Client) AddAppTeams(cfg *AddAppTeamsConfig) (*AddAppTeamsResponse, erro
 	}
 
 	var r *AddAppTeamsResponse
+	err = c.Decode(resp, &r)
+	if err != nil {
+		return nil, err
+	}
+
+	return r, nil
+}
+
+func (c *Client) RemoveAppTeams(cfg *RemoveAppTeamsRequest) (*RemoveAppTeamsResponse, error) {
+	path := fmt.Sprintf("/organizations/%s/platforms/%s/apps/%s/teams/%s", cfg.Organizations, cfg.Platform, cfg.AppId, cfg.Team)
+
+	resp, err := c.Delete(&HttpRequest{
+		spath: path,
+	})
+	if err != nil {
+		return nil, err
+	}
+
+	var r *RemoveAppTeamsResponse
 	err = c.Decode(resp, &r)
 	if err != nil {
 		return nil, err
