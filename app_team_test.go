@@ -53,7 +53,8 @@ func Test_AddAppTeams(t *testing.T) {
 	c.httpClient.Transport = r
 	defer r.Stop()
 
-	resp, err := c.AddAppTeams(&AddAppTeamsConfig{
+	// Success response is empty and couldn't decode.
+	_, err = c.AddAppTeams(&AddAppTeamsConfig{
 		Organizations: "test_group_terraform",
 		Platform:      "android",
 		AppId:         "com.deploygate.sample",
@@ -61,9 +62,5 @@ func Test_AddAppTeams(t *testing.T) {
 	})
 	if err != nil {
 		t.Fatal(err)
-	}
-
-	if resp.Error {
-		t.Errorf("response caused error")
 	}
 }
