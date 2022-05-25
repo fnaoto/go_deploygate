@@ -16,7 +16,7 @@ type AddAppMembersRequest struct {
 	Role     string
 }
 
-type DeleteAppMembersRequest struct {
+type RemoveAppMembersRequest struct {
 	Owner    string
 	Platform string
 	AppId    string
@@ -68,13 +68,13 @@ type Invited struct {
 	Role uint   `mapstructure:"role"`
 }
 
-type DeleteAppMembersResponse struct {
+type RemoveAppMembersResponse struct {
 	Error   bool                            `mapstructure:"error"`
 	Message string                          `mapstructure:"message"`
 	Because string                          `mapstructure:"because"`
-	Results *DeleteAppMembersResponseResult `mapstructure:"results"`
+	Results *RemoveAppMembersResponseResult `mapstructure:"results"`
 }
 
-type DeleteAppMembersResponseResult struct {
+type RemoveAppMembersResponseResult struct {
 	Invite string `mapstructure:"invite"`
 }

@@ -45,7 +45,7 @@ func (c *Client) AddAppMembers(cfg *AddAppMembersRequest) (*AddAppMembersRespons
 	return r, nil
 }
 
-func (c *Client) DeleteAppMembers(cfg *DeleteAppMembersRequest) (*DeleteAppMembersResponse, error) {
+func (c *Client) RemoveAppMembers(cfg *RemoveAppMembersRequest) (*RemoveAppMembersResponse, error) {
 	path := fmt.Sprintf("/users/%s/platforms/%s/apps/%s/members", cfg.Owner, cfg.Platform, cfg.AppId)
 	body := fmt.Sprintf("users=%s", cfg.Users)
 
@@ -57,7 +57,7 @@ func (c *Client) DeleteAppMembers(cfg *DeleteAppMembersRequest) (*DeleteAppMembe
 		return nil, err
 	}
 
-	var r *DeleteAppMembersResponse
+	var r *RemoveAppMembersResponse
 	err = c.Decode(resp, &r)
 	if err != nil {
 		return nil, err

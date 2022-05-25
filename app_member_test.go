@@ -69,7 +69,7 @@ func Test_AddAppMembers(t *testing.T) {
 	}
 }
 
-func Test_DeleteAppMembers(t *testing.T) {
+func Test_RemoveAppMembers(t *testing.T) {
 	t.Parallel()
 
 	c, err := NewClient("api_token")
@@ -85,7 +85,7 @@ func Test_DeleteAppMembers(t *testing.T) {
 	c.httpClient.Transport = r
 	defer r.Stop()
 
-	resp, err := c.DeleteAppMembers(&DeleteAppMembersRequest{
+	resp, err := c.RemoveAppMembers(&RemoveAppMembersRequest{
 		Owner:    "f-naoto832",
 		Platform: "android",
 		AppId:    "com.deploygate.sample",
