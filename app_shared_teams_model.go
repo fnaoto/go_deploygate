@@ -8,9 +8,24 @@ type ListAppSharedTeamsRequest struct {
 	AppId         string
 }
 
+type AddAppSharedTeamsRequest struct {
+	Organizations string
+	Platform      string
+	AppId         string
+	Team          string
+}
+
 // Response
 
 type ListAppSharedTeamsResponse struct {
-	Error bool `mapstructure:"error"`
-	Teams []*Teams
+	Error   bool   `mapstructure:"error"`
+	Message string `mapstructure:"message"`
+	Because string `mapstructure:"because"`
+	Teams   []*Teams
+}
+
+type AddAppSharedTeamsResponse struct {
+	Error   bool   `mapstructure:"error"`
+	Message string `mapstructure:"message"`
+	Because string `mapstructure:"because"`
 }
