@@ -8,7 +8,7 @@ import (
 	"os"
 )
 
-func (c *Client) UploadApp(cfg *AppConfig) (*UploadAppResponse, error) {
+func (c *Client) UploadApps(cfg *AppConfig) (*UploadAppResponse, error) {
 	path := fmt.Sprintf("/users/%s/platforms/%s/apps", cfg.Owner, cfg.Platform)
 
 	fieldname := "file"

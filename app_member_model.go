@@ -11,26 +11,7 @@ type AppMemberConfig struct {
 	File     string
 }
 
-type AppTeamConfig struct {
-	Organizations string
-	Platform      string
-	AppId         string
-	Team          string
-}
-
-type AppConfig struct {
-	Owner    string
-	Platform string
-	AppId    string
-	File     string
-}
-
 // Response
-
-type Member struct {
-	Name string `mapstructure:"name"`
-	Role uint   `mapstructure:"role"`
-}
 
 type GetAppMemberResponse struct {
 	Error   bool                        `mapstructure:"error"`
@@ -45,6 +26,11 @@ type GetAppMemberResponseResult struct {
 type Usage struct {
 	Used uint `mapstructure:"used"`
 	Max  uint `mapstructure:"max"`
+}
+
+type Member struct {
+	Name string `mapstructure:"name"`
+	Role uint   `mapstructure:"role"`
 }
 
 type AddAppMemberResponse struct {
@@ -79,26 +65,4 @@ type DeleteAppMemberResponse struct {
 
 type DeleteAppMemberResponseResult struct {
 	Invite string `mapstructure:"invite"`
-}
-
-type UploadAppResponse struct {
-	Error   bool   `mapstructure:"error"`
-	Message string `mapstructure:"message"`
-	Because string `mapstructure:"because"`
-}
-
-type GetAppTeamsResponse struct {
-	Error bool     `mapstructure:"error"`
-	Teams []*Teams `mapstructure:"teams"`
-}
-
-type Teams struct {
-	Name        string `mapstructure:"name"`
-	Role        string `mapstructure:"role"`
-	MemberCount uint   `mapstructure:"member_count"`
-}
-
-type AddAppTeamsResponse struct {
-	Error bool     `mapstructure:"error"`
-	Teams []*Teams `mapstructure:"teams"`
 }
