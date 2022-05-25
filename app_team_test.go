@@ -57,7 +57,7 @@ func Test_AddAppTeams(t *testing.T) {
 		Organizations: "test_group_terraform",
 		Platform:      "android",
 		AppId:         "com.deploygate.sample",
-		Team:          "test_group_terraform_2",
+		Team:          "test_team",
 	})
 	if err != nil {
 		t.Fatal(err)
