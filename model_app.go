@@ -15,6 +15,7 @@ type AppTeamConfig struct {
 	Organizations string
 	Platform      string
 	AppId         string
+	Team          string
 }
 
 type AppConfig struct {
@@ -95,4 +96,9 @@ type Teams struct {
 	Name        string `mapstructure:"name"`
 	Role        string `mapstructure:"role"`
 	MemberCount uint   `mapstructure:"member_count"`
+}
+
+type AddAppTeamsResponse struct {
+	Error bool     `mapstructure:"error"`
+	Teams []*Teams `mapstructure:"teams"`
 }

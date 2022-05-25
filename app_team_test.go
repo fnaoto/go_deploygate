@@ -36,3 +36,34 @@ func Test_GetAppTeams(t *testing.T) {
 		t.Errorf("response caused error")
 	}
 }
+
+func Test_AddAppTeams(t *testing.T) {
+	t.Parallel()
+
+	c, err := NewClient("api_token")
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	r, err := recorder.New("fixtures/apps/add_app_teams")
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	c.httpClient.Transport = r
+	defer r.Stop()
+
+	resp, err := c.AddAppTeams(&AppTeamConfig{
+		Organizations: "test_group_terraform",
+		Platform:      "android",
+		AppId:         "com.deploygate.sample",
+		Team:          "test_group_terraform_2",
+	})
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	if resp.Error {
+		t.Errorf("response caused error")
+	}
+}
