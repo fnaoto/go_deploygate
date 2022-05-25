@@ -6,7 +6,7 @@ import (
 )
 
 func (c *Client) ListAppSharedTeams(cfg *ListAppSharedTeamsRequest) (*ListAppSharedTeamsResponse, error) {
-	path := fmt.Sprintf("organizations/%s/platforms/%s/apps/%s/shared_teams", cfg.Organizations, cfg.Platform, cfg.AppId)
+	path := fmt.Sprintf("organizations/%s/platforms/%s/apps/%s/shared_teams", cfg.Organization, cfg.Platform, cfg.AppId)
 
 	resp, err := c.Get(&HttpRequest{
 		path: path,
@@ -25,7 +25,7 @@ func (c *Client) ListAppSharedTeams(cfg *ListAppSharedTeamsRequest) (*ListAppSha
 }
 
 func (c *Client) AddAppSharedTeams(cfg *AddAppSharedTeamsRequest) (*AddAppSharedTeamsResponse, error) {
-	path := fmt.Sprintf("organizations/%s/platforms/%s/apps/%s/shared_teams", cfg.Organizations, cfg.Platform, cfg.AppId)
+	path := fmt.Sprintf("organizations/%s/platforms/%s/apps/%s/shared_teams", cfg.Organization, cfg.Platform, cfg.AppId)
 	body := fmt.Sprintf("team=%s", cfg.Team)
 
 	resp, err := c.Post(&HttpRequest{
@@ -46,7 +46,7 @@ func (c *Client) AddAppSharedTeams(cfg *AddAppSharedTeamsRequest) (*AddAppShared
 }
 
 func (c *Client) RemoveAppSharedTeams(cfg *RemoveAppSharedTeamsRequest) (*RemoveAppSharedTeamsResponse, error) {
-	path := fmt.Sprintf("organizations/%s/platforms/%s/apps/%s/shared_teams/%s", cfg.Organizations, cfg.Platform, cfg.AppId, cfg.Team)
+	path := fmt.Sprintf("organizations/%s/platforms/%s/apps/%s/shared_teams/%s", cfg.Organization, cfg.Platform, cfg.AppId, cfg.Team)
 
 	resp, err := c.Delete(&HttpRequest{
 		path: path,

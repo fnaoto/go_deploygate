@@ -3,23 +3,23 @@ package deploygate
 // Request
 
 type ListAppTeamsRequest struct {
-	Organizations string
-	Platform      string
-	AppId         string
+	Organization string
+	Platform     string
+	AppId        string
 }
 
 type AddAppTeamsRequest struct {
-	Organizations string
-	Platform      string
-	AppId         string
-	Team          string
+	Organization string
+	Platform     string
+	AppId        string
+	Team         string
 }
 
 type RemoveAppTeamsRequest struct {
-	Organizations string
-	Platform      string
-	AppId         string
-	Team          string
+	Organization string
+	Platform     string
+	AppId        string
+	Team         string
 }
 
 // Response

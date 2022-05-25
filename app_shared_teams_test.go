@@ -25,9 +25,9 @@ func Test_ListAppSharedTeams(t *testing.T) {
 	defer r.Stop()
 
 	resp, err := c.ListAppSharedTeams(&ListAppSharedTeamsRequest{
-		Organizations: "test_group_terraform",
-		Platform:      "android",
-		AppId:         "com.deploygate.sample",
+		Organization: "test_group_terraform",
+		Platform:     "android",
+		AppId:        "com.deploygate.sample",
 	})
 	if err != nil {
 		t.Fatal(err)
@@ -56,10 +56,10 @@ func Test_AddAppSharedTeams(t *testing.T) {
 	defer r.Stop()
 
 	resp, err := c.AddAppSharedTeams(&AddAppSharedTeamsRequest{
-		Organizations: "test_group_terraform",
-		Platform:      "android",
-		AppId:         "com.deploygate.sample",
-		Team:          "test_team",
+		Organization: "test_group_terraform",
+		Platform:     "android",
+		AppId:        "com.deploygate.sample",
+		Team:         "test_team",
 	})
 	if err != nil {
 		t.Fatal(err)
@@ -88,10 +88,10 @@ func Test_RemoveAppSharedTeams(t *testing.T) {
 	defer r.Stop()
 
 	resp, err := c.RemoveAppSharedTeams(&RemoveAppSharedTeamsRequest{
-		Organizations: "test_group_terraform",
-		Platform:      "android",
-		AppId:         "com.deploygate.sample",
-		Team:          "test_team",
+		Organization: "test_group_terraform",
+		Platform:     "android",
+		AppId:        "com.deploygate.sample",
+		Team:         "test_team",
 	})
 	if err != nil {
 		t.Fatal(err)
