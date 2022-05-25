@@ -23,7 +23,7 @@ func Test_GetAppMembers(t *testing.T) {
 	c.httpClient.Transport = r
 	defer r.Stop()
 
-	resp, err := c.GetAppMembers(&AppMemberConfig{
+	resp, err := c.GetAppMembers(&GetAppMembersRequest{
 		Owner:    "f-naoto832",
 		Platform: "android",
 		AppId:    "com.deploygate.sample",
@@ -53,7 +53,7 @@ func Test_AddAppMembers(t *testing.T) {
 	c.httpClient.Transport = r
 	defer r.Stop()
 
-	resp, err := c.AddAppMembers(&AppMemberConfig{
+	resp, err := c.AddAppMembers(&AddAppMembersRequest{
 		Owner:    "f-naoto832",
 		Platform: "android",
 		AppId:    "com.deploygate.sample",
@@ -85,7 +85,7 @@ func Test_DeleteAppMembers(t *testing.T) {
 	c.httpClient.Transport = r
 	defer r.Stop()
 
-	resp, err := c.DeleteAppMembers(&AppMemberConfig{
+	resp, err := c.DeleteAppMembers(&DeleteAppMembersRequest{
 		Owner:    "f-naoto832",
 		Platform: "android",
 		AppId:    "com.deploygate.sample",

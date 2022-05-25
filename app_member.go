@@ -5,7 +5,7 @@ import (
 	"fmt"
 )
 
-func (c *Client) GetAppMembers(cfg *AppMemberConfig) (*GetAppMemberResponse, error) {
+func (c *Client) GetAppMembers(cfg *GetAppMembersRequest) (*GetAppMembersResponse, error) {
 	path := fmt.Sprintf("/users/%s/platforms/%s/apps/%s/members", cfg.Owner, cfg.Platform, cfg.AppId)
 
 	resp, err := c.Get(&HttpRequest{
@@ -15,7 +15,7 @@ func (c *Client) GetAppMembers(cfg *AppMemberConfig) (*GetAppMemberResponse, err
 		return nil, err
 	}
 
-	var r *GetAppMemberResponse
+	var r *GetAppMembersResponse
 	err = c.Decode(resp, &r)
 	if err != nil {
 		return nil, err
@@ -24,7 +24,7 @@ func (c *Client) GetAppMembers(cfg *AppMemberConfig) (*GetAppMemberResponse, err
 	return r, nil
 }
 
-func (c *Client) AddAppMembers(cfg *AppMemberConfig) (*AddAppMemberResponse, error) {
+func (c *Client) AddAppMembers(cfg *AddAppMembersRequest) (*AddAppMembersResponse, error) {
 	path := fmt.Sprintf("/users/%s/platforms/%s/apps/%s/members", cfg.Owner, cfg.Platform, cfg.AppId)
 	body := fmt.Sprintf("users=%s&role=%s", cfg.Users, cfg.Role)
 
@@ -36,7 +36,7 @@ func (c *Client) AddAppMembers(cfg *AppMemberConfig) (*AddAppMemberResponse, err
 		return nil, err
 	}
 
-	var r *AddAppMemberResponse
+	var r *AddAppMembersResponse
 	err = c.Decode(resp, &r)
 	if err != nil {
 		return nil, err
@@ -45,7 +45,7 @@ func (c *Client) AddAppMembers(cfg *AppMemberConfig) (*AddAppMemberResponse, err
 	return r, nil
 }
 
-func (c *Client) DeleteAppMembers(cfg *AppMemberConfig) (*DeleteAppMemberResponse, error) {
+func (c *Client) DeleteAppMembers(cfg *DeleteAppMembersRequest) (*DeleteAppMembersResponse, error) {
 	path := fmt.Sprintf("/users/%s/platforms/%s/apps/%s/members", cfg.Owner, cfg.Platform, cfg.AppId)
 	body := fmt.Sprintf("users=%s", cfg.Users)
 
@@ -57,7 +57,7 @@ func (c *Client) DeleteAppMembers(cfg *AppMemberConfig) (*DeleteAppMemberRespons
 		return nil, err
 	}
 
-	var r *DeleteAppMemberResponse
+	var r *DeleteAppMembersResponse
 	err = c.Decode(resp, &r)
 	if err != nil {
 		return nil, err

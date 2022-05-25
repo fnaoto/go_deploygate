@@ -2,23 +2,35 @@ package deploygate
 
 // Request
 
-type AppMemberConfig struct {
+type GetAppMembersRequest struct {
+	Owner    string
+	Platform string
+	AppId    string
+}
+
+type AddAppMembersRequest struct {
 	Owner    string
 	Platform string
 	AppId    string
 	Users    string
 	Role     string
-	File     string
+}
+
+type DeleteAppMembersRequest struct {
+	Owner    string
+	Platform string
+	AppId    string
+	Users    string
 }
 
 // Response
 
-type GetAppMemberResponse struct {
-	Error   bool                        `mapstructure:"error"`
-	Results *GetAppMemberResponseResult `mapstructure:"results"`
+type GetAppMembersResponse struct {
+	Error   bool                         `mapstructure:"error"`
+	Results *GetAppMembersResponseResult `mapstructure:"results"`
 }
 
-type GetAppMemberResponseResult struct {
+type GetAppMembersResponseResult struct {
 	Usage *Usage    `mapstructure:"usage"`
 	Users []*Member `mapstructure:"users"`
 }
@@ -33,14 +45,14 @@ type Member struct {
 	Role uint   `mapstructure:"role"`
 }
 
-type AddAppMemberResponse struct {
-	Error   bool                        `mapstructure:"error"`
-	Message string                      `mapstructure:"message"`
-	Because string                      `mapstructure:"because"`
-	Results *AddAppMemberResponseResult `mapstructure:"results"`
+type AddAppMembersResponse struct {
+	Error   bool                         `mapstructure:"error"`
+	Message string                       `mapstructure:"message"`
+	Because string                       `mapstructure:"because"`
+	Results *AddAppMembersResponseResult `mapstructure:"results"`
 }
 
-type AddAppMemberResponseResult struct {
+type AddAppMembersResponseResult struct {
 	Invite  string     `mapstructure:"invite"`
 	Added   []*Added   `mapstructure:"added"`
 	Invited []*Invited `mapstructure:"invited"`
@@ -56,13 +68,13 @@ type Invited struct {
 	Role uint   `mapstructure:"role"`
 }
 
-type DeleteAppMemberResponse struct {
-	Error   bool                           `mapstructure:"error"`
-	Message string                         `mapstructure:"message"`
-	Because string                         `mapstructure:"because"`
-	Results *DeleteAppMemberResponseResult `mapstructure:"results"`
+type DeleteAppMembersResponse struct {
+	Error   bool                            `mapstructure:"error"`
+	Message string                          `mapstructure:"message"`
+	Because string                          `mapstructure:"because"`
+	Results *DeleteAppMembersResponseResult `mapstructure:"results"`
 }
 
-type DeleteAppMemberResponseResult struct {
+type DeleteAppMembersResponseResult struct {
 	Invite string `mapstructure:"invite"`
 }
