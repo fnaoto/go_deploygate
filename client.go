@@ -4,7 +4,6 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
-	"io"
 	"net/http"
 	"net/url"
 	"os"
@@ -16,16 +15,15 @@ import (
 
 const (
 	DGApiTokenEnv = "DEPLOYGATE_API_KEY"
-	DGApiUserEnv  = "DEPLOYGATE_USER_NAME"
 	DGApiEndpoint = "https://deploygate.com/api"
 )
 
-func HttpClient() *Client {
+func DefaultClient() (*Client, error) {
 	c, err := NewClient(os.Getenv(DGApiTokenEnv))
 	if err != nil {
-		panic(err)
+		return nil, err
 	}
-	return c
+	return c, nil
 }
 
 func NewClient(apiKey string) (*Client, error) {
@@ -54,11 +52,44 @@ const packageName = "github.com/fnaoto/go_deploygate"
 
 var userAgent = fmt.Sprintf("GoDeployGate (+%s; %s)", packageName, runtime.Version())
 
-func (c *Client) Get(spath string, body io.Reader) (*http.Response, error) {
-	req, err := c.NewRequest("GET", spath, body)
+func (c *Client) Get(httpRequest *HttpRequest) (*http.Response, error) {
+	httpRequest.method = "GET"
+	return c.NewRequest(httpRequest)
+}
+
+func (c *Client) Post(httpRequest *HttpRequest) (*http.Response, error) {
+	httpRequest.method = "POST"
+	return c.NewRequest(httpRequest)
+}
+
+func (c *Client) Delete(httpRequest *HttpRequest) (*http.Response, error) {
+	httpRequest.method = "DELETE"
+	return c.NewRequest(httpRequest)
+}
+
+func (c *Client) NewRequest(httpRequest *HttpRequest) (*http.Response, error) {
+	u := *c.endpoint
+	u.Path = path.Join(c.endpoint.Path, httpRequest.spath)
+
+	q := u.Query()
+	q.Set("token", c.apiKey)
+	u.RawQuery = q.Encode()
+
+	req, err := http.NewRequest(httpRequest.method, u.String(), httpRequest.body)
 	if err != nil {
 		return nil, err
 	}
+
+	if httpRequest.header == nil {
+		httpRequest.header = &Header{
+			accept:      "application/json",
+			contentType: "application/x-www-form-urlencoded",
+		}
+	}
+
+	req.Header.Set("Accept", httpRequest.header.accept)
+	req.Header.Set("Content-Type", httpRequest.header.contentType)
+	req.Header.Set("User-Agent", userAgent)
 
 	resp, err := c.httpClient.Do(req)
 	if err != nil {
@@ -66,22 +97,6 @@ func (c *Client) Get(spath string, body io.Reader) (*http.Response, error) {
 	}
 
 	return resp, nil
-}
-
-func (c *Client) NewRequest(method, spath string, body io.Reader) (*http.Request, error) {
-	u := *c.endpoint
-	u.Path = path.Join(c.endpoint.Path, spath)
-
-	req, err := http.NewRequest(method, u.String(), body)
-	if err != nil {
-		return nil, err
-	}
-
-	req.Form.Set("token", c.apiKey)
-	req.Header.Set("Content-Type", "application/x-www-form-urlencoded")
-	req.Header.Set("User-Agent", userAgent)
-
-	return req, nil
 }
 
 func (c *Client) Decode(resp *http.Response, out interface{}) error {
