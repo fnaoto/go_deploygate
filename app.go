@@ -8,7 +8,7 @@ import (
 	"os"
 )
 
-func (c *Client) UploadApps(cfg *AppConfig) (*UploadAppResponse, error) {
+func (c *Client) UploadApps(cfg *UploadAppsConfig) (*UploadAppsResponse, error) {
 	path := fmt.Sprintf("/users/%s/platforms/%s/apps", cfg.Owner, cfg.Platform)
 
 	fieldname := "file"
@@ -47,7 +47,7 @@ func (c *Client) UploadApps(cfg *AppConfig) (*UploadAppResponse, error) {
 		return nil, err
 	}
 
-	var r *UploadAppResponse
+	var r *UploadAppsResponse
 	err = c.Decode(resp, &r)
 	if err != nil {
 		return nil, err
