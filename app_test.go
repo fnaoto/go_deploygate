@@ -23,7 +23,7 @@ func Test_UploadApps(t *testing.T) {
 	c.httpClient.Transport = r
 	defer r.Stop()
 
-	resp, err := c.UploadApps(&UploadAppsConfig{
+	resp, err := c.UploadApps(&UploadAppsRequest{
 		Owner:    "f-naoto832",
 		Platform: "android",
 		AppId:    "com.deploygate.sample",

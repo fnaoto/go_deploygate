@@ -8,11 +8,11 @@ import (
 	"os"
 )
 
-func (c *Client) UploadApps(cfg *UploadAppsConfig) (*UploadAppsResponse, error) {
-	path := fmt.Sprintf("/users/%s/platforms/%s/apps", cfg.Owner, cfg.Platform)
+func (c *Client) UploadApps(req *UploadAppsRequest) (*UploadAppsResponse, error) {
+	path := fmt.Sprintf("/users/%s/platforms/%s/apps", req.Owner, req.Platform)
 
 	fieldname := "file"
-	filename := cfg.File
+	filename := req.File
 	file, err := os.Open(filename)
 	if err != nil {
 		return nil, err

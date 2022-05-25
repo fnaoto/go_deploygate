@@ -2,7 +2,7 @@ package deploygate
 
 // Request
 
-type UploadAppsConfig struct {
+type UploadAppsRequest struct {
 	Owner    string
 	Platform string
 	AppId    string

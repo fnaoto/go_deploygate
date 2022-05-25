@@ -5,8 +5,8 @@ import (
 	"fmt"
 )
 
-func (c *Client) ListAppSharedTeams(cfg *ListAppSharedTeamsRequest) (*ListAppSharedTeamsResponse, error) {
-	path := fmt.Sprintf("organizations/%s/platforms/%s/apps/%s/shared_teams", cfg.Organization, cfg.Platform, cfg.AppId)
+func (c *Client) ListAppSharedTeams(req *ListAppSharedTeamsRequest) (*ListAppSharedTeamsResponse, error) {
+	path := fmt.Sprintf("organizations/%s/platforms/%s/apps/%s/shared_teams", req.Organization, req.Platform, req.AppId)
 
 	resp, err := c.Get(&HttpRequest{
 		path: path,
@@ -24,9 +24,9 @@ func (c *Client) ListAppSharedTeams(cfg *ListAppSharedTeamsRequest) (*ListAppSha
 	return r, nil
 }
 
-func (c *Client) AddAppSharedTeams(cfg *AddAppSharedTeamsRequest) (*AddAppSharedTeamsResponse, error) {
-	path := fmt.Sprintf("organizations/%s/platforms/%s/apps/%s/shared_teams", cfg.Organization, cfg.Platform, cfg.AppId)
-	body := fmt.Sprintf("team=%s", cfg.Team)
+func (c *Client) AddAppSharedTeams(req *AddAppSharedTeamsRequest) (*AddAppSharedTeamsResponse, error) {
+	path := fmt.Sprintf("organizations/%s/platforms/%s/apps/%s/shared_teams", req.Organization, req.Platform, req.AppId)
+	body := fmt.Sprintf("team=%s", req.Team)
 
 	resp, err := c.Post(&HttpRequest{
 		path: path,
@@ -45,8 +45,8 @@ func (c *Client) AddAppSharedTeams(cfg *AddAppSharedTeamsRequest) (*AddAppShared
 	return r, nil
 }
 
-func (c *Client) RemoveAppSharedTeams(cfg *RemoveAppSharedTeamsRequest) (*RemoveAppSharedTeamsResponse, error) {
-	path := fmt.Sprintf("organizations/%s/platforms/%s/apps/%s/shared_teams/%s", cfg.Organization, cfg.Platform, cfg.AppId, cfg.Team)
+func (c *Client) RemoveAppSharedTeams(req *RemoveAppSharedTeamsRequest) (*RemoveAppSharedTeamsResponse, error) {
+	path := fmt.Sprintf("organizations/%s/platforms/%s/apps/%s/shared_teams/%s", req.Organization, req.Platform, req.AppId, req.Team)
 
 	resp, err := c.Delete(&HttpRequest{
 		path: path,

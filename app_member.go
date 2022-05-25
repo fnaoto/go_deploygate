@@ -5,8 +5,8 @@ import (
 	"fmt"
 )
 
-func (c *Client) GetAppMembers(cfg *GetAppMembersRequest) (*GetAppMembersResponse, error) {
-	path := fmt.Sprintf("/users/%s/platforms/%s/apps/%s/members", cfg.Owner, cfg.Platform, cfg.AppId)
+func (c *Client) GetAppMembers(req *GetAppMembersRequest) (*GetAppMembersResponse, error) {
+	path := fmt.Sprintf("/users/%s/platforms/%s/apps/%s/members", req.Owner, req.Platform, req.AppId)
 
 	resp, err := c.Get(&HttpRequest{
 		path: path,
@@ -24,9 +24,9 @@ func (c *Client) GetAppMembers(cfg *GetAppMembersRequest) (*GetAppMembersRespons
 	return r, nil
 }
 
-func (c *Client) AddAppMembers(cfg *AddAppMembersRequest) (*AddAppMembersResponse, error) {
-	path := fmt.Sprintf("/users/%s/platforms/%s/apps/%s/members", cfg.Owner, cfg.Platform, cfg.AppId)
-	body := fmt.Sprintf("users=%s&role=%s", cfg.Users, cfg.Role)
+func (c *Client) AddAppMembers(req *AddAppMembersRequest) (*AddAppMembersResponse, error) {
+	path := fmt.Sprintf("/users/%s/platforms/%s/apps/%s/members", req.Owner, req.Platform, req.AppId)
+	body := fmt.Sprintf("users=%s&role=%s", req.Users, req.Role)
 
 	resp, err := c.Post(&HttpRequest{
 		path: path,
@@ -45,9 +45,9 @@ func (c *Client) AddAppMembers(cfg *AddAppMembersRequest) (*AddAppMembersRespons
 	return r, nil
 }
 
-func (c *Client) RemoveAppMembers(cfg *RemoveAppMembersRequest) (*RemoveAppMembersResponse, error) {
-	path := fmt.Sprintf("/users/%s/platforms/%s/apps/%s/members", cfg.Owner, cfg.Platform, cfg.AppId)
-	body := fmt.Sprintf("users=%s", cfg.Users)
+func (c *Client) RemoveAppMembers(req *RemoveAppMembersRequest) (*RemoveAppMembersResponse, error) {
+	path := fmt.Sprintf("/users/%s/platforms/%s/apps/%s/members", req.Owner, req.Platform, req.AppId)
+	body := fmt.Sprintf("users=%s", req.Users)
 
 	resp, err := c.Delete(&HttpRequest{
 		path: path,

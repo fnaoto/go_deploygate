@@ -5,8 +5,8 @@ import (
 	"fmt"
 )
 
-func (c *Client) ListAppTeams(cfg *ListAppTeamsRequest) (*ListAppTeamsResponse, error) {
-	path := fmt.Sprintf("/organizations/%s/platforms/%s/apps/%s/teams", cfg.Organization, cfg.Platform, cfg.AppId)
+func (c *Client) ListAppTeams(req *ListAppTeamsRequest) (*ListAppTeamsResponse, error) {
+	path := fmt.Sprintf("/organizations/%s/platforms/%s/apps/%s/teams", req.Organization, req.Platform, req.AppId)
 
 	resp, err := c.Get(&HttpRequest{
 		path: path,
@@ -24,9 +24,9 @@ func (c *Client) ListAppTeams(cfg *ListAppTeamsRequest) (*ListAppTeamsResponse, 
 	return r, nil
 }
 
-func (c *Client) AddAppTeams(cfg *AddAppTeamsRequest) (*AddAppTeamsResponse, error) {
-	path := fmt.Sprintf("/organizations/%s/platforms/%s/apps/%s/teams", cfg.Organization, cfg.Platform, cfg.AppId)
-	body := fmt.Sprintf("team=%s", cfg.Team)
+func (c *Client) AddAppTeams(req *AddAppTeamsRequest) (*AddAppTeamsResponse, error) {
+	path := fmt.Sprintf("/organizations/%s/platforms/%s/apps/%s/teams", req.Organization, req.Platform, req.AppId)
+	body := fmt.Sprintf("team=%s", req.Team)
 
 	resp, err := c.Post(&HttpRequest{
 		path: path,
@@ -45,8 +45,8 @@ func (c *Client) AddAppTeams(cfg *AddAppTeamsRequest) (*AddAppTeamsResponse, err
 	return r, nil
 }
 
-func (c *Client) RemoveAppTeams(cfg *RemoveAppTeamsRequest) (*RemoveAppTeamsResponse, error) {
-	path := fmt.Sprintf("/organizations/%s/platforms/%s/apps/%s/teams/%s", cfg.Organization, cfg.Platform, cfg.AppId, cfg.Team)
+func (c *Client) RemoveAppTeams(req *RemoveAppTeamsRequest) (*RemoveAppTeamsResponse, error) {
+	path := fmt.Sprintf("/organizations/%s/platforms/%s/apps/%s/teams/%s", req.Organization, req.Platform, req.AppId, req.Team)
 
 	resp, err := c.Delete(&HttpRequest{
 		path: path,
