@@ -44,3 +44,22 @@ func (c *Client) AddAppSharedTeams(cfg *AddAppSharedTeamsRequest) (*AddAppShared
 
 	return r, nil
 }
+
+func (c *Client) RemoveAppSharedTeams(cfg *RemoveAppSharedTeamsRequest) (*RemoveAppSharedTeamsResponse, error) {
+	path := fmt.Sprintf("organizations/%s/platforms/%s/apps/%s/shared_teams/%s", cfg.Organizations, cfg.Platform, cfg.AppId, cfg.Team)
+
+	resp, err := c.Delete(&HttpRequest{
+		spath: path,
+	})
+	if err != nil {
+		return nil, err
+	}
+
+	var r *RemoveAppSharedTeamsResponse
+	err = c.Decode(resp, &r)
+	if err != nil {
+		return nil, err
+	}
+
+	return r, nil
+}
