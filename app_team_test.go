@@ -53,7 +53,7 @@ func Test_AddAppTeams(t *testing.T) {
 	c.httpClient.Transport = r
 	defer r.Stop()
 
-	// Success response is empty and couldn't decode.
+	// TODO: Success response is empty and couldn't decode.
 	_, err = c.AddAppTeams(&AddAppTeamsRequest{
 		Organizations: "test_group_terraform",
 		Platform:      "android",
