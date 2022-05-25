@@ -9,7 +9,7 @@ func (c *Client) ListAppSharedTeams(cfg *ListAppSharedTeamsRequest) (*ListAppSha
 	path := fmt.Sprintf("organizations/%s/platforms/%s/apps/%s/shared_teams", cfg.Organizations, cfg.Platform, cfg.AppId)
 
 	resp, err := c.Get(&HttpRequest{
-		spath: path,
+		path: path,
 	})
 	if err != nil {
 		return nil, err
@@ -29,8 +29,8 @@ func (c *Client) AddAppSharedTeams(cfg *AddAppSharedTeamsRequest) (*AddAppShared
 	body := fmt.Sprintf("team=%s", cfg.Team)
 
 	resp, err := c.Post(&HttpRequest{
-		spath: path,
-		body:  bytes.NewBufferString(body),
+		path: path,
+		body: bytes.NewBufferString(body),
 	})
 	if err != nil {
 		return nil, err
@@ -49,7 +49,7 @@ func (c *Client) RemoveAppSharedTeams(cfg *RemoveAppSharedTeamsRequest) (*Remove
 	path := fmt.Sprintf("organizations/%s/platforms/%s/apps/%s/shared_teams/%s", cfg.Organizations, cfg.Platform, cfg.AppId, cfg.Team)
 
 	resp, err := c.Delete(&HttpRequest{
-		spath: path,
+		path: path,
 	})
 	if err != nil {
 		return nil, err

@@ -36,8 +36,8 @@ func (c *Client) UploadApps(cfg *UploadAppsConfig) (*UploadAppsResponse, error) 
 	}
 
 	resp, err := c.Post(&HttpRequest{
-		spath: path,
-		body:  body,
+		path: path,
+		body: body,
 		header: &Header{
 			accept:      "application/json",
 			contentType: contentType,

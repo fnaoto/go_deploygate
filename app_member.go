@@ -9,7 +9,7 @@ func (c *Client) GetAppMembers(cfg *GetAppMembersRequest) (*GetAppMembersRespons
 	path := fmt.Sprintf("/users/%s/platforms/%s/apps/%s/members", cfg.Owner, cfg.Platform, cfg.AppId)
 
 	resp, err := c.Get(&HttpRequest{
-		spath: path,
+		path: path,
 	})
 	if err != nil {
 		return nil, err
@@ -29,8 +29,8 @@ func (c *Client) AddAppMembers(cfg *AddAppMembersRequest) (*AddAppMembersRespons
 	body := fmt.Sprintf("users=%s&role=%s", cfg.Users, cfg.Role)
 
 	resp, err := c.Post(&HttpRequest{
-		spath: path,
-		body:  bytes.NewBufferString(body),
+		path: path,
+		body: bytes.NewBufferString(body),
 	})
 	if err != nil {
 		return nil, err
@@ -50,8 +50,8 @@ func (c *Client) RemoveAppMembers(cfg *RemoveAppMembersRequest) (*RemoveAppMembe
 	body := fmt.Sprintf("users=%s", cfg.Users)
 
 	resp, err := c.Delete(&HttpRequest{
-		spath: path,
-		body:  bytes.NewBufferString(body),
+		path: path,
+		body: bytes.NewBufferString(body),
 	})
 	if err != nil {
 		return nil, err

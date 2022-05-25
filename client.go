@@ -69,7 +69,7 @@ func (c *Client) Delete(httpRequest *HttpRequest) (*http.Response, error) {
 
 func (c *Client) NewRequest(httpRequest *HttpRequest) (*http.Response, error) {
 	u := *c.endpoint
-	u.Path = path.Join(c.endpoint.Path, httpRequest.spath)
+	u.Path = path.Join(c.endpoint.Path, httpRequest.path)
 
 	q := u.Query()
 	q.Set("token", c.apiKey)
