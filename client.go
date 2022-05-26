@@ -102,7 +102,7 @@ func (c *Client) NewRequest(httpRequest *HttpRequest) (*http.Response, error) {
 func (c *Client) Decode(resp *http.Response, out interface{}) error {
 	defer resp.Body.Close()
 	if resp.StatusCode >= 300 {
-		return fmt.Errorf("Status code is %v", resp.StatusCode)
+		return fmt.Errorf("status code is %v", resp.StatusCode)
 	}
 	if resp.ContentLength == 0 {
 		return nil
@@ -110,7 +110,7 @@ func (c *Client) Decode(resp *http.Response, out interface{}) error {
 	decodeer := json.NewDecoder(resp.Body)
 	err := decodeer.Decode(out)
 	if err != nil {
-		return fmt.Errorf("Cloudn't decode json: %v", resp.Body)
+		return fmt.Errorf("cloudn't decode json: %v", resp.Body)
 	}
 	return nil
 }
