@@ -1,0 +1,55 @@
+---
+version: 1
+interactions:
+- request:
+    body: name=test_organization&description=test_description
+    form:
+      description:
+      - test_description
+      name:
+      - test_organization
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/x-www-form-urlencoded
+      User-Agent:
+      - GoDeployGate (+github.com/fnaoto/go_deploygate; go1.17.2)
+    url: https://deploygate.com/api/organizations?token=user_api_token
+    method: POST
+  response:
+    body: '{"error":false,"organization":{"type":"Organization","name":"test_organization","description":"test_description","url":"https://deploygate.com/organizations/test_organization"}}'
+    headers:
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Thu, 26 May 2022 06:27:45 GMT
+      Etag:
+      - W/"7653a539ca9bfdb293706da9077a3dfe"
+      Location:
+      - /organizations/test_organization/invite
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Server:
+      - Apache
+      Status:
+      - 201 Created
+      Vary:
+      - Origin,X-DEPLOYGATE-CF-SHARED-KEY,X-Request-ID
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      X-Request-Id:
+      - Yo8d4bXnAFLcWdbCpMc6xQAAAE0
+      X-Xss-Protection:
+      - 1; mode=block
+    status: 201 Created
+    code: 201
+    duration: ""
