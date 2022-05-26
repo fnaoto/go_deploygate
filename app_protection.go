@@ -22,3 +22,22 @@ func (c *Client) EnableAppProtection(req *EnableAppProtectionRequest) (*EnableAp
 
 	return r, nil
 }
+
+func (c *Client) DisableAppProtection(req *DisableAppProtectionRequest) (*DisableAppProtectionResponse, error) {
+	path := fmt.Sprintf("users/%s/platforms/%s/apps/%s/binaries/%d/protect", req.Owner, req.Platform, req.AppId, req.Revision)
+
+	resp, err := c.Delete(&HttpRequest{
+		path: path,
+	})
+	if err != nil {
+		return nil, err
+	}
+
+	var r *DisableAppProtectionResponse
+	err = c.Decode(resp, &r)
+	if err != nil {
+		return nil, err
+	}
+
+	return r, nil
+}
