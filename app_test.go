@@ -1,7 +1,6 @@
 package deploygate
 
 import (
-	"log"
 	"testing"
 
 	"github.com/dnaeon/go-vcr/recorder"
@@ -12,12 +11,12 @@ func Test_UploadApps(t *testing.T) {
 
 	c, err := NewClient("user_api_token")
 	if err != nil {
-		log.Fatal(err)
+		t.Fatal(err)
 	}
 
 	r, err := recorder.New("fixtures/apps/upload_app")
 	if err != nil {
-		log.Fatal(err)
+		t.Fatal(err)
 	}
 
 	c.httpClient.Transport = r

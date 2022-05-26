@@ -1,7 +1,6 @@
 package deploygate
 
 import (
-	"log"
 	"testing"
 
 	"github.com/dnaeon/go-vcr/recorder"
@@ -12,12 +11,12 @@ func Test_ListAppTeams(t *testing.T) {
 
 	c, err := NewClient("user_api_token")
 	if err != nil {
-		log.Fatal(err)
+		t.Fatal(err)
 	}
 
 	r, err := recorder.New("fixtures/apps/list_app_teams")
 	if err != nil {
-		log.Fatal(err)
+		t.Fatal(err)
 	}
 
 	c.httpClient.Transport = r
@@ -42,12 +41,12 @@ func Test_AddAppTeams(t *testing.T) {
 
 	c, err := NewClient("user_api_token")
 	if err != nil {
-		log.Fatal(err)
+		t.Fatal(err)
 	}
 
 	r, err := recorder.New("fixtures/apps/add_app_teams")
 	if err != nil {
-		log.Fatal(err)
+		t.Fatal(err)
 	}
 
 	c.httpClient.Transport = r
@@ -70,12 +69,12 @@ func Test_RemoveAppTeams(t *testing.T) {
 
 	c, err := NewClient("user_api_token")
 	if err != nil {
-		log.Fatal(err)
+		t.Fatal(err)
 	}
 
 	r, err := recorder.New("fixtures/apps/remove_app_teams")
 	if err != nil {
-		log.Fatal(err)
+		t.Fatal(err)
 	}
 
 	c.httpClient.Transport = r

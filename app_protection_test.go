@@ -1,7 +1,6 @@
 package deploygate
 
 import (
-	"log"
 	"testing"
 
 	"github.com/dnaeon/go-vcr/recorder"
@@ -12,12 +11,12 @@ func Test_EnableAppProtection(t *testing.T) {
 
 	c, err := NewClient("user_api_token")
 	if err != nil {
-		log.Fatal(err)
+		t.Fatal(err)
 	}
 
 	r, err := recorder.New("fixtures/apps/enable_app_protection")
 	if err != nil {
-		log.Fatal(err)
+		t.Fatal(err)
 	}
 
 	c.httpClient.Transport = r
@@ -43,12 +42,12 @@ func Test_DisableAppProtection(t *testing.T) {
 
 	c, err := NewClient("user_api_token")
 	if err != nil {
-		log.Fatal(err)
+		t.Fatal(err)
 	}
 
 	r, err := recorder.New("fixtures/apps/disable_app_protection")
 	if err != nil {
-		log.Fatal(err)
+		t.Fatal(err)
 	}
 
 	c.httpClient.Transport = r

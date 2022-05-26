@@ -1,7 +1,6 @@
 package deploygate
 
 import (
-	"log"
 	"testing"
 
 	"github.com/dnaeon/go-vcr/recorder"
@@ -12,12 +11,12 @@ func Test_ListOrganizations(t *testing.T) {
 
 	c, err := NewClient("user_api_token")
 	if err != nil {
-		log.Fatal(err)
+		t.Error(err)
 	}
 
 	r, err := recorder.New("fixtures/apps/list_organizations")
 	if err != nil {
-		log.Fatal(err)
+		t.Error(err)
 	}
 
 	c.httpClient.Transport = r
@@ -38,12 +37,12 @@ func Test_CreateOrganization(t *testing.T) {
 
 	c, err := NewClient("user_api_token")
 	if err != nil {
-		log.Fatal(err)
+		t.Error(err)
 	}
 
 	r, err := recorder.New("fixtures/apps/create_organization")
 	if err != nil {
-		log.Fatal(err)
+		t.Error(err)
 	}
 
 	c.httpClient.Transport = r
@@ -67,12 +66,12 @@ func Test_GetOrganization(t *testing.T) {
 
 	c, err := NewClient("user_api_token")
 	if err != nil {
-		log.Fatal(err)
+		t.Error(err)
 	}
 
 	r, err := recorder.New("fixtures/apps/get_organization")
 	if err != nil {
-		log.Fatal(err)
+		t.Error(err)
 	}
 
 	c.httpClient.Transport = r
@@ -95,12 +94,12 @@ func Test_UpdateOrganization(t *testing.T) {
 
 	c, err := NewClient("user_api_token")
 	if err != nil {
-		log.Fatal(err)
+		t.Error(err)
 	}
 
 	r, err := recorder.New("fixtures/apps/update_organization")
 	if err != nil {
-		log.Fatal(err)
+		t.Error(err)
 	}
 
 	c.httpClient.Transport = r
@@ -124,12 +123,12 @@ func Test_DeleteOrganization(t *testing.T) {
 
 	c, err := NewClient("user_api_token")
 	if err != nil {
-		log.Fatal(err)
+		t.Error(err)
 	}
 
 	r, err := recorder.New("fixtures/apps/delete_organization")
 	if err != nil {
-		log.Fatal(err)
+		t.Error(err)
 	}
 
 	c.httpClient.Transport = r
