@@ -44,3 +44,22 @@ func (c *Client) CreateOrganizations(req *CreateOrganizationsRequest) (*CreateOr
 
 	return r, nil
 }
+
+func (c *Client) GetOrganization(req *GetOrganizationRequest) (*GetOrganizationResponse, error) {
+	path := fmt.Sprintf("/organizations/%s", req.Name)
+
+	resp, err := c.Get(&HttpRequest{
+		path: path,
+	})
+	if err != nil {
+		return nil, err
+	}
+
+	var r *GetOrganizationResponse
+	err = c.Decode(resp, &r)
+	if err != nil {
+		return nil, err
+	}
+
+	return r, nil
+}

@@ -7,15 +7,19 @@ type CreateOrganizationsRequest struct {
 	Description string
 }
 
+type GetOrganizationRequest struct {
+	Name string
+}
+
 // Response
 
 type ListOrganizationsResponse struct {
-	Error         bool             `mapstructures:"error"`
-	Message       string           `mapstructures:"message"`
-	Organizations []*Organizations `mapstructures:"organizations"`
+	Error         bool            `mapstructures:"error"`
+	Message       string          `mapstructures:"message"`
+	Organizations []*Organization `mapstructures:"organizations"`
 }
 
-type Organizations struct {
+type Organization struct {
 	Type        string `mapstructures:"type"`
 	Name        string `mapstructures:"name"`
 	Description string `mapstructures:"description"`
@@ -23,7 +27,13 @@ type Organizations struct {
 }
 
 type CreateOrganizationsResponse struct {
-	Error         bool           `mapstructures:"error"`
-	Message       string         `mapstructures:"message"`
-	Organizations *Organizations `mapstructures:"organizations"`
+	Error        bool          `mapstructures:"error"`
+	Message      string        `mapstructures:"message"`
+	Organization *Organization `mapstructures:"organization"`
+}
+
+type GetOrganizationResponse struct {
+	Error        bool          `mapstructures:"error"`
+	Message      string        `mapstructures:"message"`
+	Organization *Organization `mapstructures:"organization"`
 }
