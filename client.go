@@ -62,6 +62,11 @@ func (c *Client) Post(httpRequest *HttpRequest) (*http.Response, error) {
 	return c.NewRequest(httpRequest)
 }
 
+func (c *Client) Patch(httpRequest *HttpRequest) (*http.Response, error) {
+	httpRequest.method = "PATCH"
+	return c.NewRequest(httpRequest)
+}
+
 func (c *Client) Delete(httpRequest *HttpRequest) (*http.Response, error) {
 	httpRequest.method = "DELETE"
 	return c.NewRequest(httpRequest)

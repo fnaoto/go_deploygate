@@ -11,6 +11,11 @@ type GetOrganizationRequest struct {
 	Name string
 }
 
+type UpdateOrganizationRequest struct {
+	Name        string
+	Description string
+}
+
 // Response
 
 type ListOrganizationsResponse struct {
@@ -33,6 +38,12 @@ type CreateOrganizationResponse struct {
 }
 
 type GetOrganizationResponse struct {
+	Error        bool          `mapstructures:"error"`
+	Message      string        `mapstructures:"message"`
+	Organization *Organization `mapstructures:"organization"`
+}
+
+type UpdateOrganizationResponse struct {
 	Error        bool          `mapstructures:"error"`
 	Message      string        `mapstructures:"message"`
 	Organization *Organization `mapstructures:"organization"`

@@ -63,3 +63,24 @@ func (c *Client) GetOrganization(req *GetOrganizationRequest) (*GetOrganizationR
 
 	return r, nil
 }
+
+func (c *Client) UpdateOrganization(req *UpdateOrganizationRequest) (*UpdateOrganizationResponse, error) {
+	path := fmt.Sprintf("/organizations/%s", req.Name)
+	body := fmt.Sprintf("description=%s", req.Description)
+
+	resp, err := c.Patch(&HttpRequest{
+		path: path,
+		body: bytes.NewBufferString(body),
+	})
+	if err != nil {
+		return nil, err
+	}
+
+	var r *UpdateOrganizationResponse
+	err = c.Decode(resp, &r)
+	if err != nil {
+		return nil, err
+	}
+
+	return r, nil
+}
