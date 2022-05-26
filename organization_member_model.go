@@ -16,6 +16,16 @@ type AddOrganizationMemberByEmailRequest struct {
 	Email        string
 }
 
+type RemoveOrganizationMemberByUserNameRequest struct {
+	Organization string
+	UserName     string
+}
+
+type RemoveOrganizationMemberByEmailRequest struct {
+	Organization string
+	Email        string
+}
+
 // Response
 
 type ListOrganizationMembersResponse struct {
@@ -25,6 +35,11 @@ type ListOrganizationMembersResponse struct {
 }
 
 type AddOrganizationMemberResponse struct {
+	Error   bool   `mapstructures:"error"`
+	Message string `mapstructures:"message"`
+}
+
+type RemoveOrganizationMemberResponse struct {
 	Error   bool   `mapstructures:"error"`
 	Message string `mapstructures:"message"`
 }
