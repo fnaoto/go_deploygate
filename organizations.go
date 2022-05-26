@@ -84,3 +84,22 @@ func (c *Client) UpdateOrganization(req *UpdateOrganizationRequest) (*UpdateOrga
 
 	return r, nil
 }
+
+func (c *Client) DeleteOrganization(req *DeleteOrganizationRequest) (*DeleteOrganizationResponse, error) {
+	path := fmt.Sprintf("/organizations/%s", req.Name)
+
+	resp, err := c.Delete(&HttpRequest{
+		path: path,
+	})
+	if err != nil {
+		return nil, err
+	}
+
+	var r *DeleteOrganizationResponse
+	err = c.Decode(resp, &r)
+	if err != nil {
+		return nil, err
+	}
+
+	return r, nil
+}
