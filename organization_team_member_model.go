@@ -13,6 +13,12 @@ type AddOrganizationTeamMemberRequest struct {
 	User         string
 }
 
+type RemoveOrganizationTeamMemberRequest struct {
+	Organization string
+	Team         string
+	User         string
+}
+
 // Response
 
 type ListOrganizationTeamMembersResponse struct {
@@ -29,6 +35,11 @@ type User struct {
 }
 
 type AddOrganizationTeamMemberResponse struct {
+	Error   bool   `mapstructure:"error"`
+	Message string `mapstructure:"message"`
+}
+
+type RemoveOrganizationTeamMemberResponse struct {
 	Error   bool   `mapstructure:"error"`
 	Message string `mapstructure:"message"`
 }

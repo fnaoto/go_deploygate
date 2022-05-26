@@ -44,3 +44,22 @@ func (c *Client) AddOrganizationTeamMember(req *AddOrganizationTeamMemberRequest
 
 	return r, nil
 }
+
+func (c *Client) RemoveOrganizationTeamMember(req *RemoveOrganizationTeamMemberRequest) (*RemoveOrganizationTeamMemberResponse, error) {
+	path := fmt.Sprintf("organizations/%s/teams/%s/users/%s", req.Organization, req.Team, req.User)
+
+	resp, err := c.Delete(&HttpRequest{
+		path: path,
+	})
+	if err != nil {
+		return nil, err
+	}
+
+	var r *RemoveOrganizationTeamMemberResponse
+	err = c.Decode(resp, &r)
+	if err != nil {
+		return nil, err
+	}
+
+	return r, nil
+}
