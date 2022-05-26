@@ -1,0 +1,49 @@
+---
+version: 1
+interactions:
+- request:
+    body: user=naoto-fukuda-test
+    form:
+      user:
+      - naoto-fukuda-test
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/x-www-form-urlencoded
+      User-Agent:
+      - GoDeployGate (+github.com/fnaoto/go_deploygate; go1.17.2)
+    url: https://deploygate.com/api/organizations/test_organization/teams/test_team/users?token=user_api_token
+    method: POST
+  response:
+    body: ""
+    headers:
+      Cache-Control:
+      - no-cache
+      Content-Type:
+      - application/json
+      Date:
+      - Thu, 26 May 2022 11:04:16 GMT
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Server:
+      - Apache
+      Status:
+      - 201 Created
+      Vary:
+      - Origin,X-DEPLOYGATE-CF-SHARED-KEY,X-Request-ID
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      X-Request-Id:
+      - Yo9esAshDSq6Jpg1gMu0FQAAAFg
+      X-Xss-Protection:
+      - 1; mode=block
+    status: 201 Created
+    code: 201
+    duration: ""
