@@ -10,7 +10,7 @@ import (
 func Test_GetAppMembers(t *testing.T) {
 	t.Parallel()
 
-	c, err := NewClient("api_token")
+	c, err := NewClient("user_api_token")
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -40,7 +40,7 @@ func Test_GetAppMembers(t *testing.T) {
 func Test_AddAppMembers(t *testing.T) {
 	t.Parallel()
 
-	c, err := NewClient("api_token")
+	c, err := NewClient("user_api_token")
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -72,7 +72,7 @@ func Test_AddAppMembers(t *testing.T) {
 func Test_RemoveAppMembers(t *testing.T) {
 	t.Parallel()
 
-	c, err := NewClient("api_token")
+	c, err := NewClient("user_api_token")
 	if err != nil {
 		log.Fatal(err)
 	}

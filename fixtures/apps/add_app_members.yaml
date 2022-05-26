@@ -15,7 +15,7 @@ interactions:
       - application/x-www-form-urlencoded
       User-Agent:
       - GoDeployGate (+github.com/fnaoto/go_deploygate; go1.17.2)
-    url: https://deploygate.com/api/users/f-naoto832/platforms/android/apps/com.deploygate.sample/members?token=api_token
+    url: https://deploygate.com/api/users/f-naoto832/platforms/android/apps/com.deploygate.sample/members?token=user_api_token
     method: POST
   response:
     body: '{"error":false,"results":{"invite":"member invite success","added":[{"name":"naoto-fukuda-test","role":2}],"invited":[]}}'

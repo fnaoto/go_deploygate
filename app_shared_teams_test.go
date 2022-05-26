@@ -11,7 +11,7 @@ import (
 func Test_ListAppSharedTeams(t *testing.T) {
 	t.Parallel()
 
-	c, err := NewClient("api_token")
+	c, err := NewClient("user_api_token")
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -42,7 +42,7 @@ func Test_ListAppSharedTeams(t *testing.T) {
 func Test_AddAppSharedTeams(t *testing.T) {
 	t.Parallel()
 
-	c, err := NewClient("api_token")
+	c, err := NewClient("user_api_token")
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -74,7 +74,7 @@ func Test_AddAppSharedTeams(t *testing.T) {
 func Test_RemoveAppSharedTeams(t *testing.T) {
 	t.Parallel()
 
-	c, err := NewClient("api_token")
+	c, err := NewClient("user_api_token")
 	if err != nil {
 		log.Fatal(err)
 	}

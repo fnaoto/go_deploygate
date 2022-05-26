@@ -10,7 +10,7 @@ import (
 func Test_ListAppTeams(t *testing.T) {
 	t.Parallel()
 
-	c, err := NewClient("api_token")
+	c, err := NewClient("user_api_token")
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -40,7 +40,7 @@ func Test_ListAppTeams(t *testing.T) {
 func Test_AddAppTeams(t *testing.T) {
 	t.Parallel()
 
-	c, err := NewClient("api_token")
+	c, err := NewClient("user_api_token")
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -68,7 +68,7 @@ func Test_AddAppTeams(t *testing.T) {
 func Test_RemoveAppTeams(t *testing.T) {
 	t.Parallel()
 
-	c, err := NewClient("api_token")
+	c, err := NewClient("user_api_token")
 	if err != nil {
 		log.Fatal(err)
 	}
