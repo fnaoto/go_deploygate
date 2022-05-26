@@ -33,7 +33,7 @@ func Test_ListOrganizations(t *testing.T) {
 	}
 }
 
-func Test_CreateOrganizations(t *testing.T) {
+func Test_CreateOrganization(t *testing.T) {
 	t.Parallel()
 
 	c, err := NewClient("user_api_token")
@@ -41,7 +41,7 @@ func Test_CreateOrganizations(t *testing.T) {
 		log.Fatal(err)
 	}
 
-	r, err := recorder.New("fixtures/apps/create_organizations")
+	r, err := recorder.New("fixtures/apps/create_organization")
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -49,7 +49,7 @@ func Test_CreateOrganizations(t *testing.T) {
 	c.httpClient.Transport = r
 	defer r.Stop()
 
-	resp, err := c.CreateOrganizations(&CreateOrganizationsRequest{
+	resp, err := c.CreateOrganization(&CreateOrganizationRequest{
 		Name:        "test_organization",
 		Description: "test_description",
 	})

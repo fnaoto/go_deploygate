@@ -24,7 +24,7 @@ func (c *Client) ListOrganizations() (*ListOrganizationsResponse, error) {
 	return r, nil
 }
 
-func (c *Client) CreateOrganizations(req *CreateOrganizationsRequest) (*CreateOrganizationsResponse, error) {
+func (c *Client) CreateOrganization(req *CreateOrganizationRequest) (*CreateOrganizationResponse, error) {
 	path := "/organizations"
 	body := fmt.Sprintf("name=%s&description=%s", req.Name, req.Description)
 
@@ -36,7 +36,7 @@ func (c *Client) CreateOrganizations(req *CreateOrganizationsRequest) (*CreateOr
 		return nil, err
 	}
 
-	var r *CreateOrganizationsResponse
+	var r *CreateOrganizationResponse
 	err = c.Decode(resp, &r)
 	if err != nil {
 		return nil, err

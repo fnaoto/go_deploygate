@@ -2,7 +2,7 @@ package deploygate
 
 // Request
 
-type CreateOrganizationsRequest struct {
+type CreateOrganizationRequest struct {
 	Name        string
 	Description string
 }
@@ -26,7 +26,7 @@ type Organization struct {
 	Url         string `mapstructures:"url"`
 }
 
-type CreateOrganizationsResponse struct {
+type CreateOrganizationResponse struct {
 	Error        bool          `mapstructures:"error"`
 	Message      string        `mapstructures:"message"`
 	Organization *Organization `mapstructures:"organization"`
