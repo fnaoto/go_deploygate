@@ -3,6 +3,7 @@ package deploygate
 import (
 	"bytes"
 	"fmt"
+	"net/url"
 )
 
 func (c *Client) ListOrganizations() (*ListOrganizationsResponse, error) {
@@ -26,7 +27,7 @@ func (c *Client) ListOrganizations() (*ListOrganizationsResponse, error) {
 
 func (c *Client) CreateOrganization(req *CreateOrganizationRequest) (*CreateOrganizationResponse, error) {
 	path := "/organizations"
-	body := fmt.Sprintf("name=%s&description=%s", req.Name, req.Description)
+	body := fmt.Sprintf("name=%s&description=%s", req.Name, url.QueryEscape(req.Description))
 
 	resp, err := c.Post(&HttpRequest{
 		path: path,
@@ -66,7 +67,7 @@ func (c *Client) GetOrganization(req *GetOrganizationRequest) (*GetOrganizationR
 
 func (c *Client) UpdateOrganization(req *UpdateOrganizationRequest) (*UpdateOrganizationResponse, error) {
 	path := fmt.Sprintf("/organizations/%s", req.Name)
-	body := fmt.Sprintf("description=%s", req.Description)
+	body := fmt.Sprintf("description=%s", url.QueryEscape(req.Description))
 
 	resp, err := c.Patch(&HttpRequest{
 		path: path,
