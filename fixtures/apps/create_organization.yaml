@@ -2,34 +2,40 @@
 version: 1
 interactions:
 - request:
-    body: ""
-    form: {}
+    body: name=test_organization&description=test_description
+    form:
+      description:
+      - test_description
+      name:
+      - test_organization
     headers:
       Accept:
       - application/json
       Content-Type:
       - application/x-www-form-urlencoded
       User-Agent:
-      - GoDeployGate (+github.com/fnaoto/go_deploygate; go1.18.2)
-    url: https://deploygate.com/api/organizations/test_group_terraform/platforms/android/apps/com.deploygate.sample/teams/test_team?token=user_api_token
-    method: DELETE
+      - GoDeployGate (+github.com/fnaoto/go_deploygate; go1.17.2)
+    url: https://deploygate.com/api/organizations?token=user_api_token
+    method: POST
   response:
-    body: '{"error":false,"message":"test_team was leaved from Sample(test_group_terraform)"}'
+    body: '{"error":false,"organization":{"type":"Organization","name":"test_organization","description":"test_description","url":"https://deploygate.com/organizations/test_organization"}}'
     headers:
       Cache-Control:
       - max-age=0, private, must-revalidate
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Wed, 25 May 2022 12:25:58 GMT
+      - Thu, 26 May 2022 06:27:45 GMT
       Etag:
-      - W/"fa5c94ac0f1415b86cc39eb5b5a1e5b7"
+      - W/"7653a539ca9bfdb293706da9077a3dfe"
+      Location:
+      - /organizations/test_organization/invite
       Referrer-Policy:
       - strict-origin-when-cross-origin
       Server:
       - Apache
       Status:
-      - 200 OK
+      - 201 Created
       Vary:
       - Origin,X-DEPLOYGATE-CF-SHARED-KEY,X-Request-ID
       X-Content-Type-Options:
@@ -41,9 +47,9 @@ interactions:
       X-Permitted-Cross-Domain-Policies:
       - none
       X-Request-Id:
-      - Yo4gVk-@ca0OhjaKjs2nngAAAEY
+      - Yo8d4bXnAFLcWdbCpMc6xQAAAE0
       X-Xss-Protection:
       - 1; mode=block
-    status: 200 OK
-    code: 200
+    status: 201 Created
+    code: 201
     duration: ""

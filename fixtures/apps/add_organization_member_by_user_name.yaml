@@ -2,28 +2,30 @@
 version: 1
 interactions:
 - request:
-    body: ""
-    form: {}
+    body: username=naoto-fukuda-test
+    form:
+      username:
+      - naoto-fukuda-test
     headers:
       Accept:
       - application/json
       Content-Type:
       - application/x-www-form-urlencoded
       User-Agent:
-      - GoDeployGate (+github.com/fnaoto/go_deploygate; go1.18.2)
-    url: https://deploygate.com/api/organizations/test_group_terraform/platforms/android/apps/com.deploygate.sample/teams/test_team?token=user_api_token
-    method: DELETE
+      - GoDeployGate (+github.com/fnaoto/go_deploygate; go1.17.2)
+    url: https://deploygate.com/api/organizations/test_organization/members?token=user_api_token
+    method: POST
   response:
-    body: '{"error":false,"message":"test_team was leaved from Sample(test_group_terraform)"}'
+    body: '{"error":false,"message":"naoto-fukuda-test was invited to test_organization"}'
     headers:
       Cache-Control:
       - max-age=0, private, must-revalidate
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Wed, 25 May 2022 12:25:58 GMT
+      - Thu, 26 May 2022 09:34:08 GMT
       Etag:
-      - W/"fa5c94ac0f1415b86cc39eb5b5a1e5b7"
+      - W/"d67b2d5eb85ff1fc5cf24fd0e58b429e"
       Referrer-Policy:
       - strict-origin-when-cross-origin
       Server:
@@ -41,7 +43,7 @@ interactions:
       X-Permitted-Cross-Domain-Policies:
       - none
       X-Request-Id:
-      - Yo4gVk-@ca0OhjaKjs2nngAAAEY
+      - Yo9JjwshDSq6Jpg1gMt6BQAAAFY
       X-Xss-Protection:
       - 1; mode=block
     status: 200 OK

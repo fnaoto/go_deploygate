@@ -10,20 +10,20 @@ interactions:
       Content-Type:
       - application/x-www-form-urlencoded
       User-Agent:
-      - GoDeployGate (+github.com/fnaoto/go_deploygate; go1.18.2)
-    url: https://deploygate.com/api/organizations/test_group_terraform/platforms/android/apps/com.deploygate.sample/teams/test_team?token=user_api_token
+      - GoDeployGate (+github.com/fnaoto/go_deploygate; go1.17.2)
+    url: https://deploygate.com/api/organizations/test_organization/teams/test_team/users/naoto-fukuda-test?token=user_api_token
     method: DELETE
   response:
-    body: '{"error":false,"message":"test_team was leaved from Sample(test_group_terraform)"}'
+    body: '{"error":false,"message":"naoto-fukuda-test was removed from test_team(test_organization)"}'
     headers:
       Cache-Control:
       - max-age=0, private, must-revalidate
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Wed, 25 May 2022 12:25:58 GMT
+      - Thu, 26 May 2022 11:13:49 GMT
       Etag:
-      - W/"fa5c94ac0f1415b86cc39eb5b5a1e5b7"
+      - W/"60d580a216e3419c55eb0eabcb25594d"
       Referrer-Policy:
       - strict-origin-when-cross-origin
       Server:
@@ -41,7 +41,7 @@ interactions:
       X-Permitted-Cross-Domain-Policies:
       - none
       X-Request-Id:
-      - Yo4gVk-@ca0OhjaKjs2nngAAAEY
+      - Yo9g7QshDSq6Jpg1gMu3XQAAAEc
       X-Xss-Protection:
       - 1; mode=block
     status: 200 OK

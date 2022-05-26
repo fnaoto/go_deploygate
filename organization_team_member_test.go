@@ -1,0 +1,93 @@
+package deploygate
+
+import (
+	"testing"
+
+	"github.com/dnaeon/go-vcr/recorder"
+)
+
+func Test_ListOrganizationTeamMembers(t *testing.T) {
+	t.Parallel()
+
+	c, err := NewClient("user_api_token")
+	if err != nil {
+		t.Error(err)
+	}
+
+	r, err := recorder.New("fixtures/apps/list_organization_team_members")
+	if err != nil {
+		t.Error(err)
+	}
+
+	c.httpClient.Transport = r
+	defer r.Stop()
+
+	resp, err := c.ListOrganizationTeamMembers(&ListOrganizationTeamMembersRequest{
+		Organization: "test_organization",
+		Team:         "test_team",
+	})
+	if err != nil {
+		t.Error(err)
+	}
+
+	if resp.Error {
+		t.Error("response caused error")
+	}
+}
+
+func Test_AddOrganizationTeamMember(t *testing.T) {
+	t.Parallel()
+
+	c, err := NewClient("user_api_token")
+	if err != nil {
+		t.Error(err)
+	}
+
+	r, err := recorder.New("fixtures/apps/add_organization_team_member")
+	if err != nil {
+		t.Error(err)
+	}
+
+	c.httpClient.Transport = r
+	defer r.Stop()
+
+	// TODO: Success response is empty and couldn't decode.
+	_, err = c.AddOrganizationTeamMember(&AddOrganizationTeamMemberRequest{
+		Organization: "test_organization",
+		Team:         "test_team",
+		User:         "naoto-fukuda-test",
+	})
+	if err != nil {
+		t.Error(err)
+	}
+}
+
+func Test_RemoveOrganizationTeamMember(t *testing.T) {
+	t.Parallel()
+
+	c, err := NewClient("user_api_token")
+	if err != nil {
+		t.Error(err)
+	}
+
+	r, err := recorder.New("fixtures/apps/remove_organization_team_member")
+	if err != nil {
+		t.Error(err)
+	}
+
+	c.httpClient.Transport = r
+	defer r.Stop()
+
+	resp, err := c.RemoveOrganizationTeamMember(&RemoveOrganizationTeamMemberRequest{
+		Organization: "test_organization",
+		Team:         "test_team",
+		User:         "naoto-fukuda-test",
+	})
+	if err != nil {
+		t.Error(err)
+	}
+
+	if resp.Error {
+		t.Error("response caused error")
+	}
+}
