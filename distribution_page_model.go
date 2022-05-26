@@ -2,13 +2,13 @@ package deploygate
 
 // Request
 
-type DeleteAppDistributionsPageRequest struct {
+type DeleteDistributionsPageRequest struct {
 	Distribution string
 }
 
 // Response
 
-type DeleteAppDistributionsPageResponse struct {
+type DeleteDistributionsPageResponse struct {
 	Error   bool     `mapstructure:"error"`
 	Message string   `mapstructure:"message"`
 	Results *Results `mapstructure:"results"`

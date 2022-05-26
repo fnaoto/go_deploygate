@@ -2,7 +2,7 @@ package deploygate
 
 import "fmt"
 
-func (c *Client) DeleteAppDistributionsPage(req *DeleteAppDistributionsPageRequest) (*DeleteAppDistributionsPageResponse, error) {
+func (c *Client) DeleteDistributionsPage(req *DeleteDistributionsPageRequest) (*DeleteDistributionsPageResponse, error) {
 	path := fmt.Sprintf("/distributions/%s", req.Distribution)
 
 	resp, err := c.Delete(&HttpRequest{
@@ -12,7 +12,7 @@ func (c *Client) DeleteAppDistributionsPage(req *DeleteAppDistributionsPageReque
 		return nil, err
 	}
 
-	var r *DeleteAppDistributionsPageResponse
+	var r *DeleteDistributionsPageResponse
 	err = c.Decode(resp, &r)
 	if err != nil {
 		return nil, err

@@ -7,7 +7,7 @@ import (
 	"github.com/dnaeon/go-vcr/recorder"
 )
 
-func Test_DeleteAppDistributionsPage(t *testing.T) {
+func Test_DeleteDistributionsPage(t *testing.T) {
 	t.Parallel()
 
 	c, err := NewClient("api_token")
@@ -15,7 +15,7 @@ func Test_DeleteAppDistributionsPage(t *testing.T) {
 		log.Fatal(err)
 	}
 
-	r, err := recorder.New("fixtures/apps/delete_app_distributions_page")
+	r, err := recorder.New("fixtures/apps/delete_distributions_page")
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -23,7 +23,7 @@ func Test_DeleteAppDistributionsPage(t *testing.T) {
 	c.httpClient.Transport = r
 	defer r.Stop()
 
-	resp, err := c.DeleteAppDistributionsPage(&DeleteAppDistributionsPageRequest{
+	resp, err := c.DeleteDistributionsPage(&DeleteDistributionsPageRequest{
 		Distribution: "test_distribution",
 	})
 	if err != nil {
