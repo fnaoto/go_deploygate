@@ -35,5 +35,4 @@ type RemoveEnterpriseMemberResponse struct {
 	Error   bool    `mapstructures:"error"`
 	Message string  `mapstructure:"message"`
 	Because string  `mapstructure:"because"`
-	Users   []*User `mapstructures:"users"`
 }
