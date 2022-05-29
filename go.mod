@@ -1,4 +1,4 @@
-module deploygate
+module go_deploygate
 
 go 1.17
 
