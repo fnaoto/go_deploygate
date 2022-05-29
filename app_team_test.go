@@ -36,7 +36,7 @@ func Test_ListAppTeams(t *testing.T) {
 	}
 }
 
-func Test_AddAppTeams(t *testing.T) {
+func Test_AddAppTeam(t *testing.T) {
 	t.Parallel()
 
 	c, err := NewClient("user_api_token")
@@ -44,7 +44,7 @@ func Test_AddAppTeams(t *testing.T) {
 		t.Fatal(err)
 	}
 
-	r, err := recorder.New("fixtures/app/add_app_teams")
+	r, err := recorder.New("fixtures/app/add_app_team")
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -53,7 +53,7 @@ func Test_AddAppTeams(t *testing.T) {
 	defer r.Stop()
 
 	// TODO: Success response is empty and couldn't decode.
-	_, err = c.AddAppTeams(&AddAppTeamsRequest{
+	_, err = c.AddAppTeam(&AddAppTeamRequest{
 		Organization: "test_organization",
 		Platform:     "android",
 		AppId:        "com.deploygate.sample",
@@ -64,7 +64,7 @@ func Test_AddAppTeams(t *testing.T) {
 	}
 }
 
-func Test_RemoveAppTeams(t *testing.T) {
+func Test_RemoveAppTeam(t *testing.T) {
 	t.Parallel()
 
 	c, err := NewClient("user_api_token")
@@ -72,7 +72,7 @@ func Test_RemoveAppTeams(t *testing.T) {
 		t.Fatal(err)
 	}
 
-	r, err := recorder.New("fixtures/app/remove_app_teams")
+	r, err := recorder.New("fixtures/app/remove_app_team")
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -80,7 +80,7 @@ func Test_RemoveAppTeams(t *testing.T) {
 	c.httpClient.Transport = r
 	defer r.Stop()
 
-	resp, err := c.RemoveAppTeams(&RemoveAppTeamsRequest{
+	resp, err := c.RemoveAppTeam(&RemoveAppTeamRequest{
 		Organization: "test_organization",
 		Platform:     "android",
 		AppId:        "com.deploygate.sample",
