@@ -2,8 +2,10 @@
 version: 1
 interactions:
 - request:
-    body: ""
-    form: {}
+    body: user=naoto-fukuda-test
+    form:
+      user:
+      - naoto-fukuda-test
     headers:
       Accept:
       - application/json
@@ -11,25 +13,23 @@ interactions:
       - application/x-www-form-urlencoded
       User-Agent:
       - GoDeployGate (+github.com/fnaoto/go_deploygate; go1.17.2)
-    url: https://deploygate.com/api/organizations?token=user_api_token
-    method: GET
+    url: https://deploygate.com/api/enterprises/test-enterprise/users?token=user_api_key
+    method: POST
   response:
-    body: '{"error":false,"organizations":[{"type":"Organization","name":"test_organization","description":null,"url":"https://deploygate.com/organizations/test_organization"},{"type":"Organization","name":"test_organization_2","description":null,"url":"https://deploygate.com/organizations/test_organization_2"}]}'
+    body: ""
     headers:
       Cache-Control:
-      - max-age=0, private, must-revalidate
+      - no-cache
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Thu, 26 May 2022 06:11:03 GMT
-      Etag:
-      - W/"5e8bdfbe6c91279a1ff298c265f2654f"
+      - Sun, 29 May 2022 11:23:38 GMT
       Referrer-Policy:
       - strict-origin-when-cross-origin
       Server:
       - Apache
       Status:
-      - 200 OK
+      - 201 Created
       Vary:
       - Origin,X-DEPLOYGATE-CF-SHARED-KEY,X-Request-ID
       X-Content-Type-Options:
@@ -41,9 +41,9 @@ interactions:
       X-Permitted-Cross-Domain-Policies:
       - none
       X-Request-Id:
-      - Yo8Z9xCTEjipGOzVKyYSGgAAAAQ
+      - YpNXuoZ0kIzCH5iam9LAewAAAAI
       X-Xss-Protection:
       - 1; mode=block
-    status: 200 OK
-    code: 200
+    status: 201 Created
+    code: 201
     duration: ""

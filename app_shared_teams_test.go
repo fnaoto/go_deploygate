@@ -6,11 +6,10 @@ import (
 	"github.com/dnaeon/go-vcr/recorder"
 )
 
-// TODO: Test on enterprise account.
 func Test_ListAppSharedTeams(t *testing.T) {
 	t.Parallel()
 
-	c, err := NewClient("user_api_token")
+	c, err := NewClient("user_api_key")
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -24,7 +23,7 @@ func Test_ListAppSharedTeams(t *testing.T) {
 	defer r.Stop()
 
 	resp, err := c.ListAppSharedTeams(&ListAppSharedTeamsRequest{
-		Organization: "test_group_terraform",
+		Organization: "test_organization",
 		Platform:     "android",
 		AppId:        "com.deploygate.sample",
 	})
@@ -37,11 +36,10 @@ func Test_ListAppSharedTeams(t *testing.T) {
 	}
 }
 
-// TODO: Test on enterprise account.
 func Test_AddAppSharedTeams(t *testing.T) {
 	t.Parallel()
 
-	c, err := NewClient("user_api_token")
+	c, err := NewClient("user_api_key")
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -54,8 +52,9 @@ func Test_AddAppSharedTeams(t *testing.T) {
 	c.httpClient.Transport = r
 	defer r.Stop()
 
-	resp, err := c.AddAppSharedTeams(&AddAppSharedTeamsRequest{
-		Organization: "test_group_terraform",
+	// TODO: Success response is empty and couldn't decode.
+	_, err = c.AddAppSharedTeams(&AddAppSharedTeamsRequest{
+		Organization: "test_organization",
 		Platform:     "android",
 		AppId:        "com.deploygate.sample",
 		Team:         "test_team",
@@ -63,17 +62,12 @@ func Test_AddAppSharedTeams(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
-
-	if resp.Error {
-		t.Errorf("response caused error")
-	}
 }
 
-// TODO: Test on enterprise account.
 func Test_RemoveAppSharedTeams(t *testing.T) {
 	t.Parallel()
 
-	c, err := NewClient("user_api_token")
+	c, err := NewClient("user_api_key")
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -87,7 +81,7 @@ func Test_RemoveAppSharedTeams(t *testing.T) {
 	defer r.Stop()
 
 	resp, err := c.RemoveAppSharedTeams(&RemoveAppSharedTeamsRequest{
-		Organization: "test_group_terraform",
+		Organization: "test_organization",
 		Platform:     "android",
 		AppId:        "com.deploygate.sample",
 		Team:         "test_team",

@@ -81,7 +81,7 @@ func Test_AddOrganizationMemberByEmail(t *testing.T) {
 
 	resp, err := c.AddOrganizationMemberByEmail(&AddOrganizationMemberByEmailRequest{
 		Organization: "test_organization",
-		Email:        "f.naoto832+test@gmail.com",
+		Email:        "dummy.email+test@dummy.email",
 	})
 	if err != nil {
 		t.Error(err)
@@ -139,7 +139,7 @@ func Test_RemoveOrganizationMemberByEmail(t *testing.T) {
 
 	resp, err := c.RemoveOrganizationMemberByEmail(&RemoveOrganizationMemberByEmailRequest{
 		Organization: "test_organization",
-		Email:        "f.naoto832+test@gmail.com",
+		Email:        "dummy.email+test@dummy.email",
 	})
 	if err != nil {
 		t.Error(err)

@@ -11,25 +11,23 @@ interactions:
       - application/x-www-form-urlencoded
       User-Agent:
       - GoDeployGate (+github.com/fnaoto/go_deploygate; go1.17.2)
-    url: https://deploygate.com/api/organizations?token=user_api_token
-    method: GET
+    url: https://deploygate.com/api/enterprises/test-enterprise/organizations/test_organization/users/naoto-fukuda-test?token=user_api_key
+    method: DELETE
   response:
-    body: '{"error":false,"organizations":[{"type":"Organization","name":"test_organization","description":null,"url":"https://deploygate.com/organizations/test_organization"},{"type":"Organization","name":"test_organization_2","description":null,"url":"https://deploygate.com/organizations/test_organization_2"}]}'
+    body: '{"error":false,"message":"naoto-fukuda-test was removed from test_organization(test-enterprise)"}'
     headers:
       Cache-Control:
-      - max-age=0, private, must-revalidate
+      - no-cache
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Thu, 26 May 2022 06:11:03 GMT
-      Etag:
-      - W/"5e8bdfbe6c91279a1ff298c265f2654f"
+      - Sun, 29 May 2022 11:25:21 GMT
       Referrer-Policy:
       - strict-origin-when-cross-origin
       Server:
       - Apache
       Status:
-      - 200 OK
+      - 201 Created
       Vary:
       - Origin,X-DEPLOYGATE-CF-SHARED-KEY,X-Request-ID
       X-Content-Type-Options:
@@ -41,7 +39,7 @@ interactions:
       X-Permitted-Cross-Domain-Policies:
       - none
       X-Request-Id:
-      - Yo8Z9xCTEjipGOzVKyYSGgAAAAQ
+      - YpNYIZj6UIoA@AKDl4WZJgAAAUM
       X-Xss-Protection:
       - 1; mode=block
     status: 200 OK

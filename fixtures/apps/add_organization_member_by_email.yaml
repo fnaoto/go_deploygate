@@ -5,7 +5,7 @@ interactions:
     body: email=f.naoto832%2Btest%40gmail.com
     form:
       email:
-      - f.naoto832+test@gmail.com
+      - dummy.email+test@dummy.email
     headers:
       Accept:
       - application/json

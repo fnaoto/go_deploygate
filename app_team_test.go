@@ -23,7 +23,7 @@ func Test_ListAppTeams(t *testing.T) {
 	defer r.Stop()
 
 	resp, err := c.ListAppTeams(&ListAppTeamsRequest{
-		Organization: "test_group_terraform",
+		Organization: "test_organization",
 		Platform:     "android",
 		AppId:        "com.deploygate.sample",
 	})
@@ -54,7 +54,7 @@ func Test_AddAppTeams(t *testing.T) {
 
 	// TODO: Success response is empty and couldn't decode.
 	_, err = c.AddAppTeams(&AddAppTeamsRequest{
-		Organization: "test_group_terraform",
+		Organization: "test_organization",
 		Platform:     "android",
 		AppId:        "com.deploygate.sample",
 		Team:         "test_team",
@@ -81,7 +81,7 @@ func Test_RemoveAppTeams(t *testing.T) {
 	defer r.Stop()
 
 	resp, err := c.RemoveAppTeams(&RemoveAppTeamsRequest{
-		Organization: "test_group_terraform",
+		Organization: "test_organization",
 		Platform:     "android",
 		AppId:        "com.deploygate.sample",
 		Team:         "test_team",
