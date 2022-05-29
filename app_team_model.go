@@ -8,14 +8,14 @@ type ListAppTeamsRequest struct {
 	AppId        string
 }
 
-type AddAppTeamsRequest struct {
+type AddAppTeamRequest struct {
 	Organization string
 	Platform     string
 	AppId        string
 	Team         string
 }
 
-type RemoveAppTeamsRequest struct {
+type RemoveAppTeamRequest struct {
 	Organization string
 	Platform     string
 	AppId        string
@@ -37,13 +37,13 @@ type Teams struct {
 	MemberCount uint   `mapstructure:"member_count"`
 }
 
-type AddAppTeamsResponse struct {
+type AddAppTeamResponse struct {
 	Error   bool   `mapstructure:"error"`
 	Message string `mapstructure:"message"`
 	Because string `mapstructure:"because"`
 }
 
-type RemoveAppTeamsResponse struct {
+type RemoveAppTeamResponse struct {
 	Error   bool   `mapstructure:"error"`
 	Message string `mapstructure:"message"`
 	Because string `mapstructure:"because"`

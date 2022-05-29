@@ -2,35 +2,32 @@
 version: 1
 interactions:
 - request:
-    body: team=
-    form:
-      team:
-      - ""
+    body: ""
+    form: {}
     headers:
       Accept:
       - application/json
       Content-Type:
       - application/x-www-form-urlencoded
       User-Agent:
-      - GoDeployGate (+github.com/fnaoto/go_deploygate; go1.18.2)
-    url: https://deploygate.com/api/organizations/test_group_terraform/platforms/android/apps/com.deploygate.sample/shared_teams?token=user_api_token
-    method: POST
+      - GoDeployGate (+github.com/fnaoto/go_deploygate; go1.17.2)
+    url: https://deploygate.com/api/enterprises/test-enterprise/shared_teams/test_shared_team?token=user_api_token
+    method: DELETE
   response:
-    body: '{"message":"This operation is only for Enterprise Organizations","because":"This
-      operation is only for Enterprise Organizations","error":true}'
+    body: '{"error":false,"message":"test_shared_team was removed"}'
     headers:
       Cache-Control:
       - no-cache
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Wed, 25 May 2022 13:02:50 GMT
+      - Sun, 29 May 2022 11:26:49 GMT
       Referrer-Policy:
       - strict-origin-when-cross-origin
       Server:
       - Apache
       Status:
-      - 400 Bad Request
+      - 201 Created
       Vary:
       - Origin,X-DEPLOYGATE-CF-SHARED-KEY,X-Request-ID
       X-Content-Type-Options:
@@ -42,9 +39,9 @@ interactions:
       X-Permitted-Cross-Domain-Policies:
       - none
       X-Request-Id:
-      - Yo4o@n0-ju06jRNbx-liyQAAABM
+      - YpNYeYZ0kIzCH5iam9LBvAAAABI
       X-Xss-Protection:
       - 1; mode=block
-    status: 400 Bad Request
-    code: 400
+    status: 200 OK
+    code: 200
     duration: ""

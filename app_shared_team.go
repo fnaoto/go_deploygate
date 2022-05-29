@@ -24,7 +24,7 @@ func (c *Client) ListAppSharedTeams(req *ListAppSharedTeamsRequest) (*ListAppSha
 	return r, nil
 }
 
-func (c *Client) AddAppSharedTeams(req *AddAppSharedTeamsRequest) (*AddAppSharedTeamsResponse, error) {
+func (c *Client) AddAppSharedTeam(req *AddAppSharedTeamRequest) (*AddAppSharedTeamResponse, error) {
 	path := fmt.Sprintf("organizations/%s/platforms/%s/apps/%s/shared_teams", req.Organization, req.Platform, req.AppId)
 	body := fmt.Sprintf("team=%s", req.Team)
 
@@ -36,7 +36,7 @@ func (c *Client) AddAppSharedTeams(req *AddAppSharedTeamsRequest) (*AddAppShared
 		return nil, err
 	}
 
-	var r *AddAppSharedTeamsResponse
+	var r *AddAppSharedTeamResponse
 	err = c.Decode(resp, &r)
 	if err != nil {
 		return nil, err
@@ -45,7 +45,7 @@ func (c *Client) AddAppSharedTeams(req *AddAppSharedTeamsRequest) (*AddAppShared
 	return r, nil
 }
 
-func (c *Client) RemoveAppSharedTeams(req *RemoveAppSharedTeamsRequest) (*RemoveAppSharedTeamsResponse, error) {
+func (c *Client) RemoveAppSharedTeam(req *RemoveAppSharedTeamRequest) (*RemoveAppSharedTeamResponse, error) {
 	path := fmt.Sprintf("organizations/%s/platforms/%s/apps/%s/shared_teams/%s", req.Organization, req.Platform, req.AppId, req.Team)
 
 	resp, err := c.Delete(&HttpRequest{
@@ -55,7 +55,7 @@ func (c *Client) RemoveAppSharedTeams(req *RemoveAppSharedTeamsRequest) (*Remove
 		return nil, err
 	}
 
-	var r *RemoveAppSharedTeamsResponse
+	var r *RemoveAppSharedTeamResponse
 	err = c.Decode(resp, &r)
 	if err != nil {
 		return nil, err

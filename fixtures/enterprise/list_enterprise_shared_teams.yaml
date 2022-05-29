@@ -1,0 +1,47 @@
+---
+version: 1
+interactions:
+- request:
+    body: ""
+    form: {}
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/x-www-form-urlencoded
+      User-Agent:
+      - GoDeployGate (+github.com/fnaoto/go_deploygate; go1.17.2)
+    url: https://deploygate.com/api/enterprises/test-enterprise/shared_teams?token=user_api_token
+    method: GET
+  response:
+    body: '{"error":false,"teams":[{"name":"test_team","role":"tester","member_count":1}]}'
+    headers:
+      Cache-Control:
+      - no-cache
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Sun, 29 May 2022 11:26:49 GMT
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Server:
+      - Apache
+      Status:
+      - 201 Created
+      Vary:
+      - Origin,X-DEPLOYGATE-CF-SHARED-KEY,X-Request-ID
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      X-Request-Id:
+      - YpNYeRSOqvxMagDaUPPANwAAAMQ
+      X-Xss-Protection:
+      - 1; mode=block
+    status: 200 OK
+    code: 200
+    duration: ""

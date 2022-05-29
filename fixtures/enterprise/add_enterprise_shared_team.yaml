@@ -2,18 +2,20 @@
 version: 1
 interactions:
 - request:
-    body: team=test_team
+    body: name=test_shared_team&description=test_description
     form:
-      team:
-      - test_team
+      description:
+      - test_description
+      name:
+      - test_shared_team
     headers:
       Accept:
       - application/json
       Content-Type:
       - application/x-www-form-urlencoded
       User-Agent:
-      - GoDeployGate (+github.com/fnaoto/go_deploygate; go1.17.6)
-    url: https://deploygate.com/api/organizations/test_group_terraform/platforms/android/apps/com.deploygate.sample/teams?token=user_api_token
+      - GoDeployGate (+github.com/fnaoto/go_deploygate; go1.17.2)
+    url: https://deploygate.com/api/enterprises/test-enterprise/shared_teams?token=user_api_token
     method: POST
   response:
     body: ""
@@ -21,9 +23,9 @@ interactions:
       Cache-Control:
       - no-cache
       Content-Type:
-      - application/json
+      - application/json; charset=utf-8
       Date:
-      - Wed, 25 May 2022 05:07:19 GMT
+      - Sun, 29 May 2022 11:26:49 GMT
       Referrer-Policy:
       - strict-origin-when-cross-origin
       Server:
@@ -41,7 +43,7 @@ interactions:
       X-Permitted-Cross-Domain-Policies:
       - none
       X-Request-Id:
-      - Yo25h1bvxsLiDTMu5d5UAgAAABY
+      - YpNYeals9pwt1I4@SFAtcwAAAFg
       X-Xss-Protection:
       - 1; mode=block
     status: 201 Created

@@ -6,7 +6,6 @@ import (
 	"github.com/dnaeon/go-vcr/recorder"
 )
 
-// TODO: Test on enterprise account.
 func Test_ListAppSharedTeams(t *testing.T) {
 	t.Parallel()
 
@@ -15,7 +14,7 @@ func Test_ListAppSharedTeams(t *testing.T) {
 		t.Fatal(err)
 	}
 
-	r, err := recorder.New("fixtures/apps/list_app_shared_teams")
+	r, err := recorder.New("fixtures/app/list_app_shared_teams")
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -24,7 +23,7 @@ func Test_ListAppSharedTeams(t *testing.T) {
 	defer r.Stop()
 
 	resp, err := c.ListAppSharedTeams(&ListAppSharedTeamsRequest{
-		Organization: "test_group_terraform",
+		Organization: "test_organization",
 		Platform:     "android",
 		AppId:        "com.deploygate.sample",
 	})
@@ -37,8 +36,7 @@ func Test_ListAppSharedTeams(t *testing.T) {
 	}
 }
 
-// TODO: Test on enterprise account.
-func Test_AddAppSharedTeams(t *testing.T) {
+func Test_AddAppSharedTeam(t *testing.T) {
 	t.Parallel()
 
 	c, err := NewClient("user_api_token")
@@ -46,7 +44,7 @@ func Test_AddAppSharedTeams(t *testing.T) {
 		t.Fatal(err)
 	}
 
-	r, err := recorder.New("fixtures/apps/add_app_shared_teams")
+	r, err := recorder.New("fixtures/app/add_app_shared_team")
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -54,8 +52,9 @@ func Test_AddAppSharedTeams(t *testing.T) {
 	c.httpClient.Transport = r
 	defer r.Stop()
 
-	resp, err := c.AddAppSharedTeams(&AddAppSharedTeamsRequest{
-		Organization: "test_group_terraform",
+	// TODO: Success response is empty and couldn't decode.
+	_, err = c.AddAppSharedTeam(&AddAppSharedTeamRequest{
+		Organization: "test_organization",
 		Platform:     "android",
 		AppId:        "com.deploygate.sample",
 		Team:         "test_team",
@@ -63,14 +62,9 @@ func Test_AddAppSharedTeams(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
-
-	if resp.Error {
-		t.Errorf("response caused error")
-	}
 }
 
-// TODO: Test on enterprise account.
-func Test_RemoveAppSharedTeams(t *testing.T) {
+func Test_RemoveAppSharedTeam(t *testing.T) {
 	t.Parallel()
 
 	c, err := NewClient("user_api_token")
@@ -78,7 +72,7 @@ func Test_RemoveAppSharedTeams(t *testing.T) {
 		t.Fatal(err)
 	}
 
-	r, err := recorder.New("fixtures/apps/remove_app_shared_teams")
+	r, err := recorder.New("fixtures/app/remove_app_shared_team")
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -86,8 +80,8 @@ func Test_RemoveAppSharedTeams(t *testing.T) {
 	c.httpClient.Transport = r
 	defer r.Stop()
 
-	resp, err := c.RemoveAppSharedTeams(&RemoveAppSharedTeamsRequest{
-		Organization: "test_group_terraform",
+	resp, err := c.RemoveAppSharedTeam(&RemoveAppSharedTeamRequest{
+		Organization: "test_organization",
 		Platform:     "android",
 		AppId:        "com.deploygate.sample",
 		Team:         "test_team",

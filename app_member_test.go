@@ -14,7 +14,7 @@ func Test_GetAppMembers(t *testing.T) {
 		t.Fatal(err)
 	}
 
-	r, err := recorder.New("fixtures/apps/get_app_members")
+	r, err := recorder.New("fixtures/app/get_app_members")
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -44,7 +44,7 @@ func Test_AddAppMembers(t *testing.T) {
 		t.Fatal(err)
 	}
 
-	r, err := recorder.New("fixtures/apps/add_app_members")
+	r, err := recorder.New("fixtures/app/add_app_members")
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -76,7 +76,7 @@ func Test_RemoveAppMembers(t *testing.T) {
 		t.Fatal(err)
 	}
 
-	r, err := recorder.New("fixtures/apps/delete_app_members")
+	r, err := recorder.New("fixtures/app/delete_app_members")
 	if err != nil {
 		t.Fatal(err)
 	}

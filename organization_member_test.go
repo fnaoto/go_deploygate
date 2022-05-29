@@ -14,7 +14,7 @@ func Test_ListOrganizationMembers(t *testing.T) {
 		t.Error(err)
 	}
 
-	r, err := recorder.New("fixtures/apps/list_organization_members")
+	r, err := recorder.New("fixtures/organization/list_organization_members")
 	if err != nil {
 		t.Error(err)
 	}
@@ -42,7 +42,7 @@ func Test_AddOrganizationMemberByUserName(t *testing.T) {
 		t.Error(err)
 	}
 
-	r, err := recorder.New("fixtures/apps/add_organization_member_by_user_name")
+	r, err := recorder.New("fixtures/organization/add_organization_member_by_user_name")
 	if err != nil {
 		t.Error(err)
 	}
@@ -71,7 +71,7 @@ func Test_AddOrganizationMemberByEmail(t *testing.T) {
 		t.Error(err)
 	}
 
-	r, err := recorder.New("fixtures/apps/add_organization_member_by_email")
+	r, err := recorder.New("fixtures/organization/add_organization_member_by_email")
 	if err != nil {
 		t.Error(err)
 	}
@@ -81,7 +81,7 @@ func Test_AddOrganizationMemberByEmail(t *testing.T) {
 
 	resp, err := c.AddOrganizationMemberByEmail(&AddOrganizationMemberByEmailRequest{
 		Organization: "test_organization",
-		Email:        "f.naoto832+test@gmail.com",
+		Email:        "dummy.email+test@dummy.email",
 	})
 	if err != nil {
 		t.Error(err)
@@ -100,7 +100,7 @@ func Test_RemoveOrganizationMemberByUserName(t *testing.T) {
 		t.Error(err)
 	}
 
-	r, err := recorder.New("fixtures/apps/remove_organization_member_by_user_name")
+	r, err := recorder.New("fixtures/organization/remove_organization_member_by_user_name")
 	if err != nil {
 		t.Error(err)
 	}
@@ -129,7 +129,7 @@ func Test_RemoveOrganizationMemberByEmail(t *testing.T) {
 		t.Error(err)
 	}
 
-	r, err := recorder.New("fixtures/apps/remove_organization_member_by_email")
+	r, err := recorder.New("fixtures/organization/remove_organization_member_by_email")
 	if err != nil {
 		t.Error(err)
 	}
@@ -139,7 +139,7 @@ func Test_RemoveOrganizationMemberByEmail(t *testing.T) {
 
 	resp, err := c.RemoveOrganizationMemberByEmail(&RemoveOrganizationMemberByEmailRequest{
 		Organization: "test_organization",
-		Email:        "f.naoto832+test@gmail.com",
+		Email:        "dummy.email+test@dummy.email",
 	})
 	if err != nil {
 		t.Error(err)

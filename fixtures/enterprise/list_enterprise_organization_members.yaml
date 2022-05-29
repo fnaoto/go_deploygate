@@ -11,25 +11,23 @@ interactions:
       - application/x-www-form-urlencoded
       User-Agent:
       - GoDeployGate (+github.com/fnaoto/go_deploygate; go1.17.2)
-    url: https://deploygate.com/api/organizations?token=user_api_token
+    url: https://deploygate.com/api/enterprises/test-enterprise/organizations/test_organization/users?token=user_api_token
     method: GET
   response:
-    body: '{"error":false,"organizations":[{"type":"Organization","name":"test_group_terraform","description":null,"url":"https://deploygate.com/organizations/test_group_terraform"},{"type":"Organization","name":"test_group_terraform_2","description":null,"url":"https://deploygate.com/organizations/test_group_terraform_2"}]}'
+    body: '{"error":false,"users":[{"type":"User","name":"naoto-fukuda-test","icon_url":"dummy_icon_url","url":"https://deploygate.com/users/naoto-fukuda-test@test-enterprise"}]}'
     headers:
       Cache-Control:
-      - max-age=0, private, must-revalidate
+      - no-cache
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Thu, 26 May 2022 06:11:03 GMT
-      Etag:
-      - W/"5e8bdfbe6c91279a1ff298c265f2654f"
+      - Sun, 29 May 2022 11:25:21 GMT
       Referrer-Policy:
       - strict-origin-when-cross-origin
       Server:
       - Apache
       Status:
-      - 200 OK
+      - 201 Created
       Vary:
       - Origin,X-DEPLOYGATE-CF-SHARED-KEY,X-Request-ID
       X-Content-Type-Options:
@@ -41,7 +39,7 @@ interactions:
       X-Permitted-Cross-Domain-Policies:
       - none
       X-Request-Id:
-      - Yo8Z9xCTEjipGOzVKyYSGgAAAAQ
+      - YpNYIals9pwt1I4@SFAs1wAAAFU
       X-Xss-Protection:
       - 1; mode=block
     status: 200 OK

@@ -14,7 +14,7 @@ func Test_ListOrganizationTeamMembers(t *testing.T) {
 		t.Error(err)
 	}
 
-	r, err := recorder.New("fixtures/apps/list_organization_team_members")
+	r, err := recorder.New("fixtures/organization/list_organization_team_members")
 	if err != nil {
 		t.Error(err)
 	}
@@ -43,7 +43,7 @@ func Test_AddOrganizationTeamMember(t *testing.T) {
 		t.Error(err)
 	}
 
-	r, err := recorder.New("fixtures/apps/add_organization_team_member")
+	r, err := recorder.New("fixtures/organization/add_organization_team_member")
 	if err != nil {
 		t.Error(err)
 	}
@@ -70,7 +70,7 @@ func Test_RemoveOrganizationTeamMember(t *testing.T) {
 		t.Error(err)
 	}
 
-	r, err := recorder.New("fixtures/apps/remove_organization_team_member")
+	r, err := recorder.New("fixtures/organization/remove_organization_team_member")
 	if err != nil {
 		t.Error(err)
 	}

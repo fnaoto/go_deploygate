@@ -2,8 +2,10 @@
 version: 1
 interactions:
 - request:
-    body: ""
-    form: {}
+    body: team=test_team
+    form:
+      team:
+      - test_team
     headers:
       Accept:
       - application/json
@@ -11,25 +13,23 @@ interactions:
       - application/x-www-form-urlencoded
       User-Agent:
       - GoDeployGate (+github.com/fnaoto/go_deploygate; go1.17.2)
-    url: https://deploygate.com/api/organizations/test_group_terraform/platforms/android/apps/com.deploygate.sample/teams?token=user_api_token
-    method: GET
+    url: https://deploygate.com/api/organizations/test_organization/platforms/android/apps/com.deploygate.sample/shared_teams?token=user_api_token
+    method: POST
   response:
-    body: '{"error":false,"teams":[{"name":"オーナー","role":"owner","member_count":2}]}'
+    body: ""
     headers:
       Cache-Control:
-      - max-age=0, private, must-revalidate
+      - no-cache
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Mon, 23 May 2022 13:35:50 GMT
-      Etag:
-      - W/"7e951e457f0cf268bb6dddc687890538"
+      - Sun, 29 May 2022 11:20:13 GMT
       Referrer-Policy:
       - strict-origin-when-cross-origin
       Server:
       - Apache
       Status:
-      - 200 OK
+      - 201 Created
       Vary:
       - Origin,X-DEPLOYGATE-CF-SHARED-KEY,X-Request-ID
       X-Content-Type-Options:
@@ -41,9 +41,9 @@ interactions:
       X-Permitted-Cross-Domain-Policies:
       - none
       X-Request-Id:
-      - YouNtkbEcYZG7HUoPQl4gwAAAEQ
+      - YpNW7RSOqvxMagDaUPO8RwAAAMo
       X-Xss-Protection:
       - 1; mode=block
-    status: 200 OK
-    code: 200
+    status: 201 Created
+    code: 201
     duration: ""

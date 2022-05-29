@@ -14,7 +14,7 @@ func Test_EnableAppProtection(t *testing.T) {
 		t.Fatal(err)
 	}
 
-	r, err := recorder.New("fixtures/apps/enable_app_protection")
+	r, err := recorder.New("fixtures/app/enable_app_protection")
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -45,7 +45,7 @@ func Test_DisableAppProtection(t *testing.T) {
 		t.Fatal(err)
 	}
 
-	r, err := recorder.New("fixtures/apps/disable_app_protection")
+	r, err := recorder.New("fixtures/app/disable_app_protection")
 	if err != nil {
 		t.Fatal(err)
 	}

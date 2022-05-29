@@ -1,0 +1,49 @@
+---
+version: 1
+interactions:
+- request:
+    body: team=test_team
+    form:
+      team:
+      - test_team
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/x-www-form-urlencoded
+      User-Agent:
+      - GoDeployGate (+github.com/fnaoto/go_deploygate; go1.17.6)
+    url: https://deploygate.com/api/organizations/test_organization/platforms/android/apps/com.deploygate.sample/teams?token=user_api_token
+    method: POST
+  response:
+    body: ""
+    headers:
+      Cache-Control:
+      - no-cache
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 25 May 2022 05:07:19 GMT
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Server:
+      - Apache
+      Status:
+      - 201 Created
+      Vary:
+      - Origin,X-DEPLOYGATE-CF-SHARED-KEY,X-Request-ID
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      X-Request-Id:
+      - Yo25h1bvxsLiDTMu5d5UAgAAABY
+      X-Xss-Protection:
+      - 1; mode=block
+    status: 201 Created
+    code: 201
+    duration: ""
