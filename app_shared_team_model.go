@@ -8,14 +8,14 @@ type ListAppSharedTeamsRequest struct {
 	AppId        string
 }
 
-type AddAppSharedTeamsRequest struct {
+type AddAppSharedTeamRequest struct {
 	Organization string
 	Platform     string
 	AppId        string
 	Team         string
 }
 
-type RemoveAppSharedTeamsRequest struct {
+type RemoveAppSharedTeamRequest struct {
 	Organization string
 	Platform     string
 	AppId        string
@@ -31,13 +31,13 @@ type ListAppSharedTeamsResponse struct {
 	Teams   []*Teams
 }
 
-type AddAppSharedTeamsResponse struct {
+type AddAppSharedTeamResponse struct {
 	Error   bool   `mapstructure:"error"`
 	Message string `mapstructure:"message"`
 	Because string `mapstructure:"because"`
 }
 
-type RemoveAppSharedTeamsResponse struct {
+type RemoveAppSharedTeamResponse struct {
 	Error   bool   `mapstructure:"error"`
 	Message string `mapstructure:"message"`
 	Because string `mapstructure:"because"`
