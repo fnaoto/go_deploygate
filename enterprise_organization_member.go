@@ -24,7 +24,7 @@ func (c *Client) ListEnterpriseOrganizationMembers(req *ListEnterpriseOrganizati
 	return r, nil
 }
 
-func (c *Client) AddEnterpriseOrganizationMembers(req *AddEnterpriseOrganizationMembersRequest) (*AddEnterpriseOrganizationMembersResponse, error) {
+func (c *Client) AddEnterpriseOrganizationMember(req *AddEnterpriseOrganizationMemberRequest) (*AddEnterpriseOrganizationMemberResponse, error) {
 	path := fmt.Sprintf("enterprises/%s/organizations/%s/users", req.Enterprise, req.Organization)
 	body := fmt.Sprintf("user=%s", req.User)
 
@@ -36,7 +36,7 @@ func (c *Client) AddEnterpriseOrganizationMembers(req *AddEnterpriseOrganization
 		return nil, err
 	}
 
-	var r *AddEnterpriseOrganizationMembersResponse
+	var r *AddEnterpriseOrganizationMemberResponse
 	err = c.Decode(resp, &r)
 	if err != nil {
 		return nil, err
@@ -45,7 +45,7 @@ func (c *Client) AddEnterpriseOrganizationMembers(req *AddEnterpriseOrganization
 	return r, nil
 }
 
-func (c *Client) RemoveEnterpriseOrganizationMembers(req *RemoveEnterpriseOrganizationMembersRequest) (*RemoveEnterpriseOrganizationMembersResponse, error) {
+func (c *Client) RemoveEnterpriseOrganizationMember(req *RemoveEnterpriseOrganizationMemberRequest) (*RemoveEnterpriseOrganizationMemberResponse, error) {
 	path := fmt.Sprintf("enterprises/%s/organizations/%s/users/%s", req.Enterprise, req.Organization, req.User)
 
 	resp, err := c.Delete(&HttpRequest{
@@ -55,7 +55,7 @@ func (c *Client) RemoveEnterpriseOrganizationMembers(req *RemoveEnterpriseOrgani
 		return nil, err
 	}
 
-	var r *RemoveEnterpriseOrganizationMembersResponse
+	var r *RemoveEnterpriseOrganizationMemberResponse
 	err = c.Decode(resp, &r)
 	if err != nil {
 		return nil, err

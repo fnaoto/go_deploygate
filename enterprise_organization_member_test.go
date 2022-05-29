@@ -35,7 +35,7 @@ func Test_ListEnterpriseOrganizationMembers(t *testing.T) {
 	}
 }
 
-func Test_AddEnterpriseOrganizationMembers(t *testing.T) {
+func Test_AddEnterpriseOrganizationMember(t *testing.T) {
 	t.Parallel()
 
 	c, err := NewClient("user_api_token")
@@ -43,7 +43,7 @@ func Test_AddEnterpriseOrganizationMembers(t *testing.T) {
 		t.Fatal(err)
 	}
 
-	r, err := recorder.New("fixtures/enterprise/add_enterprise_organization_members")
+	r, err := recorder.New("fixtures/enterprise/add_enterprise_organization_member")
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -52,7 +52,7 @@ func Test_AddEnterpriseOrganizationMembers(t *testing.T) {
 	defer r.Stop()
 
 	// TODO: Success response is empty and couldn't decode.
-	_, err = c.AddEnterpriseOrganizationMembers(&AddEnterpriseOrganizationMembersRequest{
+	_, err = c.AddEnterpriseOrganizationMember(&AddEnterpriseOrganizationMemberRequest{
 		Enterprise:   "test-enterprise",
 		Organization: "test_organization",
 		User:         "naoto-fukuda-test",
@@ -62,7 +62,7 @@ func Test_AddEnterpriseOrganizationMembers(t *testing.T) {
 	}
 }
 
-func Test_RemoveEnterpriseOrganizationMembers(t *testing.T) {
+func Test_RemoveEnterpriseOrganizationMember(t *testing.T) {
 	t.Parallel()
 
 	c, err := NewClient("user_api_token")
@@ -70,7 +70,7 @@ func Test_RemoveEnterpriseOrganizationMembers(t *testing.T) {
 		t.Fatal(err)
 	}
 
-	r, err := recorder.New("fixtures/enterprise/remove_enterprise_organization_members")
+	r, err := recorder.New("fixtures/enterprise/remove_enterprise_organization_member")
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -78,7 +78,7 @@ func Test_RemoveEnterpriseOrganizationMembers(t *testing.T) {
 	c.httpClient.Transport = r
 	defer r.Stop()
 
-	resp, err := c.RemoveEnterpriseOrganizationMembers(&RemoveEnterpriseOrganizationMembersRequest{
+	resp, err := c.RemoveEnterpriseOrganizationMember(&RemoveEnterpriseOrganizationMemberRequest{
 		Enterprise:   "test-enterprise",
 		Organization: "test_organization",
 		User:         "naoto-fukuda-test",

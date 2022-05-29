@@ -7,13 +7,13 @@ type ListEnterpriseOrganizationMembersRequest struct {
 	Organization string
 }
 
-type AddEnterpriseOrganizationMembersRequest struct {
+type AddEnterpriseOrganizationMemberRequest struct {
 	Enterprise   string
 	Organization string
 	User         string
 }
 
-type RemoveEnterpriseOrganizationMembersRequest struct {
+type RemoveEnterpriseOrganizationMemberRequest struct {
 	Enterprise   string
 	Organization string
 	User         string
@@ -28,13 +28,13 @@ type ListEnterpriseOrganizationMembersResponse struct {
 	Users   []*User `mapstructures:"users"`
 }
 
-type AddEnterpriseOrganizationMembersResponse struct {
+type AddEnterpriseOrganizationMemberResponse struct {
 	Error   bool   `mapstructures:"error"`
 	Message string `mapstructure:"message"`
 	Because string `mapstructure:"because"`
 }
 
-type RemoveEnterpriseOrganizationMembersResponse struct {
+type RemoveEnterpriseOrganizationMemberResponse struct {
 	Error   bool   `mapstructures:"error"`
 	Message string `mapstructure:"message"`
 	Because string `mapstructure:"because"`
