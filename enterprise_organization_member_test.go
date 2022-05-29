@@ -14,7 +14,7 @@ func Test_ListEnterpriseOrganizationMembers(t *testing.T) {
 		t.Fatal(err)
 	}
 
-	r, err := recorder.New("fixtures/apps/list_enterprise_organization_members")
+	r, err := recorder.New("fixtures/enterprise/list_enterprise_organization_members")
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -43,7 +43,7 @@ func Test_AddEnterpriseOrganizationMembers(t *testing.T) {
 		t.Fatal(err)
 	}
 
-	r, err := recorder.New("fixtures/apps/add_enterprise_organization_members")
+	r, err := recorder.New("fixtures/enterprise/add_enterprise_organization_members")
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -70,7 +70,7 @@ func Test_RemoveEnterpriseOrganizationMembers(t *testing.T) {
 		t.Fatal(err)
 	}
 
-	r, err := recorder.New("fixtures/apps/remove_enterprise_organization_members")
+	r, err := recorder.New("fixtures/enterprise/remove_enterprise_organization_members")
 	if err != nil {
 		t.Fatal(err)
 	}

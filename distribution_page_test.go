@@ -14,7 +14,7 @@ func Test_DeleteDistributionsPage(t *testing.T) {
 		t.Fatal(err)
 	}
 
-	r, err := recorder.New("fixtures/apps/delete_distributions_page")
+	r, err := recorder.New("fixtures/distribution/delete_distributions_page")
 	if err != nil {
 		t.Fatal(err)
 	}

@@ -14,7 +14,7 @@ func Test_UploadApps(t *testing.T) {
 		t.Fatal(err)
 	}
 
-	r, err := recorder.New("fixtures/apps/upload_app")
+	r, err := recorder.New("fixtures/app/upload_app")
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -26,7 +26,7 @@ func Test_UploadApps(t *testing.T) {
 		Owner:    "f-naoto832",
 		Platform: "android",
 		AppId:    "com.deploygate.sample",
-		File:     "fixtures/file/DeployGateSample.apk",
+		File:     "files/DeployGateSample.apk",
 	})
 	if err != nil {
 		t.Fatal(err)

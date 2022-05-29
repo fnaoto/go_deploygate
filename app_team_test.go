@@ -14,7 +14,7 @@ func Test_ListAppTeams(t *testing.T) {
 		t.Fatal(err)
 	}
 
-	r, err := recorder.New("fixtures/apps/list_app_teams")
+	r, err := recorder.New("fixtures/app/list_app_teams")
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -44,7 +44,7 @@ func Test_AddAppTeams(t *testing.T) {
 		t.Fatal(err)
 	}
 
-	r, err := recorder.New("fixtures/apps/add_app_teams")
+	r, err := recorder.New("fixtures/app/add_app_teams")
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -72,7 +72,7 @@ func Test_RemoveAppTeams(t *testing.T) {
 		t.Fatal(err)
 	}
 
-	r, err := recorder.New("fixtures/apps/remove_app_teams")
+	r, err := recorder.New("fixtures/app/remove_app_teams")
 	if err != nil {
 		t.Fatal(err)
 	}

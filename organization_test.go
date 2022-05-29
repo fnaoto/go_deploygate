@@ -14,7 +14,7 @@ func Test_ListOrganizations(t *testing.T) {
 		t.Error(err)
 	}
 
-	r, err := recorder.New("fixtures/apps/list_organizations")
+	r, err := recorder.New("fixtures/organization/list_organizations")
 	if err != nil {
 		t.Error(err)
 	}
@@ -40,7 +40,7 @@ func Test_CreateOrganization(t *testing.T) {
 		t.Error(err)
 	}
 
-	r, err := recorder.New("fixtures/apps/create_organization")
+	r, err := recorder.New("fixtures/organization/create_organization")
 	if err != nil {
 		t.Error(err)
 	}
@@ -69,7 +69,7 @@ func Test_GetOrganization(t *testing.T) {
 		t.Error(err)
 	}
 
-	r, err := recorder.New("fixtures/apps/get_organization")
+	r, err := recorder.New("fixtures/organization/get_organization")
 	if err != nil {
 		t.Error(err)
 	}
@@ -97,7 +97,7 @@ func Test_UpdateOrganization(t *testing.T) {
 		t.Error(err)
 	}
 
-	r, err := recorder.New("fixtures/apps/update_organization")
+	r, err := recorder.New("fixtures/organization/update_organization")
 	if err != nil {
 		t.Error(err)
 	}
@@ -126,7 +126,7 @@ func Test_DeleteOrganization(t *testing.T) {
 		t.Error(err)
 	}
 
-	r, err := recorder.New("fixtures/apps/delete_organization")
+	r, err := recorder.New("fixtures/organization/delete_organization")
 	if err != nil {
 		t.Error(err)
 	}

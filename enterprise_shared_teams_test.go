@@ -14,7 +14,7 @@ func Test_ListEnterpriseSharedTeams(t *testing.T) {
 		t.Fatal(err)
 	}
 
-	r, err := recorder.New("fixtures/apps/list_enterprise_shared_teams")
+	r, err := recorder.New("fixtures/enterprise/list_enterprise_shared_teams")
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -42,7 +42,7 @@ func Test_AddEnterpriseSharedTeam(t *testing.T) {
 		t.Fatal(err)
 	}
 
-	r, err := recorder.New("fixtures/apps/add_enterprise_shared_team")
+	r, err := recorder.New("fixtures/enterprise/add_enterprise_shared_team")
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -69,7 +69,7 @@ func Test_RemoveEnterpriseSharedTeam(t *testing.T) {
 		t.Fatal(err)
 	}
 
-	r, err := recorder.New("fixtures/apps/remove_enterprise_shared_team")
+	r, err := recorder.New("fixtures/enterprise/remove_enterprise_shared_team")
 	if err != nil {
 		t.Fatal(err)
 	}
