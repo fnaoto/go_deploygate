@@ -9,7 +9,7 @@ import (
 func Test_ListEnterpriseSharedTeams(t *testing.T) {
 	t.Parallel()
 
-	c, err := NewClient("user_api_key")
+	c, err := NewClient("user_api_token")
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -37,7 +37,7 @@ func Test_ListEnterpriseSharedTeams(t *testing.T) {
 func Test_AddEnterpriseSharedTeam(t *testing.T) {
 	t.Parallel()
 
-	c, err := NewClient("user_api_key")
+	c, err := NewClient("user_api_token")
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -64,7 +64,7 @@ func Test_AddEnterpriseSharedTeam(t *testing.T) {
 func Test_RemoveEnterpriseSharedTeam(t *testing.T) {
 	t.Parallel()
 
-	c, err := NewClient("user_api_key")
+	c, err := NewClient("user_api_token")
 	if err != nil {
 		t.Fatal(err)
 	}

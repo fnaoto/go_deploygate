@@ -9,7 +9,7 @@ import (
 func Test_ListEnterpriseMember(t *testing.T) {
 	t.Parallel()
 
-	c, err := NewClient("user_api_key")
+	c, err := NewClient("user_api_token")
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -37,7 +37,7 @@ func Test_ListEnterpriseMember(t *testing.T) {
 func Test_AddEnterpriseMember(t *testing.T) {
 	t.Parallel()
 
-	c, err := NewClient("user_api_key")
+	c, err := NewClient("user_api_token")
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -63,7 +63,7 @@ func Test_AddEnterpriseMember(t *testing.T) {
 func Test_RemoveEnterpriseMember(t *testing.T) {
 	t.Parallel()
 
-	c, err := NewClient("user_api_key")
+	c, err := NewClient("user_api_token")
 	if err != nil {
 		t.Fatal(err)
 	}
