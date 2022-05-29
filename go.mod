@@ -1,4 +1,4 @@
-module go_deploygate
+module github.com/fnaoto/go_deploygate
 
 go 1.17
 
