@@ -27,13 +27,6 @@ type ListOrganizationTeamMembersResponse struct {
 	Users   []*User `mapstructure:"users"`
 }
 
-type User struct {
-	Type    string `mapstructure:"type"`
-	Name    string `mapstructure:"name"`
-	IconUrl string `mapstructure:"iconurl"`
-	Url     string `mapstructure:"url"`
-}
-
 type AddOrganizationTeamMemberResponse struct {
 	Error   bool   `mapstructure:"error"`
 	Message string `mapstructure:"message"`

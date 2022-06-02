@@ -13,7 +13,3 @@ type DeleteDistributionsPageResponse struct {
 	Message string   `mapstructure:"message"`
 	Results *Results `mapstructure:"results"`
 }
-
-type Results struct {
-	Message string `mapstructure:"message"`
-}
