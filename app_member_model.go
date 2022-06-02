@@ -40,11 +40,6 @@ type Usage struct {
 	Max  uint `mapstructure:"max"`
 }
 
-type Member struct {
-	Name string `mapstructure:"name"`
-	Role uint   `mapstructure:"role"`
-}
-
 type AddAppMembersResponse struct {
 	Error   bool                         `mapstructure:"error"`
 	Message string                       `mapstructure:"message"`
@@ -53,19 +48,9 @@ type AddAppMembersResponse struct {
 }
 
 type AddAppMembersResponseResult struct {
-	Invite  string     `mapstructure:"invite"`
-	Added   []*Added   `mapstructure:"added"`
-	Invited []*Invited `mapstructure:"invited"`
-}
-
-type Added struct {
-	Name string `mapstructure:"name"`
-	Role uint   `mapstructure:"role"`
-}
-
-type Invited struct {
-	Name string `mapstructure:"name"`
-	Role uint   `mapstructure:"role"`
+	Invite  string    `mapstructure:"invite"`
+	Added   []*Member `mapstructure:"added"`
+	Invited []*Member `mapstructure:"invited"`
 }
 
 type RemoveAppMembersResponse struct {

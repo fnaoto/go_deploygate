@@ -28,13 +28,6 @@ type ListOrganizationsResponse struct {
 	Organizations []*Organization `mapstructures:"organizations"`
 }
 
-type Organization struct {
-	Type        string `mapstructures:"type"`
-	Name        string `mapstructures:"name"`
-	Description string `mapstructures:"description"`
-	Url         string `mapstructures:"url"`
-}
-
 type CreateOrganizationResponse struct {
 	Error        bool          `mapstructures:"error"`
 	Message      string        `mapstructures:"message"`

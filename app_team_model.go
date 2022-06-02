@@ -31,12 +31,6 @@ type ListAppTeamsResponse struct {
 	Teams   []*Teams `mapstructure:"teams"`
 }
 
-type Teams struct {
-	Name        string `mapstructure:"name"`
-	Role        string `mapstructure:"role"`
-	MemberCount uint   `mapstructure:"member_count"`
-}
-
 type AddAppTeamResponse struct {
 	Error   bool   `mapstructure:"error"`
 	Message string `mapstructure:"message"`
