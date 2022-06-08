@@ -29,17 +29,17 @@ type RemoveOrganizationMemberByEmailRequest struct {
 // Response
 
 type ListOrganizationMembersResponse struct {
-	Error   bool   `mapstructures:"error"`
-	Message string `mapstructures:"message"`
-	Members []*Member
+	Error   bool    `mapstructure:"error"`
+	Message string  `mapstructure:"message"`
+	Members []*User `mapstructure:"members"`
 }
 
 type AddOrganizationMemberResponse struct {
-	Error   bool   `mapstructures:"error"`
-	Message string `mapstructures:"message"`
+	Error   bool   `mapstructure:"error"`
+	Message string `mapstructure:"message"`
 }
 
 type RemoveOrganizationMemberResponse struct {
-	Error   bool   `mapstructures:"error"`
-	Message string `mapstructures:"message"`
+	Error   bool   `mapstructure:"error"`
+	Message string `mapstructure:"message"`
 }

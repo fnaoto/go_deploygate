@@ -1,6 +1,7 @@
 package deploygate
 
 import (
+	"fmt"
 	"testing"
 
 	"github.com/dnaeon/go-vcr/recorder"

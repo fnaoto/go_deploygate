@@ -5,10 +5,10 @@ type Results struct {
 }
 
 type Organization struct {
-	Type        string `mapstructures:"type"`
-	Name        string `mapstructures:"name"`
-	Description string `mapstructures:"description"`
-	Url         string `mapstructures:"url"`
+	Type        string `mapstructure:"type"`
+	Name        string `mapstructure:"name"`
+	Description string `mapstructure:"description"`
+	Url         string `mapstructure:"url"`
 }
 
 type Member struct {
@@ -19,7 +19,7 @@ type Member struct {
 type User struct {
 	Type    string `mapstructure:"type"`
 	Name    string `mapstructure:"name"`
-	IconUrl string `mapstructure:"iconurl"`
+	IconUrl string `mapstructure:"icon_url"`
 	Url     string `mapstructure:"url"`
 }
 

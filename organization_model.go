@@ -23,31 +23,31 @@ type DeleteOrganizationRequest struct {
 // Response
 
 type ListOrganizationsResponse struct {
-	Error         bool            `mapstructures:"error"`
-	Message       string          `mapstructures:"message"`
-	Organizations []*Organization `mapstructures:"organizations"`
+	Error         bool            `mapstructure:"error"`
+	Message       string          `mapstructure:"message"`
+	Organizations []*Organization `mapstructure:"organizations"`
 }
 
 type CreateOrganizationResponse struct {
-	Error        bool          `mapstructures:"error"`
-	Message      string        `mapstructures:"message"`
-	Organization *Organization `mapstructures:"organization"`
+	Error        bool          `mapstructure:"error"`
+	Message      string        `mapstructure:"message"`
+	Organization *Organization `mapstructure:"organization"`
 }
 
 type GetOrganizationResponse struct {
-	Error        bool          `mapstructures:"error"`
-	Message      string        `mapstructures:"message"`
-	Organization *Organization `mapstructures:"organization"`
+	Error        bool          `mapstructure:"error"`
+	Message      string        `mapstructure:"message"`
+	Organization *Organization `mapstructure:"organization"`
 }
 
 type UpdateOrganizationResponse struct {
-	Error        bool          `mapstructures:"error"`
-	Message      string        `mapstructures:"message"`
-	Organization *Organization `mapstructures:"organization"`
+	Error        bool          `mapstructure:"error"`
+	Message      string        `mapstructure:"message"`
+	Organization *Organization `mapstructure:"organization"`
 }
 
 type DeleteOrganizationResponse struct {
-	Error   bool     `mapstructures:"error"`
-	Message string   `mapstructures:"message"`
-	Results *Results `mapstructures:"results"`
+	Error   bool     `mapstructure:"error"`
+	Message string   `mapstructure:"message"`
+	Results *Results `mapstructure:"results"`
 }

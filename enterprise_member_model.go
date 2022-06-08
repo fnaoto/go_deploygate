@@ -19,20 +19,20 @@ type RemoveEnterpriseMemberRequest struct {
 // Response
 
 type ListEnterpriseMembersResponse struct {
-	Error   bool    `mapstructures:"error"`
+	Error   bool    `mapstructure:"error"`
 	Message string  `mapstructure:"message"`
 	Because string  `mapstructure:"because"`
-	Users   []*User `mapstructures:"users"`
+	Users   []*User `mapstructure:"users"`
 }
 
 type AddEnterpriseMemberResponse struct {
-	Error   bool   `mapstructures:"error"`
+	Error   bool   `mapstructure:"error"`
 	Message string `mapstructure:"message"`
 	Because string `mapstructure:"because"`
 }
 
 type RemoveEnterpriseMemberResponse struct {
-	Error   bool    `mapstructures:"error"`
-	Message string  `mapstructure:"message"`
-	Because string  `mapstructure:"because"`
+	Error   bool   `mapstructure:"error"`
+	Message string `mapstructure:"message"`
+	Because string `mapstructure:"because"`
 }
