@@ -1,6 +1,7 @@
 package deploygate
 
 import (
+	"encoding/json"
 	"errors"
 	"fmt"
 	"net/http"
@@ -10,7 +11,6 @@ import (
 	"runtime"
 
 	cleanhttp "github.com/hashicorp/go-cleanhttp"
-	mapstructure "github.com/mitchellh/mapstructure"
 )
 
 const (
@@ -112,14 +112,8 @@ func (c *Client) Decode(resp *http.Response, out interface{}) error {
 	if resp.ContentLength == 0 {
 		return nil
 	}
-	decoder, err := mapstructure.NewDecoder(&mapstructure.DecoderConfig{
-		Result:     &out,
-		ErrorUnset: false,
-	})
-	if err != nil {
-		return err
-	}
-	err = decoder.Decode(resp.Body)
+	decoder := json.NewDecoder(resp.Body)
+	err := decoder.Decode(out)
 	if err != nil {
 		return fmt.Errorf("cloudn't decode json: %v to %T", resp.Body, out)
 	}

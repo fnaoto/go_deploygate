@@ -25,20 +25,20 @@ type RemoveAppTeamRequest struct {
 // Response
 
 type ListAppTeamsResponse struct {
-	Error   bool     `mapstructure:"error"`
-	Message string   `mapstructure:"message"`
-	Because string   `mapstructure:"because"`
-	Teams   []*Teams `mapstructure:"teams"`
+	Error   bool   `json:"error"`
+	Message string `json:"message"`
+	Because string `json:"because"`
+	Teams   []Team `json:"teams"`
 }
 
 type AddAppTeamResponse struct {
-	Error   bool   `mapstructure:"error"`
-	Message string `mapstructure:"message"`
-	Because string `mapstructure:"because"`
+	Error   bool   `json:"error"`
+	Message string `json:"message"`
+	Because string `json:"because"`
 }
 
 type RemoveAppTeamResponse struct {
-	Error   bool   `mapstructure:"error"`
-	Message string `mapstructure:"message"`
-	Because string `mapstructure:"because"`
+	Error   bool   `json:"error"`
+	Message string `json:"message"`
+	Because string `json:"because"`
 }

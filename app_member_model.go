@@ -26,40 +26,40 @@ type RemoveAppMembersRequest struct {
 // Response
 
 type GetAppMembersResponse struct {
-	Error   bool                         `mapstructure:"error"`
-	Results *GetAppMembersResponseResult `mapstructure:"results"`
+	Error   bool                        `json:"error"`
+	Results GetAppMembersResponseResult `json:"results"`
 }
 
 type GetAppMembersResponseResult struct {
-	Usage *Usage  `mapstructure:"usage"`
-	Users []*User `mapstructure:"users"`
+	Usage Usage  `json:"usage"`
+	Users []User `json:"users"`
 }
 
 type Usage struct {
-	Used uint `mapstructure:"used"`
-	Max  uint `mapstructure:"max"`
+	Used uint `json:"used"`
+	Max  uint `json:"max"`
 }
 
 type AddAppMembersResponse struct {
-	Error   bool                         `mapstructure:"error"`
-	Message string                       `mapstructure:"message"`
-	Because string                       `mapstructure:"because"`
-	Results *AddAppMembersResponseResult `mapstructure:"results"`
+	Error   bool                        `json:"error"`
+	Message string                      `json:"message"`
+	Because string                      `json:"because"`
+	Results AddAppMembersResponseResult `json:"results"`
 }
 
 type AddAppMembersResponseResult struct {
-	Invite  string  `mapstructure:"invite"`
-	Added   []*User `mapstructure:"added"`
-	Invited []*User `mapstructure:"invited"`
+	Invite  string `json:"invite"`
+	Added   []User `json:"added"`
+	Invited []User `json:"invited"`
 }
 
 type RemoveAppMembersResponse struct {
-	Error   bool                            `mapstructure:"error"`
-	Message string                          `mapstructure:"message"`
-	Because string                          `mapstructure:"because"`
-	Results *RemoveAppMembersResponseResult `mapstructure:"results"`
+	Error   bool                           `json:"error"`
+	Message string                         `json:"message"`
+	Because string                         `json:"because"`
+	Results RemoveAppMembersResponseResult `json:"results"`
 }
 
 type RemoveAppMembersResponseResult struct {
-	Invite string `mapstructure:"invite"`
+	Invite string `json:"invite"`
 }

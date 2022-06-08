@@ -19,13 +19,13 @@ type DisableAppProtectionRequest struct {
 // Response
 
 type EnableAppProtectionResponse struct {
-	Error   bool   `mapstructure:"error"`
-	Message string `mapstructure:"message"`
-	Results string `mapstructure:"results"`
+	Error   bool   `json:"error"`
+	Message string `json:"message"`
+	Results string `json:"results"`
 }
 
 type DisableAppProtectionResponse struct {
-	Error   bool   `mapstructure:"error"`
-	Message string `mapstructure:"message"`
-	Results string `mapstructure:"results"`
+	Error   bool   `json:"error"`
+	Message string `json:"message"`
+	Results string `json:"results"`
 }
