@@ -112,10 +112,11 @@ func (c *Client) Decode(resp *http.Response, out interface{}) error {
 	if resp.ContentLength == 0 {
 		return nil
 	}
-	decodeer := json.NewDecoder(resp.Body)
-	err := decodeer.Decode(out)
+	decoder := json.NewDecoder(resp.Body)
+	decoder.DisallowUnknownFields()
+	err := decoder.Decode(out)
 	if err != nil {
-		return fmt.Errorf("cloudn't decode json: %v", resp.Body)
+		return fmt.Errorf("cloudn't decode json: %v to %T", resp.Body, out)
 	}
 	return nil
 }

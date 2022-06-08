@@ -32,7 +32,7 @@ func Test_ListAppSharedTeams(t *testing.T) {
 	}
 
 	if resp.Error {
-		t.Errorf("response caused error")
+		t.Errorf("response caused error: %s", resp.Message)
 	}
 }
 
@@ -91,6 +91,6 @@ func Test_RemoveAppSharedTeam(t *testing.T) {
 	}
 
 	if resp.Error {
-		t.Errorf("response caused error")
+		t.Errorf("response caused error: %s", resp.Message)
 	}
 }

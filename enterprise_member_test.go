@@ -32,6 +32,8 @@ func Test_ListEnterpriseMember(t *testing.T) {
 	if resp.Error {
 		t.Error("response caused error")
 	}
+
+	t.Logf("response: %#v", resp)
 }
 
 func Test_AddEnterpriseMember(t *testing.T) {

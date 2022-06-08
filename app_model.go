@@ -12,7 +12,8 @@ type UploadAppsRequest struct {
 // Response
 
 type UploadAppsResponse struct {
-	Error   bool   `mapstructure:"error"`
-	Message string `mapstructure:"message"`
-	Because string `mapstructure:"because"`
+	Error   bool        `json:"error"`
+	Message string      `json:"message"`
+	Because string      `json:"because"`
+	Results Application `json:"results"`
 }
