@@ -35,9 +35,9 @@ type CreateOrganizationResponse struct {
 }
 
 type GetOrganizationResponse struct {
-	Error        bool         `json:"error"`
-	Message      string       `json:"message"`
-	Organization Organization `json:"organization"`
+	Error        bool             `json:"error"`
+	Message      string           `json:"message"`
+	Organization OrganizationInfo `json:"organization"`
 }
 
 type UpdateOrganizationResponse struct {

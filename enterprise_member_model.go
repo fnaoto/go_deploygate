@@ -19,10 +19,10 @@ type RemoveEnterpriseMemberRequest struct {
 // Response
 
 type ListEnterpriseMembersResponse struct {
-	Error   bool     `json:"error"`
-	Message string   `json:"message"`
-	Because string   `json:"because"`
-	Users   []Member `json:"users"`
+	Error   bool               `json:"error"`
+	Message string             `json:"message"`
+	Because string             `json:"because"`
+	Users   []EnterpriseMember `json:"users"`
 }
 
 type AddEnterpriseMemberResponse struct {

@@ -23,7 +23,7 @@ type ListEnterpriseSharedTeamsResponse struct {
 	Error   bool   `json:"error"`
 	Message string `json:"message"`
 	Because string `json:"because"`
-	Teams   []Team `json:"team"`
+	Teams   []Team `json:"teams"`
 }
 
 type AddEnterpriseSharedTeamResponse struct {

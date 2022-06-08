@@ -28,7 +28,7 @@ func Test_ListOrganizations(t *testing.T) {
 	}
 
 	if resp.Error {
-		t.Errorf("response caused error")
+		t.Errorf("response caused error: %s", resp.Message)
 	}
 }
 
@@ -57,7 +57,7 @@ func Test_CreateOrganization(t *testing.T) {
 	}
 
 	if resp.Error {
-		t.Errorf("response caused error")
+		t.Errorf("response caused error: %s", resp.Message)
 	}
 }
 
@@ -85,8 +85,10 @@ func Test_GetOrganization(t *testing.T) {
 	}
 
 	if resp.Error {
-		t.Errorf("response caused error")
+		t.Errorf("response caused error: %s", resp.Message)
 	}
+
+	t.Logf("response: %#v", resp)
 }
 
 func Test_UpdateOrganization(t *testing.T) {
@@ -114,7 +116,7 @@ func Test_UpdateOrganization(t *testing.T) {
 	}
 
 	if resp.Error {
-		t.Errorf("response caused error")
+		t.Errorf("response caused error: %s", resp.Message)
 	}
 }
 
@@ -142,6 +144,6 @@ func Test_DeleteOrganization(t *testing.T) {
 	}
 
 	if resp.Error {
-		t.Errorf("response caused error")
+		t.Errorf("response caused error: %s", resp.Message)
 	}
 }
