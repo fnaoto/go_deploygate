@@ -11,12 +11,12 @@ type Organization struct {
 	Url         string `mapstructure:"url"`
 }
 
-type Member struct {
+type User struct {
 	Name string `mapstructure:"name"`
 	Role uint   `mapstructure:"role"`
 }
 
-type User struct {
+type Member struct {
 	Type    string `mapstructure:"type"`
 	Name    string `mapstructure:"name"`
 	IconUrl string `mapstructure:"icon_url"`

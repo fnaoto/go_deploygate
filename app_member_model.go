@@ -31,8 +31,8 @@ type GetAppMembersResponse struct {
 }
 
 type GetAppMembersResponseResult struct {
-	Usage *Usage    `mapstructure:"usage"`
-	Users []*Member `mapstructure:"users"`
+	Usage *Usage  `mapstructure:"usage"`
+	Users []*User `mapstructure:"users"`
 }
 
 type Usage struct {
@@ -48,9 +48,9 @@ type AddAppMembersResponse struct {
 }
 
 type AddAppMembersResponseResult struct {
-	Invite  string    `mapstructure:"invite"`
-	Added   []*Member `mapstructure:"added"`
-	Invited []*Member `mapstructure:"invited"`
+	Invite  string  `mapstructure:"invite"`
+	Added   []*User `mapstructure:"added"`
+	Invited []*User `mapstructure:"invited"`
 }
 
 type RemoveAppMembersResponse struct {

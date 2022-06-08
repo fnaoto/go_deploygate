@@ -114,7 +114,7 @@ func (c *Client) Decode(resp *http.Response, out interface{}) error {
 	}
 	decoder, err := mapstructure.NewDecoder(&mapstructure.DecoderConfig{
 		Result:     &out,
-		ErrorUnset: true,
+		ErrorUnset: false,
 	})
 	if err != nil {
 		return err
