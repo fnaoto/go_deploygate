@@ -26,40 +26,40 @@ type RemoveAppMembersRequest struct {
 // Response
 
 type GetAppMembersResponse struct {
-	Error   bool                        `json:"error"`
-	Results GetAppMembersResponseResult `json:"results"`
+	Error   bool                        `mapstructure:"error" json:"error"`
+	Results GetAppMembersResponseResult `mapstructure:"results" json:"results"`
 }
 
 type GetAppMembersResponseResult struct {
-	Usage Usage  `json:"usage"`
-	Users []User `json:"users"`
+	Usage Usage  `mapstructure:"usage" json:"usage"`
+	Users []User `mapstructure:"users" json:"users"`
 }
 
 type Usage struct {
-	Used uint `json:"used"`
-	Max  uint `json:"max"`
+	Used uint `mapstructure:"used" json:"used"`
+	Max  uint `mapstructure:"max" json:"max"`
 }
 
 type AddAppMembersResponse struct {
-	Error   bool                        `json:"error"`
-	Message string                      `json:"message"`
-	Because string                      `json:"because"`
-	Results AddAppMembersResponseResult `json:"results"`
+	Error   bool                        `mapstructure:"error" json:"error"`
+	Message string                      `mapstructure:"message" json:"message"`
+	Because string                      `mapstructure:"because" json:"because"`
+	Results AddAppMembersResponseResult `mapstructure:"results" json:"results"`
 }
 
 type AddAppMembersResponseResult struct {
-	Invite  string `json:"invite"`
-	Added   []User `json:"added"`
-	Invited []User `json:"invited"`
+	Invite  string `mapstructure:"invite" json:"invite"`
+	Added   []User `mapstructure:"added" json:"added"`
+	Invited []User `mapstructure:"invited" json:"invited"`
 }
 
 type RemoveAppMembersResponse struct {
-	Error   bool                           `json:"error"`
-	Message string                         `json:"message"`
-	Because string                         `json:"because"`
-	Results RemoveAppMembersResponseResult `json:"results"`
+	Error   bool                           `mapstructure:"error" json:"error"`
+	Message string                         `mapstructure:"message" json:"message"`
+	Because string                         `mapstructure:"because" json:"because"`
+	Results RemoveAppMembersResponseResult `mapstructure:"results" json:"results"`
 }
 
 type RemoveAppMembersResponseResult struct {
-	Invite string `json:"invite"`
+	Invite string `mapstructure:"invite" json:"invite"`
 }

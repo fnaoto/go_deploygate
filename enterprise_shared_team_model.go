@@ -20,20 +20,20 @@ type RemoveEnterpriseSharedTeamRequest struct {
 // Response
 
 type ListEnterpriseSharedTeamsResponse struct {
-	Error   bool   `json:"error"`
-	Message string `json:"message"`
-	Because string `json:"because"`
-	Teams   []Team `json:"teams"`
+	Error   bool   `mapstructure:"error" json:"error"`
+	Message string `mapstructure:"message" json:"message"`
+	Because string `mapstructure:"because" json:"because"`
+	Teams   []Team `mapstructure:"teams" json:"teams"`
 }
 
 type AddEnterpriseSharedTeamResponse struct {
-	Error   bool   `json:"error"`
-	Message string `json:"message"`
-	Because string `json:"because"`
+	Error   bool   `mapstructure:"error" json:"error"`
+	Message string `mapstructure:"message" json:"message"`
+	Because string `mapstructure:"because" json:"because"`
 }
 
 type RemoveEnterpriseSharedTeamResponse struct {
-	Error   bool   `json:"error"`
-	Message string `json:"message"`
-	Because string `json:"because"`
+	Error   bool   `mapstructure:"error" json:"error"`
+	Message string `mapstructure:"message" json:"message"`
+	Because string `mapstructure:"because" json:"because"`
 }

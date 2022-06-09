@@ -12,7 +12,7 @@ type DeleteAppDistributionsPageRequest struct {
 // Response
 
 type DeleteAppDistributionsPageResponse struct {
-	Error   bool    `json:"error"`
-	Message string  `json:"message"`
-	Results Results `json:"results"`
+	Error   bool    `mapstructure:"error" json:"error"`
+	Message string  `mapstructure:"message" json:"message"`
+	Results Results `mapstructure:"results" json:"results"`
 }

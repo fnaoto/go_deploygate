@@ -23,31 +23,31 @@ type DeleteOrganizationRequest struct {
 // Response
 
 type ListOrganizationsResponse struct {
-	Error         bool           `json:"error"`
-	Message       string         `json:"message"`
-	Organizations []Organization `json:"organizations"`
+	Error         bool           `mapstructure:"error" json:"error"`
+	Message       string         `mapstructure:"message" json:"message"`
+	Organizations []Organization `mapstructure:"organizations" json:"organizations"`
 }
 
 type CreateOrganizationResponse struct {
-	Error        bool         `json:"error"`
-	Message      string       `json:"message"`
-	Organization Organization `json:"organization"`
+	Error        bool         `mapstructure:"error" json:"error"`
+	Message      string       `mapstructure:"message" json:"message"`
+	Organization Organization `mapstructure:"organization" json:"organization"`
 }
 
 type GetOrganizationResponse struct {
-	Error        bool             `json:"error"`
-	Message      string           `json:"message"`
-	Organization OrganizationInfo `json:"organization"`
+	Error        bool             `mapstructure:"error" json:"error"`
+	Message      string           `mapstructure:"message" json:"message"`
+	Organization OrganizationInfo `mapstructure:"organization" json:"organization"`
 }
 
 type UpdateOrganizationResponse struct {
-	Error        bool         `json:"error"`
-	Message      string       `json:"message"`
-	Organization Organization `json:"organization"`
+	Error        bool         `mapstructure:"error" json:"error"`
+	Message      string       `mapstructure:"message" json:"message"`
+	Organization Organization `mapstructure:"organization" json:"organization"`
 }
 
 type DeleteOrganizationResponse struct {
-	Error   bool    `json:"error"`
-	Message string  `json:"message"`
-	Results Results `json:"results"`
+	Error   bool    `mapstructure:"error" json:"error"`
+	Message string  `mapstructure:"message" json:"message"`
+	Results Results `mapstructure:"results" json:"results"`
 }

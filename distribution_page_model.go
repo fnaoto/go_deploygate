@@ -9,7 +9,7 @@ type DeleteDistributionsPageRequest struct {
 // Response
 
 type DeleteDistributionsPageResponse struct {
-	Error   bool    `json:"error"`
-	Message string  `json:"message"`
-	Results Results `json:"results"`
+	Error   bool    `mapstructure:"error" json:"error"`
+	Message string  `mapstructure:"message" json:"message"`
+	Results Results `mapstructure:"results" json:"results"`
 }
