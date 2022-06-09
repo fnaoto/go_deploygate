@@ -107,7 +107,7 @@ func (c *Client) NewRequest(httpRequest *HttpRequest) (*http.Response, error) {
 func (c *Client) Decode(resp *http.Response, out interface{}) error {
 	defer resp.Body.Close()
 	if resp.StatusCode >= 300 {
-		return fmt.Errorf("status code is %v", resp.StatusCode)
+		return fmt.Errorf("status code is %v, body is %#v", resp.StatusCode, resp.Body)
 	}
 	if resp.ContentLength == 0 {
 		return nil
