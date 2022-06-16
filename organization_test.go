@@ -87,8 +87,6 @@ func Test_GetOrganization(t *testing.T) {
 	if resp.Error {
 		t.Errorf("response caused error: %s", resp.Message)
 	}
-
-	t.Logf("response: %#v", resp)
 }
 
 func Test_UpdateOrganization(t *testing.T) {
