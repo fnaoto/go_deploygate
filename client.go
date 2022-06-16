@@ -107,19 +107,23 @@ func (c *Client) NewRequest(httpRequest *HttpRequest) (*http.Response, error) {
 
 func (c *Client) Decode(resp *http.Response, out interface{}) error {
 	defer resp.Body.Close()
+
+	buf := new(bytes.Buffer)
+	buf.ReadFrom(resp.Body)
+
 	if resp.StatusCode >= 300 {
-		buf := new(bytes.Buffer)
-		buf.ReadFrom(resp.Body)
 		return fmt.Errorf("status code is %v, body is %v", resp.StatusCode, buf.String())
 	}
+
 	if resp.ContentLength == 0 {
 		return nil
 	}
-	decoder := json.NewDecoder(resp.Body)
-	decoder.DisallowUnknownFields()
-	err := decoder.Decode(out)
+
+	err := json.Unmarshal(buf.Bytes(), &out)
+
 	if err != nil {
-		return fmt.Errorf("cloudn't decode json: %v to %T", resp.Body, out)
+		return fmt.Errorf("%v, output type is %T, body is %v", err, out, buf.String())
 	}
+
 	return nil
 }
