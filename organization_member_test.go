@@ -32,8 +32,6 @@ func Test_ListOrganizationMembers(t *testing.T) {
 	if resp.Error {
 		t.Error("response caused error")
 	}
-
-	t.Logf("response: %+v", resp)
 }
 
 func Test_AddOrganizationMemberByUserName(t *testing.T) {
