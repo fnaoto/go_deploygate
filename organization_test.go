@@ -19,7 +19,7 @@ func Test_ListOrganizations(t *testing.T) {
 		t.Error(err)
 	}
 
-	c.httpClient.Transport = r
+	c.HttpClient.Transport = r
 	defer r.Stop()
 
 	resp, err := c.ListOrganizations()
@@ -45,7 +45,7 @@ func Test_CreateOrganization(t *testing.T) {
 		t.Error(err)
 	}
 
-	c.httpClient.Transport = r
+	c.HttpClient.Transport = r
 	defer r.Stop()
 
 	resp, err := c.CreateOrganization(&CreateOrganizationRequest{
@@ -74,7 +74,7 @@ func Test_GetOrganization(t *testing.T) {
 		t.Error(err)
 	}
 
-	c.httpClient.Transport = r
+	c.HttpClient.Transport = r
 	defer r.Stop()
 
 	resp, err := c.GetOrganization(&GetOrganizationRequest{
@@ -102,7 +102,7 @@ func Test_UpdateOrganization(t *testing.T) {
 		t.Error(err)
 	}
 
-	c.httpClient.Transport = r
+	c.HttpClient.Transport = r
 	defer r.Stop()
 
 	resp, err := c.UpdateOrganization(&UpdateOrganizationRequest{
@@ -131,7 +131,7 @@ func Test_DeleteOrganization(t *testing.T) {
 		t.Error(err)
 	}
 
-	c.httpClient.Transport = r
+	c.HttpClient.Transport = r
 	defer r.Stop()
 
 	resp, err := c.DeleteOrganization(&DeleteOrganizationRequest{

@@ -19,7 +19,7 @@ func Test_ListAppSharedTeams(t *testing.T) {
 		t.Fatal(err)
 	}
 
-	c.httpClient.Transport = r
+	c.HttpClient.Transport = r
 	defer r.Stop()
 
 	resp, err := c.ListAppSharedTeams(&ListAppSharedTeamsRequest{
@@ -49,7 +49,7 @@ func Test_AddAppSharedTeam(t *testing.T) {
 		t.Fatal(err)
 	}
 
-	c.httpClient.Transport = r
+	c.HttpClient.Transport = r
 	defer r.Stop()
 
 	// TODO: Success response is empty and couldn't decode.
@@ -77,7 +77,7 @@ func Test_RemoveAppSharedTeam(t *testing.T) {
 		t.Fatal(err)
 	}
 
-	c.httpClient.Transport = r
+	c.HttpClient.Transport = r
 	defer r.Stop()
 
 	resp, err := c.RemoveAppSharedTeam(&RemoveAppSharedTeamRequest{

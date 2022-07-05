@@ -42,8 +42,8 @@ func (c *Client) init() (*Client, error) {
 	}
 	c.endpoint = e
 
-	if c.httpClient == nil {
-		c.httpClient = cleanhttp.DefaultClient()
+	if c.HttpClient == nil {
+		c.HttpClient = cleanhttp.DefaultClient()
 	}
 
 	return c, nil
@@ -97,7 +97,7 @@ func (c *Client) NewRequest(httpRequest *HttpRequest) (*http.Response, error) {
 	req.Header.Set("Content-Type", httpRequest.header.contentType)
 	req.Header.Set("User-Agent", userAgent)
 
-	resp, err := c.httpClient.Do(req)
+	resp, err := c.HttpClient.Do(req)
 	if err != nil {
 		return nil, err
 	}

@@ -21,5 +21,5 @@ type Header struct {
 type Client struct {
 	endpoint   *url.URL     // URL Parsed endpoint
 	apiKey     string       // DeployGate API Key
-	httpClient *http.Client // Http client for using http request
+	HttpClient *http.Client // Http client for using http request
 }

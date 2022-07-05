@@ -19,7 +19,7 @@ func Test_ListOrganizationMembers(t *testing.T) {
 		t.Error(err)
 	}
 
-	c.httpClient.Transport = r
+	c.HttpClient.Transport = r
 	defer r.Stop()
 
 	resp, err := c.ListOrganizationMembers(&ListOrganizationMembersRequest{
@@ -47,7 +47,7 @@ func Test_AddOrganizationMemberByUserName(t *testing.T) {
 		t.Error(err)
 	}
 
-	c.httpClient.Transport = r
+	c.HttpClient.Transport = r
 	defer r.Stop()
 
 	resp, err := c.AddOrganizationMemberByUserName(&AddOrganizationMemberByUserNameRequest{
@@ -76,7 +76,7 @@ func Test_AddOrganizationMemberByEmail(t *testing.T) {
 		t.Error(err)
 	}
 
-	c.httpClient.Transport = r
+	c.HttpClient.Transport = r
 	defer r.Stop()
 
 	resp, err := c.AddOrganizationMemberByEmail(&AddOrganizationMemberByEmailRequest{
@@ -105,7 +105,7 @@ func Test_RemoveOrganizationMemberByUserName(t *testing.T) {
 		t.Error(err)
 	}
 
-	c.httpClient.Transport = r
+	c.HttpClient.Transport = r
 	defer r.Stop()
 
 	resp, err := c.RemoveOrganizationMemberByUserName(&RemoveOrganizationMemberByUserNameRequest{
@@ -134,7 +134,7 @@ func Test_RemoveOrganizationMemberByEmail(t *testing.T) {
 		t.Error(err)
 	}
 
-	c.httpClient.Transport = r
+	c.HttpClient.Transport = r
 	defer r.Stop()
 
 	resp, err := c.RemoveOrganizationMemberByEmail(&RemoveOrganizationMemberByEmailRequest{

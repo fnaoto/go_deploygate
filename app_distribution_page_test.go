@@ -19,7 +19,7 @@ func Test_DeleteAppDistributionPage(t *testing.T) {
 		t.Fatal(err)
 	}
 
-	c.httpClient.Transport = r
+	c.HttpClient.Transport = r
 	defer r.Stop()
 
 	resp, err := c.DeleteAppDistributionsPage(&DeleteAppDistributionsPageRequest{
