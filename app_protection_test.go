@@ -19,7 +19,7 @@ func Test_EnableAppProtection(t *testing.T) {
 		t.Fatal(err)
 	}
 
-	c.httpClient.Transport = r
+	c.HttpClient.Transport = r
 	defer r.Stop()
 
 	resp, err := c.EnableAppProtection(&EnableAppProtectionRequest{
@@ -50,7 +50,7 @@ func Test_DisableAppProtection(t *testing.T) {
 		t.Fatal(err)
 	}
 
-	c.httpClient.Transport = r
+	c.HttpClient.Transport = r
 	defer r.Stop()
 
 	resp, err := c.DisableAppProtection(&DisableAppProtectionRequest{

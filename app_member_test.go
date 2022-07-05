@@ -19,7 +19,7 @@ func Test_GetAppMembers(t *testing.T) {
 		t.Fatal(err)
 	}
 
-	c.httpClient.Transport = r
+	c.HttpClient.Transport = r
 	defer r.Stop()
 
 	resp, err := c.GetAppMembers(&GetAppMembersRequest{
@@ -49,7 +49,7 @@ func Test_AddAppMembers(t *testing.T) {
 		t.Fatal(err)
 	}
 
-	c.httpClient.Transport = r
+	c.HttpClient.Transport = r
 	defer r.Stop()
 
 	resp, err := c.AddAppMembers(&AddAppMembersRequest{
@@ -81,7 +81,7 @@ func Test_RemoveAppMembers(t *testing.T) {
 		t.Fatal(err)
 	}
 
-	c.httpClient.Transport = r
+	c.HttpClient.Transport = r
 	defer r.Stop()
 
 	resp, err := c.RemoveAppMembers(&RemoveAppMembersRequest{

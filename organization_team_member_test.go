@@ -19,7 +19,7 @@ func Test_ListOrganizationTeamMembers(t *testing.T) {
 		t.Error(err)
 	}
 
-	c.httpClient.Transport = r
+	c.HttpClient.Transport = r
 	defer r.Stop()
 
 	resp, err := c.ListOrganizationTeamMembers(&ListOrganizationTeamMembersRequest{
@@ -48,7 +48,7 @@ func Test_AddOrganizationTeamMember(t *testing.T) {
 		t.Error(err)
 	}
 
-	c.httpClient.Transport = r
+	c.HttpClient.Transport = r
 	defer r.Stop()
 
 	// TODO: Success response is empty and couldn't decode.
@@ -75,7 +75,7 @@ func Test_RemoveOrganizationTeamMember(t *testing.T) {
 		t.Error(err)
 	}
 
-	c.httpClient.Transport = r
+	c.HttpClient.Transport = r
 	defer r.Stop()
 
 	resp, err := c.RemoveOrganizationTeamMember(&RemoveOrganizationTeamMemberRequest{

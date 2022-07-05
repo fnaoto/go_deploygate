@@ -19,7 +19,7 @@ func Test_ListAppTeams(t *testing.T) {
 		t.Fatal(err)
 	}
 
-	c.httpClient.Transport = r
+	c.HttpClient.Transport = r
 	defer r.Stop()
 
 	resp, err := c.ListAppTeams(&ListAppTeamsRequest{
@@ -49,7 +49,7 @@ func Test_AddAppTeam(t *testing.T) {
 		t.Fatal(err)
 	}
 
-	c.httpClient.Transport = r
+	c.HttpClient.Transport = r
 	defer r.Stop()
 
 	// TODO: Success response is empty and couldn't decode.
@@ -77,7 +77,7 @@ func Test_RemoveAppTeam(t *testing.T) {
 		t.Fatal(err)
 	}
 
-	c.httpClient.Transport = r
+	c.HttpClient.Transport = r
 	defer r.Stop()
 
 	resp, err := c.RemoveAppTeam(&RemoveAppTeamRequest{

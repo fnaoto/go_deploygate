@@ -19,7 +19,7 @@ func Test_ListEnterpriseMember(t *testing.T) {
 		t.Fatal(err)
 	}
 
-	c.httpClient.Transport = r
+	c.HttpClient.Transport = r
 	defer r.Stop()
 
 	resp, err := c.ListEnterpriseMembers(&ListEnterpriseMembersRequest{
@@ -47,7 +47,7 @@ func Test_AddEnterpriseMember(t *testing.T) {
 		t.Fatal(err)
 	}
 
-	c.httpClient.Transport = r
+	c.HttpClient.Transport = r
 	defer r.Stop()
 
 	// TODO: Success response is empty and couldn't decode.
@@ -73,7 +73,7 @@ func Test_RemoveEnterpriseMember(t *testing.T) {
 		t.Fatal(err)
 	}
 
-	c.httpClient.Transport = r
+	c.HttpClient.Transport = r
 	defer r.Stop()
 
 	resp, err := c.RemoveEnterpriseMember(&RemoveEnterpriseMemberRequest{
