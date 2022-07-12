@@ -3149,7 +3149,7 @@ interactions:
       - multipart/form-data; boundary=bf78f4eab761843f620807125ea0b06317a8b8e91105754ef21cc758f341
       User-Agent:
       - ""
-    url: https://deploygate.com/api/users/f-naoto832/platforms/android/apps?token=user_api_token
+    url: https://deploygate.com/api/users/f-naoto832/platforms/android/apps
     method: POST
   response:
     body: '{"error":false,"results":{"name":"com.deploygate.sample","package_name":"com.deploygate.sample","labels":{},"os_name":"Android","path":"/users/f-naoto832/platforms/android/apps/com.deploygate.sample","updated_at":1653250826,"version_code":"2","version_name":"1.0","sdk_version":8,"raw_sdk_version":"8","target_sdk_version":15,"signature":null,"md5":null,"revision":4,"file_size":null,"icon":"https://deploygate.com/api/users/f-naoto832/platforms/android/apps/com.deploygate.sample/binaries/4/download/icon","message":"","file":"https://deploygate.com/api/users/f-naoto832/platforms/android/apps/com.deploygate.sample/binaries/4/download/binary.apk","user":{"id":174235,"name":"f-naoto832","profile_icon":"https://secure.gravatar.com/avatar/0bdb6ba4c9e2ae5525ecf4399f2f04de?s=218\u0026d=mm"}}}'

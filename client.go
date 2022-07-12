@@ -77,10 +77,6 @@ func (c *Client) NewRequest(httpRequest *HttpRequest) (*http.Response, error) {
 	u := *c.endpoint
 	u.Path = path.Join(c.endpoint.Path, httpRequest.path)
 
-	q := u.Query()
-	q.Set("token", c.apiKey)
-	u.RawQuery = q.Encode()
-
 	req, err := http.NewRequest(httpRequest.method, u.String(), httpRequest.body)
 	if err != nil {
 		return nil, err
@@ -96,6 +92,7 @@ func (c *Client) NewRequest(httpRequest *HttpRequest) (*http.Response, error) {
 	req.Header.Set("Accept", httpRequest.header.accept)
 	req.Header.Set("Content-Type", httpRequest.header.contentType)
 	req.Header.Set("User-Agent", userAgent)
+	req.Header.Set("Authorization", fmt.Sprintf("Token %s", c.apiKey))
 
 	resp, err := c.HttpClient.Do(req)
 	if err != nil {

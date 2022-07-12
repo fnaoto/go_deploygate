@@ -3,6 +3,7 @@ package deploygate
 import (
 	"testing"
 
+	"github.com/dnaeon/go-vcr/cassette"
 	"github.com/dnaeon/go-vcr/recorder"
 )
 
@@ -18,6 +19,11 @@ func Test_ListOrganizationTeamMembers(t *testing.T) {
 	if err != nil {
 		t.Error(err)
 	}
+
+	r.AddFilter(func(i *cassette.Interaction) error {
+		delete(i.Request.Headers, "Authorization")
+		return nil
+	})
 
 	c.HttpClient.Transport = r
 	defer r.Stop()
@@ -48,6 +54,11 @@ func Test_AddOrganizationTeamMember(t *testing.T) {
 		t.Error(err)
 	}
 
+	r.AddFilter(func(i *cassette.Interaction) error {
+		delete(i.Request.Headers, "Authorization")
+		return nil
+	})
+
 	c.HttpClient.Transport = r
 	defer r.Stop()
 
@@ -74,6 +85,11 @@ func Test_RemoveOrganizationTeamMember(t *testing.T) {
 	if err != nil {
 		t.Error(err)
 	}
+
+	r.AddFilter(func(i *cassette.Interaction) error {
+		delete(i.Request.Headers, "Authorization")
+		return nil
+	})
 
 	c.HttpClient.Transport = r
 	defer r.Stop()

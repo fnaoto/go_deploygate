@@ -3,6 +3,7 @@ package deploygate
 import (
 	"testing"
 
+	"github.com/dnaeon/go-vcr/cassette"
 	"github.com/dnaeon/go-vcr/recorder"
 )
 
@@ -18,6 +19,11 @@ func Test_EnableAppProtection(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
+
+	r.AddFilter(func(i *cassette.Interaction) error {
+		delete(i.Request.Headers, "Authorization")
+		return nil
+	})
 
 	c.HttpClient.Transport = r
 	defer r.Stop()
@@ -49,6 +55,11 @@ func Test_DisableAppProtection(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
+
+	r.AddFilter(func(i *cassette.Interaction) error {
+		delete(i.Request.Headers, "Authorization")
+		return nil
+	})
 
 	c.HttpClient.Transport = r
 	defer r.Stop()

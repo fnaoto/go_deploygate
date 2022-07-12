@@ -3,6 +3,7 @@ package deploygate
 import (
 	"testing"
 
+	"github.com/dnaeon/go-vcr/cassette"
 	"github.com/dnaeon/go-vcr/recorder"
 )
 
@@ -18,6 +19,11 @@ func Test_ListOrganizationMembers(t *testing.T) {
 	if err != nil {
 		t.Error(err)
 	}
+
+	r.AddFilter(func(i *cassette.Interaction) error {
+		delete(i.Request.Headers, "Authorization")
+		return nil
+	})
 
 	c.HttpClient.Transport = r
 	defer r.Stop()
@@ -46,6 +52,11 @@ func Test_AddOrganizationMemberByUserName(t *testing.T) {
 	if err != nil {
 		t.Error(err)
 	}
+
+	r.AddFilter(func(i *cassette.Interaction) error {
+		delete(i.Request.Headers, "Authorization")
+		return nil
+	})
 
 	c.HttpClient.Transport = r
 	defer r.Stop()
@@ -76,6 +87,11 @@ func Test_AddOrganizationMemberByEmail(t *testing.T) {
 		t.Error(err)
 	}
 
+	r.AddFilter(func(i *cassette.Interaction) error {
+		delete(i.Request.Headers, "Authorization")
+		return nil
+	})
+
 	c.HttpClient.Transport = r
 	defer r.Stop()
 
@@ -105,6 +121,11 @@ func Test_RemoveOrganizationMemberByUserName(t *testing.T) {
 		t.Error(err)
 	}
 
+	r.AddFilter(func(i *cassette.Interaction) error {
+		delete(i.Request.Headers, "Authorization")
+		return nil
+	})
+
 	c.HttpClient.Transport = r
 	defer r.Stop()
 
@@ -133,6 +154,11 @@ func Test_RemoveOrganizationMemberByEmail(t *testing.T) {
 	if err != nil {
 		t.Error(err)
 	}
+
+	r.AddFilter(func(i *cassette.Interaction) error {
+		delete(i.Request.Headers, "Authorization")
+		return nil
+	})
 
 	c.HttpClient.Transport = r
 	defer r.Stop()
