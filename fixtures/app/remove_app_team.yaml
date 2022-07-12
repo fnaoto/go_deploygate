@@ -11,7 +11,7 @@ interactions:
       - application/x-www-form-urlencoded
       User-Agent:
       - GoDeployGate (+github.com/fnaoto/go_deploygate; go1.18.2)
-    url: https://deploygate.com/api/organizations/test_organization/platforms/android/apps/com.deploygate.sample/teams/test_team?token=user_api_token
+    url: https://deploygate.com/api/organizations/test_organization/platforms/android/apps/com.deploygate.sample/teams/test_team
     method: DELETE
   response:
     body: '{"error":false,"message":"test_team was leaved from Sample(test_organization)"}'
