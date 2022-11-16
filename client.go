@@ -15,39 +15,32 @@ import (
 )
 
 const (
-	DGApiTokenEnv    = "DEPLOYGATE_API_KEY"
-	DGApiEndpointEnv = "DEPLOYGATE_API_ENDPOINT"
-	DGApiEndpoint    = "https://deploygate.com/api"
+	DGApiTokenEnv = "DEPLOYGATE_API_KEY"
+	DGApiEndpoint = "https://deploygate.com/api"
 )
 
 func DefaultClient() (*Client, error) {
-	c, err := NewClient(os.Getenv(DGApiTokenEnv))
+	c, err := NewClient(os.Getenv(DGApiTokenEnv), DGApiEndpoint)
 	if err != nil {
 		return nil, err
 	}
 	return c, nil
 }
 
-func NewClient(apiKey string) (*Client, error) {
+func NewClient(apiKey string, apiEndpoint string) (*Client, error) {
 	if len(apiKey) == 0 {
 		return nil, errors.New("missing apiKey")
 	}
-	c := &Client{apiKey: apiKey}
-	return c.init()
-}
-
-func (c *Client) init() (*Client, error) {
-	var err error
-	epenv := os.Getenv(os.Getenv(DGApiTokenEnv))
-	if len(epenv) == 0 {
-		epenv = DGApiEndpoint
+	if len(apiEndpoint) == 0 {
+		return nil, errors.New("missing apiEndpoint")
 	}
-	ep, err := url.Parse(epenv)
+
+	endpoint, err := url.Parse(apiEndpoint)
 	if err != nil {
 		return nil, err
 	}
-	c.endpoint = ep
 
+	c := &Client{apiKey: apiKey, endpoint: endpoint}
 	if c.HttpClient == nil {
 		c.HttpClient = cleanhttp.DefaultClient()
 	}
