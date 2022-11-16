@@ -15,8 +15,9 @@ import (
 )
 
 const (
-	DGApiTokenEnv = "DEPLOYGATE_API_KEY"
-	DGApiEndpoint = "https://deploygate.com/api"
+	DGApiTokenEnv    = "DEPLOYGATE_API_KEY"
+	DGApiEndpointEnv = "DEPLOYGATE_API_ENDPOINT"
+	DGApiEndpoint    = "https://deploygate.com/api"
 )
 
 func DefaultClient() (*Client, error) {
@@ -36,11 +37,16 @@ func NewClient(apiKey string) (*Client, error) {
 }
 
 func (c *Client) init() (*Client, error) {
-	e, err := url.Parse(DGApiEndpoint)
+	var err error
+	epenv := os.Getenv(os.Getenv(DGApiTokenEnv))
+	if len(epenv) == 0 {
+		epenv = DGApiEndpoint
+	}
+	ep, err := url.Parse(epenv)
 	if err != nil {
 		return nil, err
 	}
-	c.endpoint = e
+	c.endpoint = ep
 
 	if c.HttpClient == nil {
 		c.HttpClient = cleanhttp.DefaultClient()
