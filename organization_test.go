@@ -10,7 +10,7 @@ import (
 func Test_ListOrganizations(t *testing.T) {
 	t.Parallel()
 
-	c, err := NewClient("user_api_token")
+	c, err := NewClient("api_key", "api_endpoint")
 	if err != nil {
 		t.Error(err)
 	}
@@ -41,7 +41,7 @@ func Test_ListOrganizations(t *testing.T) {
 func Test_CreateOrganization(t *testing.T) {
 	t.Parallel()
 
-	c, err := NewClient("user_api_token")
+	c, err := NewClient("api_key", "api_endpoint")
 	if err != nil {
 		t.Error(err)
 	}
@@ -75,7 +75,7 @@ func Test_CreateOrganization(t *testing.T) {
 func Test_GetOrganization(t *testing.T) {
 	t.Parallel()
 
-	c, err := NewClient("user_api_token")
+	c, err := NewClient("api_key", "api_endpoint")
 	if err != nil {
 		t.Error(err)
 	}
@@ -108,7 +108,7 @@ func Test_GetOrganization(t *testing.T) {
 func Test_UpdateOrganization(t *testing.T) {
 	t.Parallel()
 
-	c, err := NewClient("user_api_token")
+	c, err := NewClient("api_key", "api_endpoint")
 	if err != nil {
 		t.Error(err)
 	}
@@ -142,7 +142,7 @@ func Test_UpdateOrganization(t *testing.T) {
 func Test_DeleteOrganization(t *testing.T) {
 	t.Parallel()
 
-	c, err := NewClient("user_api_token")
+	c, err := NewClient("api_key", "api_endpoint")
 	if err != nil {
 		t.Error(err)
 	}

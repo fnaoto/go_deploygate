@@ -10,7 +10,7 @@ import (
 func Test_ListOrganizationTeamMembers(t *testing.T) {
 	t.Parallel()
 
-	c, err := NewClient("user_api_token")
+	c, err := NewClient("api_key", "api_endpoint")
 	if err != nil {
 		t.Error(err)
 	}
@@ -44,7 +44,7 @@ func Test_ListOrganizationTeamMembers(t *testing.T) {
 func Test_AddOrganizationTeamMember(t *testing.T) {
 	t.Parallel()
 
-	c, err := NewClient("user_api_token")
+	c, err := NewClient("api_key", "api_endpoint")
 	if err != nil {
 		t.Error(err)
 	}
@@ -76,7 +76,7 @@ func Test_AddOrganizationTeamMember(t *testing.T) {
 func Test_RemoveOrganizationTeamMember(t *testing.T) {
 	t.Parallel()
 
-	c, err := NewClient("user_api_token")
+	c, err := NewClient("api_key", "api_endpoint")
 	if err != nil {
 		t.Error(err)
 	}

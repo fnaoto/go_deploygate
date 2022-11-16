@@ -10,7 +10,7 @@ import (
 func Test_EnableAppProtection(t *testing.T) {
 	t.Parallel()
 
-	c, err := NewClient("user_api_token")
+	c, err := NewClient("api_key", "api_endpoint")
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -46,7 +46,7 @@ func Test_EnableAppProtection(t *testing.T) {
 func Test_DisableAppProtection(t *testing.T) {
 	t.Parallel()
 
-	c, err := NewClient("user_api_token")
+	c, err := NewClient("api_key", "api_endpoint")
 	if err != nil {
 		t.Fatal(err)
 	}

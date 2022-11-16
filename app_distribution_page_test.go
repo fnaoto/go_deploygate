@@ -10,7 +10,7 @@ import (
 func Test_DeleteAppDistributionPage(t *testing.T) {
 	t.Parallel()
 
-	c, err := NewClient("user_api_token")
+	c, err := NewClient("api_key", "api_endpoint")
 	if err != nil {
 		t.Fatal(err)
 	}
