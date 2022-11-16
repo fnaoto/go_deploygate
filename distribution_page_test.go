@@ -10,7 +10,7 @@ import (
 func Test_DeleteDistributionsPage(t *testing.T) {
 	t.Parallel()
 
-	c, err := NewClient("api_key", "api_endpoint")
+	c, err := NewClient("api_key", "https://deploygate.com/api")
 	if err != nil {
 		t.Fatal(err)
 	}

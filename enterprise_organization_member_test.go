@@ -10,7 +10,7 @@ import (
 func Test_ListEnterpriseOrganizationMembers(t *testing.T) {
 	t.Parallel()
 
-	c, err := NewClient("api_key", "api_endpoint")
+	c, err := NewClient("api_key", "https://deploygate.com/api")
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -44,7 +44,7 @@ func Test_ListEnterpriseOrganizationMembers(t *testing.T) {
 func Test_AddEnterpriseOrganizationMember(t *testing.T) {
 	t.Parallel()
 
-	c, err := NewClient("api_key", "api_endpoint")
+	c, err := NewClient("api_key", "https://deploygate.com/api")
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -76,7 +76,7 @@ func Test_AddEnterpriseOrganizationMember(t *testing.T) {
 func Test_RemoveEnterpriseOrganizationMember(t *testing.T) {
 	t.Parallel()
 
-	c, err := NewClient("api_key", "api_endpoint")
+	c, err := NewClient("api_key", "https://deploygate.com/api")
 	if err != nil {
 		t.Fatal(err)
 	}
