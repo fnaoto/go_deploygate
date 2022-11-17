@@ -5,7 +5,7 @@ func setUpConfigForTest() ClientConfig {
 	apiKey := "dummy_api_key"
 
 	return ClientConfig{
-		apiKey:      apiKey,
-		apiEndpoint: &endpoint,
+		ApiKey:      apiKey,
+		ApiEndpoint: &endpoint,
 	}
 }
