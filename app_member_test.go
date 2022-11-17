@@ -10,7 +10,9 @@ import (
 func Test_GetAppMembers(t *testing.T) {
 	t.Parallel()
 
-	c, err := NewClient("api_key", "https://deploygate.com/api")
+	conf := setUpConfigForTest()
+
+	c, err := NewClient(conf)
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -45,7 +47,9 @@ func Test_GetAppMembers(t *testing.T) {
 func Test_AddAppMembers(t *testing.T) {
 	t.Parallel()
 
-	c, err := NewClient("api_key", "https://deploygate.com/api")
+	conf := setUpConfigForTest()
+
+	c, err := NewClient(conf)
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -82,7 +86,9 @@ func Test_AddAppMembers(t *testing.T) {
 func Test_RemoveAppMembers(t *testing.T) {
 	t.Parallel()
 
-	c, err := NewClient("api_key", "https://deploygate.com/api")
+	conf := setUpConfigForTest()
+
+	c, err := NewClient(conf)
 	if err != nil {
 		t.Fatal(err)
 	}

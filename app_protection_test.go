@@ -10,7 +10,9 @@ import (
 func Test_EnableAppProtection(t *testing.T) {
 	t.Parallel()
 
-	c, err := NewClient("api_key", "https://deploygate.com/api")
+	conf := setUpConfigForTest()
+
+	c, err := NewClient(conf)
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -46,7 +48,9 @@ func Test_EnableAppProtection(t *testing.T) {
 func Test_DisableAppProtection(t *testing.T) {
 	t.Parallel()
 
-	c, err := NewClient("api_key", "https://deploygate.com/api")
+	conf := setUpConfigForTest()
+
+	c, err := NewClient(conf)
 	if err != nil {
 		t.Fatal(err)
 	}

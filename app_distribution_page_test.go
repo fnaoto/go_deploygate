@@ -10,7 +10,9 @@ import (
 func Test_DeleteAppDistributionPage(t *testing.T) {
 	t.Parallel()
 
-	c, err := NewClient("api_key", "https://deploygate.com/api")
+	conf := setUpConfigForTest()
+
+	c, err := NewClient(conf)
 	if err != nil {
 		t.Fatal(err)
 	}

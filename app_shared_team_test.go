@@ -10,7 +10,9 @@ import (
 func Test_ListAppSharedTeams(t *testing.T) {
 	t.Parallel()
 
-	c, err := NewClient("api_key", "https://deploygate.com/api")
+	conf := setUpConfigForTest()
+
+	c, err := NewClient(conf)
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -45,7 +47,9 @@ func Test_ListAppSharedTeams(t *testing.T) {
 func Test_AddAppSharedTeam(t *testing.T) {
 	t.Parallel()
 
-	c, err := NewClient("api_key", "https://deploygate.com/api")
+	conf := setUpConfigForTest()
+
+	c, err := NewClient(conf)
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -78,7 +82,9 @@ func Test_AddAppSharedTeam(t *testing.T) {
 func Test_RemoveAppSharedTeam(t *testing.T) {
 	t.Parallel()
 
-	c, err := NewClient("api_key", "https://deploygate.com/api")
+	conf := setUpConfigForTest()
+
+	c, err := NewClient(conf)
 	if err != nil {
 		t.Fatal(err)
 	}

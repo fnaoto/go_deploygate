@@ -20,27 +20,37 @@ const (
 )
 
 func DefaultClient() (*Client, error) {
-	c, err := NewClient(os.Getenv(DGApiTokenEnv), DGApiEndpoint)
+	conf := ClientConfig{
+		apiKey: os.Getenv(DGApiTokenEnv),
+	}
+
+	c, err := NewClient(conf)
 	if err != nil {
 		return nil, err
 	}
 	return c, nil
 }
 
-func NewClient(apiKey string, apiEndpoint string) (*Client, error) {
-	if len(apiKey) == 0 {
+type ClientConfig struct {
+	apiKey      string
+	apiEndpoint *string
+}
+
+func NewClient(conf ClientConfig) (*Client, error) {
+	if len(conf.apiKey) == 0 {
 		return nil, errors.New("missing apiKey")
 	}
-	if len(apiEndpoint) == 0 {
-		return nil, errors.New("missing apiEndpoint")
+	if len(*conf.apiEndpoint) == 0 {
+		endpoint := DGApiEndpoint
+		conf.apiEndpoint = &endpoint
 	}
 
-	endpoint, err := url.Parse(apiEndpoint)
+	endpoint, err := url.Parse(*conf.apiEndpoint)
 	if err != nil {
 		return nil, err
 	}
 
-	c := &Client{apiKey: apiKey, endpoint: endpoint}
+	c := &Client{apiKey: conf.apiKey, endpoint: endpoint}
 	if c.HttpClient == nil {
 		c.HttpClient = cleanhttp.DefaultClient()
 	}
