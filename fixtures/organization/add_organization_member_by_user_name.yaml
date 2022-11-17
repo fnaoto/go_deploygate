@@ -17,35 +17,7 @@ interactions:
     method: POST
   response:
     body: '{"error":false,"message":"naoto-fukuda-test was invited to test_organization"}'
-    headers:
-      Cache-Control:
-      - max-age=0, private, must-revalidate
-      Content-Type:
-      - application/json; charset=utf-8
-      Date:
-      - Thu, 26 May 2022 09:34:08 GMT
-      Etag:
-      - W/"d67b2d5eb85ff1fc5cf24fd0e58b429e"
-      Referrer-Policy:
-      - strict-origin-when-cross-origin
-      Server:
-      - Apache
-      Status:
-      - 200 OK
-      Vary:
-      - Origin,X-DEPLOYGATE-CF-SHARED-KEY,X-Request-ID
-      X-Content-Type-Options:
-      - nosniff
-      X-Download-Options:
-      - noopen
-      X-Frame-Options:
-      - SAMEORIGIN
-      X-Permitted-Cross-Domain-Policies:
-      - none
-      X-Request-Id:
-      - Yo9JjwshDSq6Jpg1gMt6BQAAAFY
-      X-Xss-Protection:
-      - 1; mode=block
+    headers: {}
     status: 200 OK
     code: 200
     duration: ""

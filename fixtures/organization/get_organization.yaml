@@ -15,35 +15,7 @@ interactions:
     method: GET
   response:
     body: '{"error":false,"organization":{"type":"Organization","name":"test_organization","description":"test_description","url":"https://deploygate.com/organizations/test_organization","teams":[{"name":"オーナー","role":"owner","member_count":1},{"name":"テスター","role":"tester","member_count":0}],"applications":[],"members":[{"type":"User","name":"f-naoto832","icon_url":"https://secure.gravatar.com/avatar/0bdb6ba4c9e2ae5525ecf4399f2f04de?s=218\u0026d=mm","url":"https://deploygate.com/users/f-naoto832"}]}}'
-    headers:
-      Cache-Control:
-      - max-age=0, private, must-revalidate
-      Content-Type:
-      - application/json; charset=utf-8
-      Date:
-      - Thu, 26 May 2022 06:42:51 GMT
-      Etag:
-      - W/"4041df8a2e6ed013362cb5d1fe66fe18"
-      Referrer-Policy:
-      - strict-origin-when-cross-origin
-      Server:
-      - Apache
-      Status:
-      - 200 OK
-      Vary:
-      - Origin,X-DEPLOYGATE-CF-SHARED-KEY,X-Request-ID
-      X-Content-Type-Options:
-      - nosniff
-      X-Download-Options:
-      - noopen
-      X-Frame-Options:
-      - SAMEORIGIN
-      X-Permitted-Cross-Domain-Policies:
-      - none
-      X-Request-Id:
-      - Yo8hahKCey1pE0fRwmCYKwAAAFU
-      X-Xss-Protection:
-      - 1; mode=block
+    headers: {}
     status: 200 OK
     code: 200
     duration: ""

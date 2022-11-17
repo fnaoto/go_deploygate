@@ -19,33 +19,7 @@ interactions:
     method: POST
   response:
     body: ""
-    headers:
-      Cache-Control:
-      - no-cache
-      Content-Type:
-      - application/json; charset=utf-8
-      Date:
-      - Sun, 29 May 2022 11:26:49 GMT
-      Referrer-Policy:
-      - strict-origin-when-cross-origin
-      Server:
-      - Apache
-      Status:
-      - 201 Created
-      Vary:
-      - Origin,X-DEPLOYGATE-CF-SHARED-KEY,X-Request-ID
-      X-Content-Type-Options:
-      - nosniff
-      X-Download-Options:
-      - noopen
-      X-Frame-Options:
-      - SAMEORIGIN
-      X-Permitted-Cross-Domain-Policies:
-      - none
-      X-Request-Id:
-      - YpNYeals9pwt1I4@SFAtcwAAAFg
-      X-Xss-Protection:
-      - 1; mode=block
+    headers: {}
     status: 201 Created
     code: 201
     duration: ""

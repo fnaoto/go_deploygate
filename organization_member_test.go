@@ -1,6 +1,7 @@
 package deploygate
 
 import (
+	"net/http"
 	"testing"
 
 	"github.com/dnaeon/go-vcr/cassette"
@@ -10,7 +11,9 @@ import (
 func Test_ListOrganizationMembers(t *testing.T) {
 	t.Parallel()
 
-	c, err := NewClient("api_key", "https://deploygate.com/api")
+	conf := setUpConfigForTest()
+
+	c, err := NewClient(conf)
 	if err != nil {
 		t.Error(err)
 	}
@@ -20,8 +23,9 @@ func Test_ListOrganizationMembers(t *testing.T) {
 		t.Error(err)
 	}
 
-	r.AddFilter(func(i *cassette.Interaction) error {
+	r.AddSaveFilter(func(i *cassette.Interaction) error {
 		delete(i.Request.Headers, "Authorization")
+		i.Response.Headers = make(http.Header)
 		return nil
 	})
 
@@ -43,7 +47,9 @@ func Test_ListOrganizationMembers(t *testing.T) {
 func Test_AddOrganizationMemberByUserName(t *testing.T) {
 	t.Parallel()
 
-	c, err := NewClient("api_key", "https://deploygate.com/api")
+	conf := setUpConfigForTest()
+
+	c, err := NewClient(conf)
 	if err != nil {
 		t.Error(err)
 	}
@@ -53,8 +59,9 @@ func Test_AddOrganizationMemberByUserName(t *testing.T) {
 		t.Error(err)
 	}
 
-	r.AddFilter(func(i *cassette.Interaction) error {
+	r.AddSaveFilter(func(i *cassette.Interaction) error {
 		delete(i.Request.Headers, "Authorization")
+		i.Response.Headers = make(http.Header)
 		return nil
 	})
 
@@ -77,7 +84,9 @@ func Test_AddOrganizationMemberByUserName(t *testing.T) {
 func Test_AddOrganizationMemberByEmail(t *testing.T) {
 	t.Parallel()
 
-	c, err := NewClient("api_key", "https://deploygate.com/api")
+	conf := setUpConfigForTest()
+
+	c, err := NewClient(conf)
 	if err != nil {
 		t.Error(err)
 	}
@@ -87,8 +96,9 @@ func Test_AddOrganizationMemberByEmail(t *testing.T) {
 		t.Error(err)
 	}
 
-	r.AddFilter(func(i *cassette.Interaction) error {
+	r.AddSaveFilter(func(i *cassette.Interaction) error {
 		delete(i.Request.Headers, "Authorization")
+		i.Response.Headers = make(http.Header)
 		return nil
 	})
 
@@ -111,7 +121,9 @@ func Test_AddOrganizationMemberByEmail(t *testing.T) {
 func Test_RemoveOrganizationMemberByUserName(t *testing.T) {
 	t.Parallel()
 
-	c, err := NewClient("api_key", "https://deploygate.com/api")
+	conf := setUpConfigForTest()
+
+	c, err := NewClient(conf)
 	if err != nil {
 		t.Error(err)
 	}
@@ -121,8 +133,9 @@ func Test_RemoveOrganizationMemberByUserName(t *testing.T) {
 		t.Error(err)
 	}
 
-	r.AddFilter(func(i *cassette.Interaction) error {
+	r.AddSaveFilter(func(i *cassette.Interaction) error {
 		delete(i.Request.Headers, "Authorization")
+		i.Response.Headers = make(http.Header)
 		return nil
 	})
 
@@ -145,7 +158,9 @@ func Test_RemoveOrganizationMemberByUserName(t *testing.T) {
 func Test_RemoveOrganizationMemberByEmail(t *testing.T) {
 	t.Parallel()
 
-	c, err := NewClient("api_key", "https://deploygate.com/api")
+	conf := setUpConfigForTest()
+
+	c, err := NewClient(conf)
 	if err != nil {
 		t.Error(err)
 	}
@@ -155,8 +170,9 @@ func Test_RemoveOrganizationMemberByEmail(t *testing.T) {
 		t.Error(err)
 	}
 
-	r.AddFilter(func(i *cassette.Interaction) error {
+	r.AddSaveFilter(func(i *cassette.Interaction) error {
 		delete(i.Request.Headers, "Authorization")
+		i.Response.Headers = make(http.Header)
 		return nil
 	})
 

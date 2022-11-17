@@ -3153,35 +3153,7 @@ interactions:
     method: POST
   response:
     body: '{"error":false,"results":{"name":"com.deploygate.sample","package_name":"com.deploygate.sample","labels":{},"os_name":"Android","path":"/users/f-naoto832/platforms/android/apps/com.deploygate.sample","updated_at":1653250826,"version_code":"2","version_name":"1.0","sdk_version":8,"raw_sdk_version":"8","target_sdk_version":15,"signature":null,"md5":null,"revision":4,"file_size":null,"icon":"https://deploygate.com/api/users/f-naoto832/platforms/android/apps/com.deploygate.sample/binaries/4/download/icon","message":"","file":"https://deploygate.com/api/users/f-naoto832/platforms/android/apps/com.deploygate.sample/binaries/4/download/binary.apk","user":{"id":174235,"name":"f-naoto832","profile_icon":"https://secure.gravatar.com/avatar/0bdb6ba4c9e2ae5525ecf4399f2f04de?s=218\u0026d=mm"}}}'
-    headers:
-      Cache-Control:
-      - max-age=0, private, must-revalidate
-      Content-Type:
-      - application/json; charset=utf-8
-      Date:
-      - Mon, 23 May 2022 12:05:00 GMT
-      Etag:
-      - W/"4e21afa2b97a45f5f2090029ded73486"
-      Referrer-Policy:
-      - strict-origin-when-cross-origin
-      Server:
-      - Apache
-      Status:
-      - 200 OK
-      Vary:
-      - Origin,X-DEPLOYGATE-CF-SHARED-KEY,X-Request-ID
-      X-Content-Type-Options:
-      - nosniff
-      X-Download-Options:
-      - noopen
-      X-Frame-Options:
-      - SAMEORIGIN
-      X-Permitted-Cross-Domain-Policies:
-      - none
-      X-Request-Id:
-      - Yot4bEbEcYZG7HUoPQkh2QAAAEQ
-      X-Xss-Protection:
-      - 1; mode=block
+    headers: {}
     status: 200 OK
     code: 200
     duration: ""
