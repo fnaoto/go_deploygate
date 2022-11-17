@@ -1,6 +1,7 @@
 package deploygate
 
 import (
+	"net/http"
 	"testing"
 
 	"github.com/dnaeon/go-vcr/cassette"
@@ -22,8 +23,9 @@ func Test_ListOrganizations(t *testing.T) {
 		t.Error(err)
 	}
 
-	r.AddFilter(func(i *cassette.Interaction) error {
+	r.AddSaveFilter(func(i *cassette.Interaction) error {
 		delete(i.Request.Headers, "Authorization")
+		i.Response.Headers = make(http.Header)
 		return nil
 	})
 
@@ -55,8 +57,9 @@ func Test_CreateOrganization(t *testing.T) {
 		t.Error(err)
 	}
 
-	r.AddFilter(func(i *cassette.Interaction) error {
+	r.AddSaveFilter(func(i *cassette.Interaction) error {
 		delete(i.Request.Headers, "Authorization")
+		i.Response.Headers = make(http.Header)
 		return nil
 	})
 
@@ -91,8 +94,9 @@ func Test_GetOrganization(t *testing.T) {
 		t.Error(err)
 	}
 
-	r.AddFilter(func(i *cassette.Interaction) error {
+	r.AddSaveFilter(func(i *cassette.Interaction) error {
 		delete(i.Request.Headers, "Authorization")
+		i.Response.Headers = make(http.Header)
 		return nil
 	})
 
@@ -126,8 +130,9 @@ func Test_UpdateOrganization(t *testing.T) {
 		t.Error(err)
 	}
 
-	r.AddFilter(func(i *cassette.Interaction) error {
+	r.AddSaveFilter(func(i *cassette.Interaction) error {
 		delete(i.Request.Headers, "Authorization")
+		i.Response.Headers = make(http.Header)
 		return nil
 	})
 
@@ -162,8 +167,9 @@ func Test_DeleteOrganization(t *testing.T) {
 		t.Error(err)
 	}
 
-	r.AddFilter(func(i *cassette.Interaction) error {
+	r.AddSaveFilter(func(i *cassette.Interaction) error {
 		delete(i.Request.Headers, "Authorization")
+		i.Response.Headers = make(http.Header)
 		return nil
 	})
 

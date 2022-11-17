@@ -1,6 +1,7 @@
 package deploygate
 
 import (
+	"net/http"
 	"testing"
 
 	"github.com/dnaeon/go-vcr/cassette"
@@ -22,8 +23,9 @@ func Test_ListEnterpriseSharedTeams(t *testing.T) {
 		t.Fatal(err)
 	}
 
-	r.AddFilter(func(i *cassette.Interaction) error {
+	r.AddSaveFilter(func(i *cassette.Interaction) error {
 		delete(i.Request.Headers, "Authorization")
+		i.Response.Headers = make(http.Header)
 		return nil
 	})
 
@@ -57,8 +59,9 @@ func Test_AddEnterpriseSharedTeam(t *testing.T) {
 		t.Fatal(err)
 	}
 
-	r.AddFilter(func(i *cassette.Interaction) error {
+	r.AddSaveFilter(func(i *cassette.Interaction) error {
 		delete(i.Request.Headers, "Authorization")
+		i.Response.Headers = make(http.Header)
 		return nil
 	})
 
@@ -91,8 +94,9 @@ func Test_RemoveEnterpriseSharedTeam(t *testing.T) {
 		t.Fatal(err)
 	}
 
-	r.AddFilter(func(i *cassette.Interaction) error {
+	r.AddSaveFilter(func(i *cassette.Interaction) error {
 		delete(i.Request.Headers, "Authorization")
+		i.Response.Headers = make(http.Header)
 		return nil
 	})
 

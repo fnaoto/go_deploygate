@@ -17,37 +17,7 @@ interactions:
     method: PATCH
   response:
     body: '{"error":false,"organization":{"type":"Organization","name":"test_organization","description":"test_new_description","url":"https://deploygate.com/organizations/test_organization"}}'
-    headers:
-      Cache-Control:
-      - max-age=0, private, must-revalidate
-      Content-Type:
-      - application/json; charset=utf-8
-      Date:
-      - Thu, 26 May 2022 06:58:05 GMT
-      Etag:
-      - W/"6c4c4c72abf785def4b0a0d9fbc91911"
-      Location:
-      - /organizations/test_organization
-      Referrer-Policy:
-      - strict-origin-when-cross-origin
-      Server:
-      - Apache
-      Status:
-      - 200 OK
-      Vary:
-      - Origin,X-DEPLOYGATE-CF-SHARED-KEY,X-Request-ID
-      X-Content-Type-Options:
-      - nosniff
-      X-Download-Options:
-      - noopen
-      X-Frame-Options:
-      - SAMEORIGIN
-      X-Permitted-Cross-Domain-Policies:
-      - none
-      X-Request-Id:
-      - Yo8k-KQtkqGY40ArLcDsWwAAABU
-      X-Xss-Protection:
-      - 1; mode=block
+    headers: {}
     status: 200 OK
     code: 200
     duration: ""

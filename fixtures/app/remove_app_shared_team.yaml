@@ -15,33 +15,7 @@ interactions:
     method: DELETE
   response:
     body: '{"error":false,"message":"test_team was leaved from Sample(test_organization)"}'
-    headers:
-      Cache-Control:
-      - no-cache
-      Content-Type:
-      - application/json; charset=utf-8
-      Date:
-      - Sun, 29 May 2022 11:20:13 GMT
-      Referrer-Policy:
-      - strict-origin-when-cross-origin
-      Server:
-      - Apache
-      Status:
-      - 200 OK
-      Vary:
-      - Origin,X-DEPLOYGATE-CF-SHARED-KEY,X-Request-ID
-      X-Content-Type-Options:
-      - nosniff
-      X-Download-Options:
-      - noopen
-      X-Frame-Options:
-      - SAMEORIGIN
-      X-Permitted-Cross-Domain-Policies:
-      - none
-      X-Request-Id:
-      - YpNW7RSOqvxMagDaUPO8RgAAAMY
-      X-Xss-Protection:
-      - 1; mode=block
+    headers: {}
     status: 200 OK
     code: 200
     duration: ""

@@ -15,35 +15,7 @@ interactions:
     method: DELETE
   response:
     body: '{"error":false,"results":{"invite":"member remove success"}}'
-    headers:
-      Cache-Control:
-      - max-age=0, private, must-revalidate
-      Content-Type:
-      - application/json; charset=utf-8
-      Date:
-      - Mon, 23 May 2022 13:34:51 GMT
-      Etag:
-      - W/"d067d70219e1fdc0841769cc441795d4"
-      Referrer-Policy:
-      - strict-origin-when-cross-origin
-      Server:
-      - Apache
-      Status:
-      - 200 OK
-      Vary:
-      - Origin,X-DEPLOYGATE-CF-SHARED-KEY,X-Request-ID
-      X-Content-Type-Options:
-      - nosniff
-      X-Download-Options:
-      - noopen
-      X-Frame-Options:
-      - SAMEORIGIN
-      X-Permitted-Cross-Domain-Policies:
-      - none
-      X-Request-Id:
-      - YouNe4mCRp8R2qTKt5zG@gAAAA0
-      X-Xss-Protection:
-      - 1; mode=block
+    headers: {}
     status: 200 OK
     code: 200
     duration: ""
