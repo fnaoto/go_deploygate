@@ -40,7 +40,7 @@ func NewClient(conf ClientConfig) (*Client, error) {
 	if len(conf.ApiKey) == 0 {
 		return nil, errors.New("missing apiKey")
 	}
-	if len(*conf.ApiEndpoint) == 0 {
+	if conf.ApiEndpoint == nil {
 		endpoint := DGApiEndpoint
 		conf.ApiEndpoint = &endpoint
 	}
