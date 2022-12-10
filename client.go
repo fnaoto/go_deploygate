@@ -125,6 +125,10 @@ func (c *Client) Decode(resp *http.Response, out interface{}) error {
 		return nil
 	}
 
+	if buf.String() == "" {
+		return nil
+	}
+
 	err := json.Unmarshal(buf.Bytes(), &out)
 
 	if err != nil {
