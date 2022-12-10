@@ -1,7 +1,6 @@
 package deploygate
 
 import (
-	"bytes"
 	"encoding/json"
 	"errors"
 	"fmt"
@@ -114,21 +113,18 @@ func (c *Client) NewRequest(httpRequest *HttpRequest) (*http.Response, error) {
 func (c *Client) Decode(resp *http.Response, out interface{}) error {
 	defer resp.Body.Close()
 
-	buf := new(bytes.Buffer)
-	buf.ReadFrom(resp.Body)
-
 	if resp.StatusCode >= 300 {
-		return fmt.Errorf("status code is %v, body is %v", resp.StatusCode, buf.String())
+		return fmt.Errorf("status code is %v, body is %v", resp.StatusCode, resp.Body)
 	}
 
 	if resp.ContentLength == 0 {
 		return nil
 	}
 
-	err := json.Unmarshal(buf.Bytes(), &out)
+	err := json.NewDecoder(resp.Body).Decode(&out)
 
 	if err != nil {
-		return fmt.Errorf("%v, output type is %T, body is %v", err, out, buf.String())
+		return fmt.Errorf("%v, output type is %T, body is %v", err, out, resp.Body)
 	}
 
 	return nil
